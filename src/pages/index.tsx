@@ -1,11 +1,14 @@
 import React from 'react'
 
-import { HoverBlock } from 'src/components/HoverBlock/HoverBlock'
+import {Block1} from "../components/MainPage/Block1/Block1";
+import {MainLayout} from "../components/MainLayout/MainLayout";
 
 
 const MainPage: React.FC = () => {
   return (
-    <HoverBlock />
+      <MainLayout>
+        <Block1/>
+      </MainLayout>
   )
 }
 

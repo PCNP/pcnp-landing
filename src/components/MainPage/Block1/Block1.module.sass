@@ -1,0 +1,46 @@
+@import './../../../styles/mixins.sass'
+
+.main
+  width: 100%
+  margin: 0
+  height: 55.55vw
+  background-image: url('./../../../common/images/index/background_1.png')
+  background-size: 105% 100%
+  background-repeat: no-repeat
+  display: flex
+  align-items: center
+  .content
+    padding-top: 3.5vw
+    box-sizing: border-box
+    @include wrapper
+    h1
+      font-family: Gotham Pro
+      font-style: normal
+      font-weight: bold
+      font-size: 3.15vw
+      line-height: 5.2vw
+      color: #93F8FF
+    p
+      font-family: Gotham Pro
+      font-style: normal
+      font-weight: normal
+      font-size: 1.95vw
+      line-height: 2vw
+      color: #FFFFFF
+      margin-top: 1vw
+    .button
+      display: flex
+      justify-content: center
+      align-items: center
+      font-family: Gotham Pro
+      font-style: normal
+      font-weight: bold
+      font-size: 1.4vw
+      line-height: 120%
+      background: #93F8FF
+      width: 20vw
+      height: 5vw
+      border-radius: 1vw
+      margin-top: 5vw
+      &:hover
+        cursor: pointer
