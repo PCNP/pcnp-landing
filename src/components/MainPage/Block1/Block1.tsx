@@ -1,7 +1,7 @@
 import React from 'react'
 
 import styles from './Block1.module.sass'
-import {Router} from "next/router";
+import {Button} from "../../Button/Button";
 
 export const Block1: React.FC = () => {
   return (
@@ -14,9 +14,7 @@ export const Block1: React.FC = () => {
               <p>
                   Быстро, качественно, достойно!
               </p>
-              <div className={styles.button} onClick={()=>Router.push('/')}>
-                  НАЧАТЬ ПРОЕКТ
-              </div>
+              <Button href={'/'} text={'Начать проект'} />
           </div>
       </div>
   )

@@ -9,3 +9,12 @@ h1,h2,h3,p
 @font-face
   font-family: "Space Age"
   src : url("./../common/fonts/SpaceAge.otf")
+
+@import './mixins.sass'
+
+.header
+  display: flex
+  justify-content: space-between
+  align-items: center
+  height: 80px
+  @include wrapper
