@@ -6,10 +6,10 @@ import styles from './Button.module.sass'
 
 
 type OwnProps = {
-    href?: string
-    onClick?: () => void
-    btnType?: 'primary' | 'outline'
-    children: React.ReactNode
+  href?: string
+  onClick?: () => void
+  btnType?: 'primary' | 'outline'
+  children: React.ReactNode
 }
 
 
@@ -33,17 +33,16 @@ export const Button: React.FC<OwnProps> = ({ href, onClick, children, btnType = 
   if (href.startsWith('http')) {
     return (
       <a
-        href='href'
-        className={styles.link}
+        href={href}
+        className={styles.button}
       >
         { children }
       </a>
     )
   }
-
   return (
-    <Link href='href'>
-      <a className={styles.link}>
+    <Link href={href}>
+      <a className={styles.button}>
         { children }
       </a>
     </Link>

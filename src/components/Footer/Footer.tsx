@@ -12,16 +12,19 @@ const img = require('../../common/images/icons/mail.png')
 export const Footer: React.FC = () => {
   return (
     <footer className={styles.footer}>
-      <div>
+      <div className={styles.footerTitle}>
         <Nav />
         <Logo />
       </div>
-      <div>
-        <div className={styles.mail}>
+      <div className={styles.footerUnderBlock}>
+        <a
+          href='/'
+          className={styles.mail}
+        >
           <img src={img} />
           hello@pcnp-studio.ru
-        </div>
-        <p>
+        </a>
+        <p className={styles.author}>
           © 2020, PCNP Studio, Все права защищены
         </p>
       </div>
