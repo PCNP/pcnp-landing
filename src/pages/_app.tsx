@@ -4,16 +4,18 @@ import { AppProps } from 'next/app'
 import '../styles/global.sass'
 import {Logo} from "../components/Logo/Logo";
 import {Nav} from "../components/Nav/Nav";
+import {Footer} from "../components/Footer/Footer";
 
 
 export const App = ({ Component, pageProps }: AppProps) => {
   return (
       <>
-        <div className={'header'}>
+        <header className={'header'}>
           <Logo/>
           <Nav/>
-        </div>
+        </header>
         <Component {...pageProps} />
+        <Footer/>
       </>
   )
 }
