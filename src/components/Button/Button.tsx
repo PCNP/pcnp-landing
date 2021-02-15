@@ -5,7 +5,7 @@ import cn from 'classnames'
 import styles from './Button.module.sass'
 
 
-type PrimaryButtonPropsType = {
+type OwnProps = {
     href?: string
     onClick?: () => void
     btnType?: 'primary' | 'outline'
@@ -13,7 +13,7 @@ type PrimaryButtonPropsType = {
 }
 
 
-export const Button: React.FC<PrimaryButtonPropsType> = ({ href, onClick, children, btnType = 'primary' }) => {
+export const Button: React.FC<OwnProps> = ({ href, onClick, children, btnType = 'primary' }) => {
   if (!href) {
     return (
       <button
