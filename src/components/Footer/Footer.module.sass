@@ -1,0 +1,38 @@
+@import './../../styles/mixins'
+
+.footer
+  width: 100%
+  height: 226px
+  background-image: url('./../../common/images/footer.png')
+  background-size: cover
+  background-position: center
+  background-repeat: no-repeat
+  padding-top: 40px
+
+.footerTitle, .footerUnderBlock
+  display: flex
+  align-items: center
+  justify-content: space-between
+
+  @include wrapper
+
+  nav
+    >a:first-child
+      padding-left: 0
+
+.footerUnderBlock
+  margin-top: 90px
+
+.author
+  font-size: 14px
+  color: #93F8FF
+
+.mail
+  font-weight: 500
+  font-size: 19px
+  display: flex
+  align-items: center
+  color: #93F8FF
+  img
+    width: 20px
+    margin-right: 15px

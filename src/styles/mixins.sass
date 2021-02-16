@@ -12,3 +12,10 @@ $transitionNormal: .2s ease-out
       $animatedProperty: $animatedProperty nth($property, $i) $transitionNormal #{', '}
 
   transition: $animatedProperty nth($property, length($property)) $transitionNormal
+
+@mixin wrapper
+  width: 90%
+  margin: auto
+
+@mixin marginTopMinus
+  margin-top: -80px

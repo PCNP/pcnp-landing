@@ -1,11 +1,17 @@
 import React from 'react'
 
-import { HoverBlock } from 'src/components/HoverBlock/HoverBlock'
+import { Block1 } from '../App/Main/Block1/Block1'
+import { Services } from '../App/Main/Services/Services'
+import { WhyWe } from '../App/Main/WhyWe/WhyWe'
 
 
 const MainPage: React.FC = () => {
   return (
-    <HoverBlock />
+    <>
+      <Block1 />
+      <Services />
+      <WhyWe />
+    </>
   )
 }
 
