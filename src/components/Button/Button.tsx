@@ -34,7 +34,12 @@ export const Button: React.FC<OwnProps> = ({ href, onClick, children, btnType = 
     return (
       <a
         href={href}
-        className={styles.button}
+        className={
+          cn(
+            styles.button,
+            btnType === 'outline' && styles.outline
+          )
+        }
       >
         { children }
       </a>
@@ -42,7 +47,14 @@ export const Button: React.FC<OwnProps> = ({ href, onClick, children, btnType = 
   }
   return (
     <Link href={href}>
-      <a className={styles.button}>
+      <a
+        className={
+          cn(
+            styles.button,
+            btnType === 'outline' && styles.outline
+          )
+        }
+      >
         { children }
       </a>
     </Link>
