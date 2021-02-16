@@ -8,25 +8,20 @@
   justify-content: center
   align-items: center
   flex-direction: column
+  overflow: hidden
 
 .backgroundText
-  font-family: "Space Age"
   font-size: 145px
-  margin: 0
   line-height: 130px
-  position: absolute
-  left: 0
-  top: 0
-  width: 100%
-  text-align: center
-  color: #93F8FF
-  opacity: 0.2
+
+  @include backgroundText
 
 .mainTitle
   color: #93F8FF
   font-size: 30px
   margin-bottom: 30px
   margin-top: -150px
+
 .content
   @include wrapper
 
@@ -64,9 +59,11 @@
   display: flex
   justify-content: center
   padding-top: 25px
+
   img
     width: 30%
     margin-right: 10%
+
   img:last-child
     margin-right: 0
 
@@ -91,6 +88,7 @@
   position: absolute
   right: calc(5% - 40px)
   bottom: -40px
+
   img
     width: 700px
 
