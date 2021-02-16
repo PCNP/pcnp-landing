@@ -18,7 +18,7 @@ export const Footer: React.FC = () => {
       </div>
       <div className={styles.footerUnderBlock}>
         <a
-          href='/'
+          href='mailto:hello@pcnp-studio.ru'
           className={styles.mail}
         >
           <img src={img} />

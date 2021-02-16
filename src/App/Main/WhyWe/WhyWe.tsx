@@ -7,6 +7,7 @@ import styles from './WhyWe.module.sass'
 const diplom = require('src/common/images/index/whyWe/diplom.png')
 const date = require('src/common/images/index/whyWe/date.png')
 const apple2 = require('src/common/images/index/whyWe/apple2.png')
+const computer = require('src/common/images/index/whyWe/computer.png')
 
 
 export const WhyWe: React.FC = () => {
@@ -69,7 +70,9 @@ export const WhyWe: React.FC = () => {
             </div>
           </div>
         </div>
-        <div />
+        <div className={styles.computerBlock}>
+          <img src={computer} />
+        </div>
       </div>
     </div>
   )
