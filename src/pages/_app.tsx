@@ -8,6 +8,7 @@ import { Logo } from '../components/Logo/Logo'
 import { Nav } from '../components/Nav/Nav'
 import { Footer } from '../components/Footer/Footer'
 import { Button } from '../components/Button/Button'
+import { MobileNav } from '../components/mobile/MobileNav/MobileNav'
 
 
 export const App = ({ Component, pageProps }: AppProps) => {
@@ -31,6 +32,7 @@ export const App = ({ Component, pageProps }: AppProps) => {
       >
         <Logo />
         <Nav />
+        <MobileNav />
         {
           scroll > 0 ? <Button href='/'>Начать проект</Button> : ''
         }
