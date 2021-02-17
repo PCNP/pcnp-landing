@@ -1,0 +1,34 @@
+.iconsBlock
+  width: 40px
+  display: none
+  cursor: pointer
+  img
+    width: 100%
+  z-index: 100
+
+.nav
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100vh
+  background: rgba(0, 0, 0, 0.6)
+  backdrop-filter: blur(10px)
+  display: none
+  flex-direction: column
+  justify-content: center
+  a
+    padding: 22px
+    font-size: 16px
+    line-height: 16px
+    color: #FFFFFF
+  a:last-child
+    padding-right: 0
+
+.openedNav
+  display: flex
+
+@media (max-width: 768px)
+  .iconsBlock
+    display: block
+
