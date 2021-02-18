@@ -3,6 +3,7 @@ import React from 'react'
 import { Button } from '../../../components/Button/Button'
 
 import styles from './Portfolio.module.sass'
+import { MobilePortfolio } from './MobilePortfolio'
 
 
 const example = require('src/common/images/index/portfolio/portfolioImage.png')
@@ -15,6 +16,7 @@ export const Portfolio: React.FC = () => {
         cases
       </p>
       <h2 className={styles.mainTitle}>ПОРТФОЛИО</h2>
+      <MobilePortfolio />
       <div className={styles.content}>
         <div className={styles.item}>
           <p className={styles.itemTitle}>Я Юрист</p>

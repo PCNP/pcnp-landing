@@ -1,0 +1,56 @@
+.carousel
+  display: none
+  width: 100%
+  justify-content: space-between
+  overflow: scroll
+  margin-bottom: 20px
+
+.carousel::-webkit-scrollbar
+  width: 0
+
+.carousel
+  -ms-overflow-style: none
+
+.carousel
+  overflow: -moz-scrollbars-none
+
+.item
+  padding: 10px
+  height: 280px
+  background: rgba(0, 0, 0, 0.3)
+  backdrop-filter: blur(10px)
+  border-radius: 10px
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  margin-right: 10px
+
+.item:first-child
+  margin-left: 15px
+
+.itemTitle
+  font-weight: 600
+  font-size: 16px
+  text-align: center
+  letter-spacing: 0.1em
+  text-transform: uppercase
+  color: #93F8FF
+  margin-bottom: 15px
+
+.itemText
+  font-size: 12px
+  line-height: 120%
+  text-align: center
+  letter-spacing: 0.1em
+  text-transform: uppercase
+  width: 90%
+  color: white
+  margin-bottom: 25px
+
+.itemImage
+  width: 240px
+
+@media (max-width: 768px)
+  .carousel
+    display: flex
