@@ -3,54 +3,77 @@
 .main
   width: 100%
   margin: 0
-  height: 800px
   background-image: url('../../../common/images/index/background_1.png')
-  background-size: cover
   background-repeat: no-repeat
   display: flex
-  //align-items: center
 
-  //@include marginTopMinus
-
-.content
-  padding-top: 50px
-
-  @include wrapper
-
-.blockTitle
-  font-weight: 700
-  font-size: 43px
-  line-height: 150%
-  color: #93F8FF
-
-.slogan
-  font-size: 28px
-  line-height: 27px
-  color: #FFFFFF
-  margin-top: 12px
-  margin-bottom: 70px
-
-@media (max-width: 768px)
-  .main
+  @include smartphone
     height: 570px
     background-size: auto 100%
     background-position: 83%, center
 
-  .blockTitle
+  @include  tablet
+    height: 600px
+    background-size: cover
+    background-position: center
+
+  @include desktop
+    height: 800px
+
+.content
+  @include wrapper
+
+  @include smartphone
+    padding-top: 0
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: flex-start
+
+  @include mini-tablet
+    padding-top: 60px
+
+  @include tablet
+    display: block
+    padding-top: 50px
+
+.blockTitle
+  font-weight: 700
+  color: #93F8FF
+
+  @include smartphone
     font-size: 17px
     width: 100%
     line-height: 120%
 
-  .slogan
+  @include mini-tablet
+    font-size: 25px
+
+  @include tablet
+    font-size: 30px
+    line-height: 150%
+
+  @include desktop
+    font-size: 43px
+
+.slogan
+  line-height: 27px
+  color: #FFFFFF
+
+  @include smartphone
     font-size: 12px
     margin-top: 10px
     margin-bottom: 220px
     width: 100%
     text-align: left
 
-  .content
-    padding-top: 0
-    display: flex
-    flex-direction: column
-    align-items: center
-    justify-content: flex-start
+  @include mini-tablet
+    font-size: 16px
+
+  @include tablet
+    margin-top: 12px
+    margin-bottom: 70px
+    font-size: 18px
+
+  @include desktop
+    font-size: 28px

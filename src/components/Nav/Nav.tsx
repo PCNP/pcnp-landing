@@ -1,18 +1,30 @@
 import React from 'react'
 import Link from 'next/link'
+import cn from 'classnames'
 
 import styles from './Nav.module.sass'
 
 
-export const Nav: React.FC = () => {
+type OwnProps = {
+  scroll: number
+}
+
+export const Nav: React.FC<OwnProps> = ({scroll}) => {
   return (
-    <nav className={styles.nav}>
-      <Link href='/'><a>Услуги</a></Link>
-      <Link href='/'><a>Портфолио</a></Link>
-      <Link href='/'><a>Как мы работаем</a></Link>
-      <Link href='/'><a>Технологии</a></Link>
-      <Link href='/'><a>Команда</a></Link>
-      <Link href='/'><a>Контакты</a></Link>
+    <nav
+      className={
+        cn(
+          styles.nav,
+          scroll > 0 ? styles.scrollNav : ''
+        )
+      }
+    >
+      <Link href='/'><a className={styles.item}>Услуги</a></Link>
+      <Link href='/'><a className={styles.item}>Портфолио</a></Link>
+      <Link href='/'><a className={styles.item}>Как мы работаем</a></Link>
+      <Link href='/'><a className={styles.item}>Технологии</a></Link>
+      <Link href='/'><a className={styles.item}>Команда</a></Link>
+      <Link href='/'><a className={styles.item}>Контакты</a></Link>
     </nav>
   )
 }

@@ -33,18 +33,20 @@ export const MobileNav: React.FC = () => {
           )
         }
       >
-        <Link href='/'><a>Услуги</a></Link>
-        <Link href='/'><a>Портфолио</a></Link>
-        <Link href='/'><a>Как мы работаем</a></Link>
-        <Link href='/'><a>Технологии</a></Link>
-        <Link href='/'><a>Команда</a></Link>
-        <Link href='/'><a>Контакты</a></Link>
-        <Button
-          onClick={handlerButton}
-          btnType='outline'
-        >
-          <img src={icon} />
-        </Button>
+        <div className={styles.wrapperBlock}>
+          <Link href='/'><a>Услуги</a></Link>
+          <Link href='/'><a>Портфолио</a></Link>
+          <Link href='/'><a>Как мы работаем</a></Link>
+          <Link href='/'><a>Технологии</a></Link>
+          <Link href='/'><a>Команда</a></Link>
+          <Link href='/'><a>Контакты</a></Link>
+          <Button
+            onClick={handlerButton}
+            btnType='outline'
+          >
+            <img src={icon} />
+          </Button>
+        </div>
       </nav>
     </>
   )

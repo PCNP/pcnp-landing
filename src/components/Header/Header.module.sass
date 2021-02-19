@@ -1,0 +1,40 @@
+@import 'src/styles/mixins'
+
+.header
+  display: flex
+  justify-content: center
+  align-items: center
+  position: fixed
+  top: 0
+  left: 0
+  z-index: 100
+  width: 100%
+  box-sizing: border-box
+
+  @include smartphone
+    height: 60px
+
+  @include tablet
+    height: 90px
+
+  @include large-desktop
+    height: 118px
+
+.wrapperBlock
+  @include wrapper
+
+  display: flex
+  justify-content: space-between
+  align-items: center
+  margin: 0
+
+.buttonBlock
+  @include smartphone
+    display: none
+
+  @include tablet
+    display: flex
+
+.headerScroll
+  background: rgba(0, 21, 47, 0.9)
+  border-bottom: 1px solid #93F8FF
