@@ -11,15 +11,10 @@ class MyDocument extends Document {
             name='To be deleted'
             content='To be deleted'
           />
-          <link
-            rel='stylesheet'
-            href='owl-carousel/owl.theme.css'
-          />
         </Head>
         <body>
           <Main />
           <NextScript />
-          <script src='https://code.jquery.com/jquery-3.2.1.slim.min.js' />
         </body>
       </Html>
     )
