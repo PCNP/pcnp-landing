@@ -3,26 +3,56 @@
 .main
   position: relative
   width: 100%
-  height: 700px
   display: flex
   justify-content: center
   align-items: center
   flex-direction: column
   padding-bottom: 30px
-  padding-top: 80px
   overflow: hidden
   box-sizing: content-box
 
-.backgroundText
-  font-size: 200px
-  line-height: 140px
+  @include smartphone
+    height: auto
+    padding-top: 60px
 
+  @include mini-tablet
+    padding-top: 80px
+
+  @include desktop
+    height: 700px
+    padding-top: 80px
+
+.backgroundText
   @include backgroundText
+
+  @include smartphone
+    font-size: 16vw
+    top: 6vw
+
+  @include tablet
+    top: 0px
+
+  @include large-desktop
+    font-size: 200px
+    line-height: 140px
 
 .mainTitle
   color: #93F8FF
-  font-size: 30px
-  margin-bottom: 40px
+  text-transform: uppercase
+
+  @include smartphone
+    font-size: 18px
+    margin-bottom: 100px
+
+  @include mini-tablet
+    margin-top: 20px
+
+  @include tablet
+    font-size: 22px
+
+  @include desktop
+    font-size: 30px
+    margin-bottom: 40px
 
 .content
   @include wrapper
@@ -32,17 +62,37 @@
   margin: 0
 
 .rightBlock
-  width: 53%
   display: flex
   flex-direction: column
   align-items: center
 
+  @include smartphone
+    width: 100%
+
+  @include large-desktop
+    width: 53%
+
 .items
-  width: 100%
   display: flex
   flex-wrap: wrap
   justify-content: space-between
   position: relative
+
+  @include smartphone
+    width: 100%
+    flex-direction: column
+    align-items: center
+
+  @include tablet
+    width: 90%
+    align-items: flex-start
+    flex-direction: row
+
+  @include desktop
+    width: 68%
+
+  @include large-desktop
+    width: 100%
 
 .item
   width: 300px
@@ -57,11 +107,30 @@
   align-items: center
   z-index: 2
 
+  @include smartphone
+    width: 288px
+    height: 160px
+    margin-top: 10px
+
+  @include tablet
+    margin-top: 116px
+    width: 300px
+    height: 180px
+
+  @include large-desktop
+    width: 47%
+    max-width: 300px
+
 .item:nth-child(2n+1)
-  margin-top: 0
+  @include tablet
+    margin-top: 0
 
 .item:nth-child(2)
-  margin-top: 140px
+  @include smartphone
+    margin-top: 10px
+
+  @include tablet
+    margin-top: 140px
 
 .itemTitle
   font-size: 16px
@@ -72,7 +141,6 @@
   margin-bottom: 20px
 
 .itemText
-  font-size: 14px
   line-height: 16px
   letter-spacing: 0.1em
   text-align: center
@@ -80,16 +148,46 @@
   color: white
   width: 80%
 
+  @include smartphone
+    font-size: 12px
+
+  @include tablet
+    font-size: 14px
+
 .thread
-  position: absolute
-  height: 440px
-  width: 20%
-  left: 40%
-  top: 50px
-  z-index: 0
+  @include smartphone
+    position: absolute
+    top: 160px
+    height: 380px
+    width: 40%
+    left: 20%
+    z-index: 0
+
+  @include mini-tablet
+    width: 20%
+    left: 40%
+
+  @include tablet
+    top: 130px
+    width: 15%
+    left: 43%
+
+  @include large-desktop
+    height: 440px
+    width: 20%
+    left: 40%
+    top: 50px
+
 
 .man
-  position: absolute
-  left: 0
-  bottom: 0
-  width: 46%
+  @include smartphone
+    position: absolute
+    top: 0
+    width: 80%
+    left: -20%
+
+  @include desktop
+    top: initial
+    left: 0
+    bottom: 0
+    width: 46%

@@ -15,7 +15,7 @@ export const Portfolio: React.FC = () => {
       <p className={styles.backgroundText}>
         cases
       </p>
-      <h2 className={styles.mainTitle}>ПОРТФОЛИО</h2>
+      <h2 className={styles.mainTitle}>Портфолио</h2>
       <MobilePortfolio />
       <div className={styles.content}>
         <div className={styles.item}>

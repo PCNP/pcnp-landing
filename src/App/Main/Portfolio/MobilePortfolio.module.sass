@@ -1,9 +1,16 @@
+@import 'src/styles/mixins'
+
 .carousel
-  display: none
   width: 100%
   justify-content: space-between
   overflow: scroll
   margin-bottom: 20px
+
+  @include smartphone
+    display: flex
+
+  @include tablet
+    display: none
 
 .carousel::-webkit-scrollbar
   width: 0
@@ -50,7 +57,3 @@
 
 .itemImage
   width: 240px
-
-@media (max-width: 768px)
-  .carousel
-    display: flex

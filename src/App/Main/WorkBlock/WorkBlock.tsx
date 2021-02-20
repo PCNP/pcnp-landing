@@ -15,7 +15,7 @@ export const WorkBlock: React.FC = () => {
       </p>
       <div className={styles.content}>
         <div className={styles.rightBlock}>
-          <h2 className={styles.mainTitle}>КАК МЫ РАБОТАЕМ</h2>
+          <h2 className={styles.mainTitle}>Как мы работаем</h2>
           <div className={styles.items}>
             <div className={styles.item}>
               <p className={styles.itemTitle}>

@@ -17,7 +17,7 @@ export const Services: React.FC = () => {
       <p className={styles.backgroundText}>
         we offer
       </p>
-      <h2 className={styles.servicesTitle}>НАШИ УСЛУГИ</h2>
+      <h2 className={styles.servicesTitle}>Наши услуги</h2>
       <div className={styles.content}>
         <div className={styles.item}>
           <div className={styles.imageBlock}>

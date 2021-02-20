@@ -1,7 +1,5 @@
 import React from 'react'
 
-import { MyForm } from '../../../components/MyForm/MyForm'
-
 import styles from './ContactBlock.module.sass'
 
 
@@ -13,7 +11,7 @@ export const ContactBlock: React.FC = () => {
       </p>
       <div className={styles.content}>
         <h2 className={styles.mainTitle}>СВЯЖИТЕСЬ С НАМИ!</h2>
-        <MyForm />
+
       </div>
     </div>
   )

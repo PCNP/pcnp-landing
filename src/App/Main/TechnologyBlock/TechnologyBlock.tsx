@@ -3,20 +3,21 @@ import React from 'react'
 import styles from './TechnologyBlock.module.sass'
 
 
-const ts = require('src/common/images/index/technology/ts.png')
-const js = require('src/common/images/index/technology/js.png')
-const py = require('src/common/images/index/technology/py.png')
-const node = require('src/common/images/index/technology/node.png')
-const django = require('src/common/images/index/technology/django.png')
-const react = require('src/common/images/index/technology/react.png')
-const next = require('src/common/images/index/technology/next.png')
-const redux = require('src/common/images/index/technology/redux.png')
-const sql = require('src/common/images/index/technology/sql.png')
-const mongodb = require('src/common/images/index/technology/mongodb.png')
-const tarantool = require('src/common/images/index/technology/tarantool.png')
-const kuber = require('src/common/images/index/technology/kuber.png')
-const docker = require('src/common/images/index/technology/docker.png')
-const sass = require('src/common/images/index/technology/sass.png')
+const mongodb = require('src/common/images/index/technology/mongodb.svg')
+
+const ts = require('src/common/images/index/technology/ts.svg')
+const js = require('src/common/images/index/technology/js.svg')
+const py = require('src/common/images/index/technology/py.svg')
+const node = require('src/common/images/index/technology/node.svg')
+const django = require('src/common/images/index/technology/django.svg')
+const react = require('src/common/images/index/technology/react.svg')
+const next = require('src/common/images/index/technology/next.svg')
+const redux = require('src/common/images/index/technology/redux.svg')
+const sql = require('src/common/images/index/technology/sql.svg')
+const tarantool = require('src/common/images/index/technology/tarantool.svg')
+const kuber = require('src/common/images/index/technology/kuber.svg')
+const docker = require('src/common/images/index/technology/docker.svg')
+const sass = require('src/common/images/index/technology/sass.svg')
 
 
 type Item = {
@@ -74,7 +75,7 @@ export const TechnologyBlock: React.FC = () => {
       <p className={styles.backgroundText}>
         technology
       </p>
-      <h2 className={styles.mainTitle}>НАШИ ТЕХНОЛОГИИ</h2>
+      <h2 className={styles.mainTitle}>Наши технологии</h2>
       <p className={styles.slogan}>Применяем эффективные инструменты и лучшие практики отрасли</p>
       <div className={styles.content}>
         {
