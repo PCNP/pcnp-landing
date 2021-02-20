@@ -9,7 +9,7 @@ type OwnProps = {
   scroll: number
 }
 
-export const Nav: React.FC<OwnProps> = ({scroll}) => {
+export const Nav: React.FC<OwnProps> = ({ scroll }) => {
   return (
     <nav
       className={
