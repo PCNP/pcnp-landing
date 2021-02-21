@@ -11,5 +11,9 @@ jobs:
         - yarn lint
     - stage: deploy
       if: branch = master
+      cache:
+        yarn: true
+        directories:
+          - .next/cache
       script:
         - yarn build
