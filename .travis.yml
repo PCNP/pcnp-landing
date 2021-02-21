@@ -12,8 +12,9 @@ jobs:
     - stage: deploy
       if: branch = master
       cache:
-        yarn: true
         directories:
+          - $HOME/.cache/yarn
+          - node_modules
           - .next/cache
       script:
         - yarn build
