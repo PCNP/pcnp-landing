@@ -4,7 +4,6 @@ import styles from './TechnologyBlock.module.sass'
 
 
 const mongodb = require('src/common/images/index/technology/mongodb.svg')
-
 const ts = require('src/common/images/index/technology/ts.svg')
 const js = require('src/common/images/index/technology/js.svg')
 const py = require('src/common/images/index/technology/py.svg')
