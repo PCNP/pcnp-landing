@@ -6,6 +6,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 const nextConfig = {
   assetPrefix: process.env.ASSET_PREFIX || '',
+  basePath: process.env.BASE_PATH || '',
   trailingSlash: true,
   compress: false,
   poweredByHeader: false,
