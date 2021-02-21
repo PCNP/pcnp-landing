@@ -25,4 +25,6 @@ jobs:
         - touch out/.nojekyll
         - git add out && git commit -am 'deploy'
         - git remote add upstream git@github.com:PCNP/pcnp-landing.git
-        - git subtree push --prefix out upstream gh-pages
+        - git subtree split --prefix out -b gh-pages
+        - git push -f upstream gh-pages:gh-pages
+        - git branch -D gh-pages
