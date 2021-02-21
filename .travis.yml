@@ -2,6 +2,14 @@ cache: yarn
 language: node_js
 node_js:
   - "14"
-script:
-  - yarn compile
-  - yarn lint
+
+jobs:
+  include:
+    - stage: test
+      script:
+        - yarn compile
+        - yarn lint
+    - stage: deploy
+      if: branch = master
+      script:
+        - yarn build
