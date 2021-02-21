@@ -1,0 +1,143 @@
+@import "../../../styles/mixins"
+
+.main
+  position: relative
+  width: 100%
+  display: flex
+  align-items: center
+  flex-direction: column
+  background-image: url('../../../common/images/index/portfolioBackground.png')
+  overflow: hidden
+
+  @include smartphone
+    height: auto
+    padding-bottom: 50px
+    margin-top: 0
+    background-size: 300% 100%
+    background-position: center
+    justify-content: flex-start
+
+  @include desktop
+    height: 700px
+    margin-top: -120px
+    background-size: 100% 100%
+    justify-content: center
+
+.backgroundText
+  @include backgroundText
+
+  @include smartphone
+    font-size: 65px
+    line-height: 330%
+
+  @include mini-tablet
+    line-height: 14vw
+    font-size: 14vw
+    top: 7%
+
+  @include large-desktop
+    top: 0
+    font-size: 180px
+    line-height: 260px
+
+.mainTitle
+  color: #93F8FF
+  text-transform: uppercase
+
+  @include smartphone
+    font-size: 18px
+    margin-bottom: 20px
+    margin-top: 115px
+
+  @include mini-tablet
+    margin-top: 80px
+
+  @include tablet
+    font-size: 22px
+    margin-top: 140px
+
+  @include desktop
+    font-size: 30px
+    margin-bottom: 40px
+    margin-top: 140px
+
+.content
+  @include wrapper
+
+  justify-content: space-between
+  margin: 0 0 20px 0
+
+  @include smartphone
+    display: none
+
+  @include tablet
+    display: flex
+    margin: 0 0 20px 0
+    justify-content: center
+    flex-wrap: wrap
+
+  @include desktop
+    flex-wrap: nowrap
+    justify-content: space-between
+
+
+.item
+  background: rgba(0, 0, 0, 0.3)
+  backdrop-filter: blur(10px)
+  border-radius: 10px
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+
+  &:first-child, &:last-child
+    @include tablet
+      margin-left: -1.5%
+
+    @include desktop
+      margin-left: 0
+
+  @include tablet
+    height: 340px
+    width: 47%
+    margin-top: 20px
+    margin-left: 3%
+
+  @include desktop
+    height: 340px
+    max-width: 410px
+    width: 32%
+    margin-top: 0
+    margin-left: 0
+
+  @include large-desktop
+
+
+
+.itemTitle
+  font-weight: 600
+  font-size: 16px
+  text-align: center
+  letter-spacing: 0.1em
+  text-transform: uppercase
+  color: #93F8FF
+  margin-bottom: 15px
+
+.itemText
+  font-size: 16px
+  line-height: 120%
+  text-align: center
+  letter-spacing: 0.1em
+  text-transform: uppercase
+  color: white
+  margin-bottom: 25px
+
+  @include tablet
+    width: 90%
+
+  @include desktop
+    width: 50%
+
+.itemImage
+  width: 90%
+  max-width: 300px

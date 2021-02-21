@@ -18,7 +18,7 @@ export const WhyWe: React.FC = () => {
       </p>
       <div className={styles.content}>
         <div className={styles.leftBlock}>
-          <h2 className={styles.mainTitle}>ПОЧЕМУ МЫ?</h2>
+          <h2 className={styles.mainTitle}>Почему мы?</h2>
           <div className={styles.items}>
             <div className={styles.item}>
               <div className={styles.imageBlock}>

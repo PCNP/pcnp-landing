@@ -13,9 +13,45 @@ $transitionNormal: .2s ease-out
 
   transition: $animatedProperty nth($property, length($property)) $transitionNormal
 
+@mixin smartphone
+  @media (min-width: 320px)
+    @content
+
+@mixin mini-tablet
+  @media (min-width: 480px)
+    @content
+
+@mixin tablet
+  @media (min-width: 768px)
+    @content
+
+@mixin desktop
+  @media (min-width: 992px)
+    @content
+
+@mixin large-desktop
+  @media (min-width: 1200px)
+    @content
+
 @mixin wrapper
-  width: 90%
   margin: auto
 
-@mixin marginTopMinus
-  margin-top: -80px
+  @include smartphone
+    width: 90%
+
+  @include tablet
+    width: 90%
+
+  @include desktop
+    width: 90%
+    max-width: 1350px
+
+@mixin backgroundText
+  font-family: "Space Age"
+  position: absolute
+  left: 0
+  top: 0
+  width: 100%
+  text-align: center
+  color: #93F8FF
+  opacity: 0.1

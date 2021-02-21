@@ -13,7 +13,7 @@ export const Footer: React.FC = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.footerTitle}>
-        <Nav />
+        <Nav scroll={5} />
         <Logo />
       </div>
       <div className={styles.footerUnderBlock}>

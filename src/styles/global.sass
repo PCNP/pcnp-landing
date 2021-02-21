@@ -5,6 +5,9 @@ html, body
   margin: 0
   padding: 0
 
+*
+  box-sizing: border-box
+
 h1,h2,h3,p
   margin: 0
 
@@ -26,15 +29,7 @@ a
   src : url("./../common/fonts/Montserrat-Regular.ttf")
   font-display: fallback
 
-.header
-  display: flex
-  justify-content: space-between
-  align-items: center
-  height: 80px
-
-  @include wrapper
-
 body
   font-family: "Gotham Pro", Arial
   background: linear-gradient(89.71deg, #00152F 0.2%, #003C6A 99.7%)
-  box-sizing: border-box
+

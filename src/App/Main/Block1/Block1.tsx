@@ -10,9 +10,9 @@ export const Block1: React.FC = () => {
     <div className={styles.main}>
       <div className={styles.content}>
         <h1 className={styles.blockTitle}>
-          СТУДИЯ РАЗРАБОТКИ САЙТОВ
+          Студия разработки сайтов
           <br />
-          И МОБИЛЬНЫХ ПРИЛОЖЕНИЙ
+          и мобильных приложений
         </h1>
         <p className={styles.slogan}>
           Быстро, качественно, достойно!

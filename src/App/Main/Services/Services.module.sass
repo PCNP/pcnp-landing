@@ -3,42 +3,83 @@
 .main
   position: relative
   background-image: url('../../../common/images/index/servicesBackground.png')
-  background-size: 100% 100%
-  width: 100%
-  height: 528px
   display: flex
   justify-content: center
   align-items: center
   flex-direction: column
+  overflow: hidden
+
+  @include smartphone
+    height: auto
+    background-size: 500% 100%
+    background-position: center
+    padding-bottom: 30px
+
+  @include tablet
+    background-size: 100% 100%
+    width: 100%
+    height: 400px
+    padding-bottom: 0
+
+  @include desktop
+    height: 528px
+
 
 .backgroundText
-  width: 100%
-  text-align: center
-  font-family: "Space Age"
-  font-size: 185px
-  margin: 0
-  line-height: 150px
-  position: absolute
-  left: 0
-  top: 0
-  color: #93F8FF
-  opacity: 0.2
+  @include backgroundText
+
+  @include smartphone
+    font-size: 45px
+    line-height: 130%
+
+  @include mini-tablet
+    font-size: 12vw
+
+  @include large-desktop
+    font-size: 185px
+    line-height: 150px
 
 .servicesTitle
   color: #93F8FF
-  font-size: 30px
-  margin-bottom: 60px
+  text-transform: uppercase
+
+  @include smartphone
+    font-size: 18px
+    margin-bottom: 20px
+    margin-top: 40px
+
+  @include mini-tablet
+    margin-top: 70px
+
+  @include tablet
+    margin-top: 10px
+    font-size: 22px
+
+  @include desktop
+    margin-bottom: 40px
+    margin-top: -10px
+    font-size: 30px
 
 .content
   @include wrapper
 
   display: flex
-  justify-content: space-between
   margin: 0
 
+  @include smartphone
+    flex-direction: column
+    align-items: center
+
+  @include mini-tablet
+    flex-direction: row
+    flex-wrap: wrap
+    justify-content: space-between
+
+  @include tablet
+    flex-wrap: nowrap
+
+
 .item
-  width: 300px
-  height: 280px
   background: rgba(0, 0, 0, 0.3)
   backdrop-filter: blur(10px)
   border-radius: 10px
@@ -46,33 +87,92 @@
   flex-direction: column
   align-items: center
 
+  @include smartphone
+    width: 288px
+    height: 260px
+    margin-bottom: 10px
+
+  @include mini-tablet
+    width: 48%
+    height: 40vw
+
+  @include tablet
+    width: 24%
+    height: 21vw
+    margin-bottom: 0
+
+  @include large-desktop
+    max-width: 288px
+    height: 260px
+    margin-bottom: 10px
+
 .imageBlock
   width: 100%
   display: flex
   justify-content: center
   padding-top: 30px
-  img
-    height: 300px*0.25
-    margin-right: 10%
+
   img:last-child
     margin-right: 0
 
+  @include smartphone
+    img
+      height: 75px
+      margin-right: 10%
+
+  @include mini-tablet
+    img
+      height: 70%
+
+  @include tablet
+    img
+      height: 5vw
+
+  @include large-desktop
+    img
+      height: 75px
+
+
 .itemTitle
   color: #93F8FF
-  font-size: 16px
   text-transform: uppercase
-  margin-top: 20px
+
+  @include smartphone
+    font-size: 16px
+    margin-top: 20px
+
+  @include mini-tablet
+    font-size: 2vw
+    margin-top: 10px
+
+  @include tablet
+    font-size: 1.2vw
+
+  @include large-desktop
+    font-size: 16px
+    margin-top: 20px
 
 .itemText
   color: white
-  font-size: 14px
   text-transform: uppercase
-  margin-top: 20px
   text-align: center
+  font-size: 14px
+  margin-top: 20px
   line-height: 19px
   width: 80%
 
+  @include smartphone
+    font-size: 14px
+    margin-top: 20px
+    line-height: 140%
 
+  @include mini-tablet
+    font-size: 1.8vw
+    margin-top: 10px
 
+  @include tablet
+    font-size: 1vw
 
-
+  @include large-desktop
+    font-size: 14px
+    margin-top: 20px
