@@ -21,7 +21,7 @@ jobs:
         - echo "$SSH_KEY" | base64 -d > $HOME/.ssh/id_rsa
         - chmod 600 $HOME/.ssh/id_rsa
       script:
-        - BASE_PATH='/pcnp-landing' yarn build
+        - ASSET_PREFIX='/pcnp-landing' BASE_PATH='/pcnp-landing' yarn build
         - touch out/.nojekyll
         - git add out && git commit -am 'deploy'
         - git remote add upstream git@github.com:PCNP/pcnp-landing.git
