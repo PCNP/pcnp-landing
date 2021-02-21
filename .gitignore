@@ -1,6 +1,7 @@
 node_modules
 .idea
 .next
+out
 .server
 
 yarn-error.log
