@@ -3,31 +3,34 @@ import cn from 'classnames'
 
 import { Button } from '../../../components/Button/Button'
 
+
 import styles from './PortfolioItem.module.sass'
 
 
 type OwnProps = {
-  type?: string
+  str?: string
   title: string
   description: string
-  href: string
+  slug: string
   mobImg: any
   desktopImg: any
+  bgType: string
 }
 
 
-export const PortfolioItem: React.FC<OwnProps> = ({ type = 'site', title, description, href, mobImg, desktopImg }) => {
+export const PortfolioItem: React.FC<OwnProps> = (
+  { bgType, str = 'site', title, description, slug, mobImg, desktopImg }) => {
   return (
     <div
       className={
         cn(
           styles.main,
-          type === 'site' ? styles.site : styles.app
+          bgType === 'light' ? styles.light : styles.dark
         )
       }
     >
       <div className={styles.wrapperBlock}>
-        <p className={styles.backgroundText}>{ type === 'site' ? 'Site' : 'App' }</p>
+        <p className={styles.backgroundText}>{ str }</p>
         <div className={styles.leftBlock}>
           <h2 className={styles.mainTitle}>{ title }</h2>
           <p className={styles.description}>{ description }</p>
@@ -36,7 +39,7 @@ export const PortfolioItem: React.FC<OwnProps> = ({ type = 'site', title, descri
             className={styles.mobVersionImg}
           />
           <Button
-            href={href}
+            href={`portfolio/${slug}`}
             btnType='outline'
           >
             Подробнее

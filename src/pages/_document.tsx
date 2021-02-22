@@ -5,7 +5,6 @@ import { AnalyticsScripts } from 'src/components/AnalyticsScripts/AnalyticsScrip
 
 
 class MyDocument extends Document {
-
   render() {
     return (
       <Html lang='ru'>
