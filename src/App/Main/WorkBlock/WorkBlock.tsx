@@ -3,8 +3,8 @@ import React from 'react'
 import styles from './WorkBlock.module.sass'
 
 
-const thread = require('src/common/images/index/workBlock/thread.png')
-const man = require('src/common/images/index/workBlock/man.png')
+const thread = require('src/common/images/index/workBlock/thread.svg')
+const man = require('src/common/images/index/workBlock/man.svg')
 
 
 export const WorkBlock: React.FC = () => {

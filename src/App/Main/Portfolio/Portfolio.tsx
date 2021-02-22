@@ -6,7 +6,7 @@ import styles from './Portfolio.module.sass'
 import { MobilePortfolio } from './MobilePortfolio'
 
 
-const example = require('src/common/images/index/portfolio/portfolioImage.png')
+const example = require('src/common/images/index/portfolio/portfolioImage.svg')
 
 
 export const Portfolio: React.FC = () => {

@@ -4,9 +4,9 @@ import React from 'react'
 import styles from './WhyWe.module.sass'
 
 
-const diplom = require('src/common/images/index/whyWe/diplom.png')
-const date = require('src/common/images/index/whyWe/date.png')
-const apple2 = require('src/common/images/index/whyWe/apple2.png')
+const diplom = require('src/common/images/index/whyWe/diplom.svg')
+const date = require('src/common/images/index/whyWe/date.svg')
+const apple2 = require('src/common/images/index/whyWe/apple2.svg')
 const computer = require('src/common/images/index/whyWe/computer.png')
 
 

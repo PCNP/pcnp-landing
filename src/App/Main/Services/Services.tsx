@@ -3,12 +3,12 @@ import React from 'react'
 import styles from './Services.module.sass'
 
 
-const chrome = require('src/common/images/index/services/chrome.png')
-const apple = require('src/common/images/index/services/apple.png')
-const greenMan = require('src/common/images/index/services/greenMan.png')
-const colors = require('src/common/images/index/services/color-palette.png')
-const telegram = require('src/common/images/index/services/telegram.png')
-const whatsapp = require('src/common/images/index/services/whatsapp.png')
+const chrome = require('src/common/images/index/services/chrome.svg')
+const apple = require('src/common/images/index/services/apple.svg')
+const greenMan = require('src/common/images/index/services/greenMan.svg')
+const colors = require('src/common/images/index/services/color-palette.svg')
+const telegram = require('src/common/images/index/services/telegram.svg')
+const whatsapp = require('src/common/images/index/services/whatsapp.svg')
 
 
 export const Services: React.FC = () => {
