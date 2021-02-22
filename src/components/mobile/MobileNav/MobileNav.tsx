@@ -35,7 +35,7 @@ export const MobileNav: React.FC = () => {
       >
         <div className={styles.wrapperBlock}>
           <Link href='/'><a>Услуги</a></Link>
-          <Link href='/'><a>Портфолио</a></Link>
+          <Link href='portfolio'><a>Портфолио</a></Link>
           <Link href='/'><a>Как мы работаем</a></Link>
           <Link href='/'><a>Технологии</a></Link>
           <Link href='/'><a>Команда</a></Link>

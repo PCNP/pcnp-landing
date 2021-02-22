@@ -4,7 +4,7 @@ import { AppProps } from 'next/app'
 import '../styles/global.sass'
 
 import { Footer } from '../components/Footer/Footer'
-import { Header } from '../components/Header/Header'
+import { Header } from 'src/components/Header/Header'
 
 
 export const App = ({ Component, pageProps }: AppProps) => {

@@ -20,7 +20,7 @@ export const Nav: React.FC<OwnProps> = ({ scroll }) => {
       }
     >
       <Link href='/'><a className={styles.item}>Услуги</a></Link>
-      <Link href='/'><a className={styles.item}>Портфолио</a></Link>
+      <Link href='portfolio'><a className={styles.item}>Портфолио</a></Link>
       <Link href='/'><a className={styles.item}>Как мы работаем</a></Link>
       <Link href='/'><a className={styles.item}>Технологии</a></Link>
       <Link href='/'><a className={styles.item}>Команда</a></Link>

@@ -1,0 +1,41 @@
+@import 'src/styles/mixins'
+
+.main
+  width: 100%
+  background-image: url('../../../common/images/portfolioPage/portfolioBg.png')
+  background-size: cover
+  display: flex
+  justify-content: center
+
+  @include smartphone
+    height: 400px
+    align-items: flex-start
+    padding-top: 94px
+    background-position: 70%
+
+  @include mini-tablet
+    align-items: center
+    padding-top: 0
+
+  @include desktop
+    height: 620px
+    background-position: center
+
+
+.wrapperBlock
+  @include wrapper
+
+  margin: 0
+
+.mainTitle
+  text-transform: uppercase
+  color: #93F8FF
+
+  @include smartphone
+    font-size: 18px
+
+  @include tablet
+    font-size: 30px
+
+  @include desktop
+    font-size: 45px

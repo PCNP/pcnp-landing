@@ -5,6 +5,7 @@ import { Nav } from '../Nav/Nav'
 import { Logo } from '../Logo/Logo'
 import { MobileNav } from '../mobile/MobileNav/MobileNav'
 import { Button } from './HeaderButton/HeaderButton'
+import { RuEng } from '../RuEng/RuEng'
 
 import styles from './Header.module.sass'
 
@@ -36,6 +37,9 @@ export const Header: React.FC = () => {
         <MobileNav />
         {
           scroll > 0 ? <Button href='/'>Начать проект</Button> : ''
+        }
+        {
+          scroll <= 0 ? <RuEng /> : ''
         }
       </div>
     </header>
