@@ -3,7 +3,7 @@ import React from 'react'
 import { Block1 } from '../../App/PortfolioPage/Block1/Block1'
 import { ContactBlock } from '../../components/ContactBlock/ContactBlock'
 import { PortfolioItem } from '../../App/PortfolioPage/PortfolioItem/PortfolioItem'
-import { items } from '../../components/store/portfolioItems'
+import { items } from '../../store/portfolioItems'
 
 
 const PortfolioPage: React.FC = () => {

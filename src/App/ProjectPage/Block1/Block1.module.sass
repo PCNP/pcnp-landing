@@ -1,0 +1,85 @@
+@import 'src/styles/mixins'
+
+.main
+  width: 100%
+  display: flex
+  align-items: center
+  background-image: url('../../../common/images/project/projectBg.png')
+  background-size: cover
+  border-bottom: 1px solid #93F8FF
+
+  @include smartphone
+    height: 420px
+    padding-top: 25px
+    padding-bottom: 25px
+    background-position: 90%
+
+  @include mini-tablet
+    padding-top: 35px
+    padding-bottom: 35px
+
+  @include tablet
+    height: 621px
+    padding-top: 0
+    padding-bottom: 0
+    background-position: right
+
+.wrapperBlock
+  @include wrapper
+
+  display: flex
+  align-items: center
+
+
+.leftBlock
+  @include smartphone
+    width: 100%
+    display: flex
+    flex-direction: column
+    flex-grow: 0!important
+
+  @include tablet
+    width: 50%
+    display: block
+
+.buttonBlock
+  width: 100%
+  max-width: 320px
+  display: flex
+  flex-direction: column
+
+  @include tablet
+    align-items: flex-start
+
+.mainTitle
+  text-transform: uppercase
+  color: #93F8FF
+  margin-top: 50px
+
+  @include smartphone
+    font-size: 18px
+    margin-bottom: 10px
+
+  @include tablet
+    font-size: 30px
+    margin-bottom: 20px
+
+  @include desktop
+    font-size: 45px
+
+.description
+  color: white
+  font-weight: 500
+
+  @include smartphone
+    font-size: 14px
+    width: 80%
+    margin-bottom: 170px
+
+  @include tablet
+    font-size: 20px
+    margin-bottom: 60px
+
+  @include desktop
+    font-size: 28px
+
