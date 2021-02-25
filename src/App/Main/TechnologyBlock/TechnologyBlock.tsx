@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { commonBlockProps } from '../../../store/lang/indexlang'
+
 import styles from './TechnologyBlock.module.sass'
 
 
@@ -24,7 +26,11 @@ type Item = {
   img: any
 }
 
-export const TechnologyBlock: React.FC = () => {
+type OwnProps = {
+  lang: commonBlockProps
+}
+
+export const TechnologyBlock: React.FC<OwnProps> = ({ lang }) => {
   const techonologies: Item[] = [
     {
       name: 'typescript', img: ts,
@@ -74,8 +80,8 @@ export const TechnologyBlock: React.FC = () => {
       <p className={styles.backgroundText}>
         technology
       </p>
-      <h2 className={styles.mainTitle}>Наши технологии</h2>
-      <p className={styles.slogan}>Применяем эффективные инструменты и лучшие практики отрасли</p>
+      <h2 className={styles.mainTitle}>{ lang.title }</h2>
+      <p className={styles.slogan}>{ lang.slogan }</p>
       <div className={styles.content}>
         {
           techonologies.map( (el, i) => {

@@ -10,19 +10,27 @@ import styles from './Footer.module.sass'
 const img = require('../../common/images/icons/mail.png')
 
 
-export const Footer: React.FC = () => {
+type OwnProps = {
+  nav: string[]
+}
+
+
+export const Footer: React.FC<OwnProps> = ({ nav }) => {
   return (
     <footer className={styles.footer}>
       <div className={styles.footerTitle}>
-        <Nav scroll={0} />
+        <Nav
+          scroll={0}
+          nav={nav}
+        />
         <Logo />
         <nav className={styles.mobNav}>
-          <Link href='/'><a className={styles.item}>Услуги</a></Link>
-          <Link href='portfolio'><a className={styles.item}>Портфолио</a></Link>
-          <Link href='/'><a className={styles.item}>Как мы работаем</a></Link>
-          <Link href='/'><a className={styles.item}>Технологии</a></Link>
-          <Link href='/'><a className={styles.item}>Команда</a></Link>
-          <Link href='/'><a className={styles.item}>Контакты</a></Link>
+          <Link href='/'><a className={styles.item}>{ nav[0] }</a></Link>
+          <Link href='/portfolio'><a className={styles.item}>{ nav[1] }</a></Link>
+          <Link href='/'><a className={styles.item}>{ nav[2] }</a></Link>
+          <Link href='/'><a className={styles.item}>{ nav[3] }</a></Link>
+          <Link href='/'><a className={styles.item}>{ nav[4] }</a></Link>
+          <Link href='/'><a className={styles.item}>{ nav[5] }</a></Link>
         </nav>
       </div>
       <div className={styles.footerUnderBlock}>

@@ -5,7 +5,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({ enabled: process.e
 
 const nextConfig = {
   i18n: {
-    locales: ['en-US', 'ru', 'fr'],
+    locales: ['en', 'ru'],
     defaultLocale: 'ru',
     //localeDetection: false,
   },

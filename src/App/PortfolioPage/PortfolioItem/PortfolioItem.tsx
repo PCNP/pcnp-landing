@@ -11,9 +11,16 @@ type OwnProps = {
   str?: string
   title: string
   description: string
-  slug: string
+  slug: number
   mobImg: any
   desktopImg: any
+  href: string
+  modules: string[]
+  about: string
+  technologies: {
+    name: string
+    img: any
+  }[]
   bgType: string
 }
 

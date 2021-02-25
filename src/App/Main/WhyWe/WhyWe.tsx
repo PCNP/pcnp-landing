@@ -1,6 +1,8 @@
 import React from 'react'
 
 
+import { blockWithItemsProps } from '../../../store/lang/indexlang'
+
 import styles from './WhyWe.module.sass'
 
 
@@ -10,7 +12,12 @@ const apple2 = require('src/common/images/index/whyWe/apple2.svg')
 const computer = require('src/common/images/index/whyWe/computer.png')
 
 
-export const WhyWe: React.FC = () => {
+type OwnProps = {
+  lang: blockWithItemsProps
+}
+
+
+export const WhyWe: React.FC<OwnProps> = ({ lang }) => {
   return (
     <div className={styles.main}>
       <p className={styles.backgroundText}>
@@ -18,22 +25,17 @@ export const WhyWe: React.FC = () => {
       </p>
       <div className={styles.content}>
         <div className={styles.leftBlock}>
-          <h2 className={styles.mainTitle}>Почему мы?</h2>
+          <h2 className={styles.mainTitle}>{ lang.title }</h2>
           <div className={styles.items}>
             <div className={styles.item}>
               <div className={styles.imageBlock}>
                 <img src={diplom} />
               </div>
               <h3 className={styles.itemTitle}>
-                Высокая
-                <br />
-                квалификация
+                { lang.items[0].title }
               </h3>
               <p className={styles.itemText}>
-                все наши работники
-                обладают высокой
-                квалификацией и большим
-                набором скиллов
+                { lang.items[0].text }
               </p>
             </div>
             <div className={styles.item}>
@@ -41,15 +43,10 @@ export const WhyWe: React.FC = () => {
                 <img src={date} />
               </div>
               <h3 className={styles.itemTitle}>
-                Cоблюдение
-                <br />
-                дедлайнов
+                { lang.items[1].title }
               </h3>
               <p className={styles.itemText}>
-                процесс работы
-                строится на четкой
-                организации и умелом
-                распределении задач
+                { lang.items[1].text }
               </p>
             </div>
             <div className={styles.item}>
@@ -57,15 +54,10 @@ export const WhyWe: React.FC = () => {
                 <img src={apple2} />
               </div>
               <h3 className={styles.itemTitle}>
-                Внимание к
-                <br />
-                деталям
+                { lang.items[2].title }
               </h3>
               <p className={styles.itemText}>
-                мы учитываем все
-                ваши пожелания и
-                следим за качеством
-                на всех уровнях
+                { lang.items[2].text }
               </p>
             </div>
           </div>
