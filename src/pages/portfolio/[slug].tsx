@@ -10,12 +10,13 @@ import { InformationBlock } from '../../App/ProjectPage/InformationBlock/Informa
 
 const Project: React.FC = () => {
   const router = useRouter()
-  const project: item = items[Number(router.query.slug)]
+  const project: item = items.filter((el)=>el.slug === router.query.slug)[0]
   return (
     <>
       <Block1 project={project} />
       <CarouselBlock />
       <InformationBlock
+        projects={items}
         project={project}
         length={items.length}
       />

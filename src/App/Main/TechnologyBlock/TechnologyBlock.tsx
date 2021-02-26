@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { commonBlockProps } from '../../../store/lang/indexlang'
+import { CommonBlockProps } from '../../../store/lang/indexlang'
 
 import styles from './TechnologyBlock.module.sass'
 
@@ -27,7 +27,7 @@ type Item = {
 }
 
 type OwnProps = {
-  lang: commonBlockProps
+  lang: CommonBlockProps
 }
 
 export const TechnologyBlock: React.FC<OwnProps> = ({ lang }) => {

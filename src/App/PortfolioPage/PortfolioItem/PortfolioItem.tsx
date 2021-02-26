@@ -11,7 +11,7 @@ type OwnProps = {
   str?: string
   title: string
   description: string
-  slug: number
+  slug: string
   mobImg: any
   desktopImg: any
   href: string

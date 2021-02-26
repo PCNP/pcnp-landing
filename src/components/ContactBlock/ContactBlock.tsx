@@ -1,12 +1,12 @@
 import React from 'react'
 
-import { commonBlockProps } from '../../store/lang/indexlang'
+import { CommonBlockProps } from '../../store/lang/indexlang'
 
 import styles from './ContactBlock.module.sass'
 
 
 type OwnProps = {
-  lang?: commonBlockProps
+  lang?: CommonBlockProps
 }
 
 export const ContactBlock: React.FC<OwnProps> = ({ lang }) => {

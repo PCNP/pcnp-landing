@@ -1,13 +1,13 @@
 import React from 'react'
 
 import { Button } from '../../../components/Button/Button'
-import { commonBlockProps } from '../../../store/lang/indexlang'
+import { CommonBlockProps } from '../../../store/lang/indexlang'
 
 import styles from './Block1.module.sass'
 
 
 type OwnProps = {
-  lang: commonBlockProps
+  lang: CommonBlockProps
 }
 
 export const Block1: React.FC<OwnProps> = ({ lang }) => {

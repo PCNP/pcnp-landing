@@ -10,8 +10,17 @@ type OwnProps = {
   nav: string[]
 }
 
+const navigation = [
+  'Услуги',
+  'Портфолио',
+  'Как мы работаем',
+  'Наши технологии',
+  'Наша команда',
+  'Контакты',
+]
 
-export const Nav: React.FC<OwnProps> = ({ scroll, nav }) => {
+
+export const Nav: React.FC<OwnProps> = ({ scroll, nav = navigation }) => {
   return (
     <nav
       className={

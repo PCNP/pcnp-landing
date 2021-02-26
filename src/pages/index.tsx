@@ -8,7 +8,8 @@ import { Portfolio } from '../App/Main/Portfolio/Portfolio'
 import { WorkBlock } from '../App/Main/WorkBlock/WorkBlock'
 import { TechnologyBlock } from '../App/Main/TechnologyBlock/TechnologyBlock'
 import { ContactBlock } from '../components/ContactBlock/ContactBlock'
-import { enIndex, indexProps, ruIndex } from '../store/lang/indexlang'
+import { createIndexProps } from '../store/lang/indexlang'
+import { Dictionary, enDictionary, ruDictionary } from '../store/lang/dictionary'
 
 
 const MainPage: React.FC = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
@@ -27,11 +28,11 @@ const MainPage: React.FC = (props: InferGetStaticPropsType<typeof getStaticProps
 
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  let indexPage: indexProps = ruIndex
+  let dictionary: Dictionary = ruDictionary
   if(locale === 'en'){
-    indexPage = enIndex
+    dictionary = enDictionary
   }
-  return { props:{ ...indexPage } }
+  return { props: createIndexProps(dictionary) }
 }
 
 

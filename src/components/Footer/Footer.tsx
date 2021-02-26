@@ -15,7 +15,17 @@ type OwnProps = {
 }
 
 
-export const Footer: React.FC<OwnProps> = ({ nav }) => {
+const navigation = [
+  'Услуги',
+  'Портфолио',
+  'Как мы работаем',
+  'Наши технологии',
+  'Наша команда',
+  'Контакты',
+]
+
+
+export const Footer: React.FC<OwnProps> = ({ nav = navigation }) => {
   return (
     <footer className={styles.footer}>
       <div className={styles.footerTitle}>

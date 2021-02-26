@@ -7,9 +7,10 @@ const redux = require('src/common/images/index/technology/redux.svg')
 
 export type item = {
   str?: string
+  id: number
   title: string
   description: string
-  slug: number
+  slug: string
   mobImg: any
   desktopImg: any
   href: string
@@ -23,7 +24,8 @@ export type item = {
 
 export const items: item[] = [
   {
-    slug: 0,
+    id: 0,
+    slug: 'jurist-project',
     title: 'Я юрист',
     description: 'Разработка мобильного приложения',
     mobImg: mob,
@@ -54,7 +56,8 @@ export const items: item[] = [
     ],
   },
   {
-    slug: 1,
+    id: 1,
+    slug: 'mobile-app-project',
     title: 'Я юрист',
     description: 'Разработка мобильного приложения',
     mobImg: mob,
@@ -85,7 +88,8 @@ export const items: item[] = [
     ],
   },
   {
-    slug: 2,
+    id: 2,
+    slug: 'app-project',
     title: 'Я юрист',
     description: 'Разработка мобильного приложения',
     mobImg: mob,
@@ -116,7 +120,8 @@ export const items: item[] = [
     ],
   },
   {
-    slug: 3,
+    id: 3,
+    slug: 'development-app',
     title: 'Я юрист',
     description: 'Разработка мобильного приложения',
     mobImg: mob,

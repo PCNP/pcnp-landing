@@ -17,8 +17,17 @@ type OwnProps = {
   nav: string[]
 }
 
+const navigation = [
+  'Услуги',
+  'Портфолио',
+  'Как мы работаем',
+  'Наши технологии',
+  'Наша команда',
+  'Контакты',
+]
 
-export const MobileNav: React.FC<OwnProps> = ({ nav }) => {
+
+export const MobileNav: React.FC<OwnProps> = ({ nav = navigation }) => {
   const handlerButton = () => {
 
   }

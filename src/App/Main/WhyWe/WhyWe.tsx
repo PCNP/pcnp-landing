@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-import { blockWithItemsProps } from '../../../store/lang/indexlang'
+import { BlockWithItemsProps } from '../../../store/lang/indexlang'
 
 import styles from './WhyWe.module.sass'
 
@@ -13,11 +13,13 @@ const computer = require('src/common/images/index/whyWe/computer.png')
 
 
 type OwnProps = {
-  lang: blockWithItemsProps
+  lang: BlockWithItemsProps
 }
 
 
 export const WhyWe: React.FC<OwnProps> = ({ lang }) => {
+  const images = [diplom, date, apple2]
+
   return (
     <div className={styles.main}>
       <p className={styles.backgroundText}>
@@ -27,39 +29,26 @@ export const WhyWe: React.FC<OwnProps> = ({ lang }) => {
         <div className={styles.leftBlock}>
           <h2 className={styles.mainTitle}>{ lang.title }</h2>
           <div className={styles.items}>
-            <div className={styles.item}>
-              <div className={styles.imageBlock}>
-                <img src={diplom} />
-              </div>
-              <h3 className={styles.itemTitle}>
-                { lang.items[0].title }
-              </h3>
-              <p className={styles.itemText}>
-                { lang.items[0].text }
-              </p>
-            </div>
-            <div className={styles.item}>
-              <div className={styles.imageBlock}>
-                <img src={date} />
-              </div>
-              <h3 className={styles.itemTitle}>
-                { lang.items[1].title }
-              </h3>
-              <p className={styles.itemText}>
-                { lang.items[1].text }
-              </p>
-            </div>
-            <div className={styles.item}>
-              <div className={styles.imageBlock}>
-                <img src={apple2} />
-              </div>
-              <h3 className={styles.itemTitle}>
-                { lang.items[2].title }
-              </h3>
-              <p className={styles.itemText}>
-                { lang.items[2].text }
-              </p>
-            </div>
+            {
+              lang.items.map((el, i) => {
+                return (
+                  <div
+                    className={styles.item}
+                    key={i}
+                  >
+                    <div className={styles.imageBlock}>
+                      <img src={images[i]} />
+                    </div>
+                    <h3 className={styles.itemTitle}>
+                      { el.title }
+                    </h3>
+                    <p className={styles.itemText}>
+                      { el.text }
+                    </p>
+                  </div>
+                )
+              })
+            }
           </div>
         </div>
         <div className={styles.computerBlock}>

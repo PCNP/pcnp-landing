@@ -12,11 +12,12 @@ const ts = require('src/common/images/index/technology/ts.svg')
 
 type OwnProps = {
   project: item
+  projects: item[]
   length: number
 }
 
 
-export const InformationBlock: React.FC<OwnProps> = ({ project, length }) => {
+export const InformationBlock: React.FC<OwnProps> = ({ project, projects, length }) => {
   return (
     <div className={styles.main}>
       <div className={styles.wrapperBlock}>
@@ -59,20 +60,20 @@ export const InformationBlock: React.FC<OwnProps> = ({ project, length }) => {
             </div>
             <div className={styles.buttonsBlock}>
               {
-                project && (project.slug - 1 >= 0) && (
+                project && (project.id - 1 >= 0) && (
                   <Button
                     btnType='outline'
-                    href={`${project.slug - 1}`}
+                    href={`${projects[project.id - 1].slug}`}
                   >
                     Предыдущий проект
                   </Button>
                 )
               }
               {
-                project && (length > (project.slug + 1)) && (
+                project && (length > (project.id + 1)) && (
                   <Button
                     btnType='outline'
-                    href={`${project.slug + 1}`}
+                    href={`${projects[project.id + 1].slug}`}
                   >
                     Следующий проект
                   </Button>

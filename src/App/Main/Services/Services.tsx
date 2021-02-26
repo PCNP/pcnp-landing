@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { blockWithItemsProps } from '../../../store/lang/indexlang'
+import { BlockWithItemsProps } from '../../../store/lang/indexlang'
 
 import styles from './Services.module.sass'
 
@@ -14,10 +14,16 @@ const whatsapp = require('src/common/images/index/services/whatsapp.svg')
 
 
 type OwnProps = {
-  lang: blockWithItemsProps
+  lang: BlockWithItemsProps
 }
 
 export const Services: React.FC<OwnProps> = ({ lang }) => {
+  const images = [
+    { images: [chrome] },
+    { images: [apple, greenMan] },
+    { images: [colors] },
+    { images: [telegram, whatsapp] },
+  ]
   return (
     <div className={styles.main}>
       <p className={styles.backgroundText}>
@@ -25,44 +31,31 @@ export const Services: React.FC<OwnProps> = ({ lang }) => {
       </p>
       <h2 className={styles.servicesTitle}>{ lang.title }</h2>
       <div className={styles.content}>
-        <div className={styles.item}>
-          <div className={styles.imageBlock}>
-            <img src={chrome} />
-          </div>
-          <h3 className={styles.itemTitle}>{ lang.items[0].title }</h3>
-          <p className={styles.itemText}>
-            { lang.items[0].text }
-          </p>
-        </div>
-        <div className={styles.item}>
-          <div className={styles.imageBlock}>
-            <img src={apple} />
-            <img src={greenMan} />
-          </div>
-          <h3 className={styles.itemTitle}>{ lang.items[1].title }</h3>
-          <p className={styles.itemText}>
-            { lang.items[1].text }
-          </p>
-        </div>
-        <div className={styles.item}>
-          <div className={styles.imageBlock}>
-            <img src={colors} />
-          </div>
-          <h3 className={styles.itemTitle}>{ lang.items[2].title }</h3>
-          <p className={styles.itemText}>
-            { lang.items[2].text }
-          </p>
-        </div>
-        <div className={styles.item}>
-          <div className={styles.imageBlock}>
-            <img src={telegram} />
-            <img src={whatsapp} />
-          </div>
-          <h3 className={styles.itemTitle}>{ lang.items[3].title }</h3>
-          <p className={styles.itemText}>
-            { lang.items[3].text }
-          </p>
-        </div>
+        {
+          lang.items.map((el,index)=>{
+            return (
+              <div
+                className={styles.item}
+                key={index}
+              >
+                <div className={styles.imageBlock}>
+                  {
+                    images[index].images.map((img, i) => (
+                      <img
+                        src={img}
+                        key={i}
+                      />
+                    ))
+                  }
+                </div>
+                <h3 className={styles.itemTitle}>{ el.title }</h3>
+                <p className={styles.itemText}>
+                  { el.text }
+                </p>
+              </div>
+            )
+          })
+        }
       </div>
     </div>
   )
