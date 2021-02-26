@@ -78,6 +78,7 @@
   display: flex
   justify-content: space-between
   flex-wrap: wrap
+  align-items: flex-start
   margin: 0
 
   @include smartphone
@@ -88,19 +89,19 @@
   display: flex
   flex-direction: column
   align-items: center
-  justify-content: center
+  justify-content: space-between
 
   @include smartphone
-    width: 20%
+    flex-basis: 20%
     margin-right: 6%
     margin-bottom: 20px
 
   @include tablet
-    width: 15%
+    flex-basis: 15%
     margin-right: 2%
 
   @include desktop
-    width: 14%
+    flex-basis: 14%
     margin-bottom: 60px
     margin-right: 0
 
@@ -148,9 +149,8 @@
   margin-bottom: 20px
 
   @include smartphone
-    height: 50%
-    width: 70%
+    max-height: 50px
 
-  @include tablet
-    height: 50%
-    width: 40%
+  @include desktop
+    max-height: 65px
+

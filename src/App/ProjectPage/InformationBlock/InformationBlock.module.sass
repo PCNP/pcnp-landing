@@ -1,0 +1,74 @@
+@import 'src/styles/mixins'
+
+.main
+  width: 100%
+  display: flex
+  justify-content: center
+  padding-bottom: 60px
+
+.wrapperBlock
+  @include wrapper
+
+  margin: 0
+
+.about
+  width: 100%
+
+.mainTitle
+  font-size: 30px
+  letter-spacing: 0.1em
+  text-transform: uppercase
+  color: #93F8FF
+  margin-bottom: 40px
+
+.description, .module, .modules
+  font-size: 16px
+  line-height: 15px
+  color: #FFFFFF
+
+.description
+  margin-bottom: 40px
+
+.modules
+  text-decoration: none
+  list-style: none
+  padding: 0
+  margin-bottom: 40px
+
+.module
+  padding-left: 15px
+  margin-top: 15px
+
+.contentTechnologies
+  display: flex
+  justify-content: space-between
+  align-items: flex-end
+  width: 100%
+
+.technologies
+  display: flex
+  width: 35%
+  justify-content: space-between
+
+.item
+  display: flex
+  flex-direction: column
+  align-items: center
+  width: 30%
+
+  img
+    width: 60%
+    margin-bottom: 20px
+
+  p
+    font-size: 16px
+    line-height: 120%
+    text-align: center
+    letter-spacing: 0.1em
+    text-transform: uppercase
+    color: #93F8FF
+
+.buttonsBlock
+  display: flex
+  a
+    margin-left: 20px

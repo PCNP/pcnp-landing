@@ -5,20 +5,36 @@ import { Nav } from '../Nav/Nav'
 import { Logo } from '../Logo/Logo'
 import { MobileNav } from '../mobile/MobileNav/MobileNav'
 import { Button } from './HeaderButton/HeaderButton'
+import { RuEng } from '../RuEng/RuEng'
 
 import styles from './Header.module.sass'
 
 
-export const Header: React.FC = () => {
+type OwnProps = {
+  nav: string[]
+}
+
+const Header: React.FC<OwnProps> = ({ nav }) => {
   const [scroll, setScroll] = useState(0)
+
+  const [width, setWidth] = useState(0)
 
   const handleScroll = () => {
     setScroll(window.scrollY)
   }
 
+  const handlerWidth = () => {
+    setWidth(window.innerWidth)
+  }
+
   React.useEffect(() => {
+    handlerWidth()
     window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    window.addEventListener('resize', handlerWidth)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', handlerWidth)
+    }
   }, [])
 
   return (
@@ -32,12 +48,21 @@ export const Header: React.FC = () => {
     >
       <div className={styles.wrapperBlock}>
         <Logo />
-        <Nav scroll={scroll} />
-        <MobileNav />
+        <Nav
+          scroll={scroll}
+          nav={nav}
+        />
+        <MobileNav nav={nav} />
         {
           scroll > 0 ? <Button href='/'>Начать проект</Button> : ''
+        }
+        {
+          scroll <= 0 && width >= 768 ? <RuEng /> : ''
         }
       </div>
     </header>
   )
 }
+
+
+export default Header

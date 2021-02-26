@@ -7,9 +7,20 @@ import styles from './Nav.module.sass'
 
 type OwnProps = {
   scroll: number
+  nav: string[]
 }
 
-export const Nav: React.FC<OwnProps> = ({ scroll }) => {
+const navigation = [
+  'Услуги',
+  'Портфолио',
+  'Как мы работаем',
+  'Наши технологии',
+  'Наша команда',
+  'Контакты',
+]
+
+
+export const Nav: React.FC<OwnProps> = ({ scroll, nav = navigation }) => {
   return (
     <nav
       className={
@@ -19,12 +30,12 @@ export const Nav: React.FC<OwnProps> = ({ scroll }) => {
         )
       }
     >
-      <Link href='/'><a className={styles.item}>Услуги</a></Link>
-      <Link href='/'><a className={styles.item}>Портфолио</a></Link>
-      <Link href='/'><a className={styles.item}>Как мы работаем</a></Link>
-      <Link href='/'><a className={styles.item}>Технологии</a></Link>
-      <Link href='/'><a className={styles.item}>Команда</a></Link>
-      <Link href='/'><a className={styles.item}>Контакты</a></Link>
+      <Link href='/'><a className={styles.item}>{ nav[0] }</a></Link>
+      <Link href='/portfolio'><a className={styles.item}>{ nav[1] }</a></Link>
+      <Link href='/'><a className={styles.item}>{ nav[2] }</a></Link>
+      <Link href='/'><a className={styles.item}>{ nav[3] }</a></Link>
+      <Link href='/'><a className={styles.item}>{ nav[4] }</a></Link>
+      <Link href='/'><a className={styles.item}>{ nav[5] }</a></Link>
     </nav>
   )
 }

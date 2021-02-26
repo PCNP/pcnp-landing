@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 import { Nav } from '../Nav/Nav'
 import { Logo } from '../Logo/Logo'
@@ -9,12 +10,38 @@ import styles from './Footer.module.sass'
 const img = require('../../common/images/icons/mail.png')
 
 
-export const Footer: React.FC = () => {
+type OwnProps = {
+  nav: string[]
+}
+
+
+const navigation = [
+  'Услуги',
+  'Портфолио',
+  'Как мы работаем',
+  'Наши технологии',
+  'Наша команда',
+  'Контакты',
+]
+
+
+export const Footer: React.FC<OwnProps> = ({ nav = navigation }) => {
   return (
     <footer className={styles.footer}>
       <div className={styles.footerTitle}>
-        <Nav scroll={5} />
+        <Nav
+          scroll={0}
+          nav={nav}
+        />
         <Logo />
+        <nav className={styles.mobNav}>
+          <Link href='/'><a className={styles.item}>{ nav[0] }</a></Link>
+          <Link href='/portfolio'><a className={styles.item}>{ nav[1] }</a></Link>
+          <Link href='/'><a className={styles.item}>{ nav[2] }</a></Link>
+          <Link href='/'><a className={styles.item}>{ nav[3] }</a></Link>
+          <Link href='/'><a className={styles.item}>{ nav[4] }</a></Link>
+          <Link href='/'><a className={styles.item}>{ nav[5] }</a></Link>
+        </nav>
       </div>
       <div className={styles.footerUnderBlock}>
         <a

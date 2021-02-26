@@ -3,6 +3,7 @@ import Link from 'next/link'
 import cn from 'classnames'
 
 import { Button } from '../../Button/Button'
+import { RuEng } from '../../RuEng/RuEng'
 
 import styles from './MobileNav.module.sass'
 
@@ -12,7 +13,21 @@ const openMenuIcon = require('src/common/images/menu/openMenuIcon.png')
 const closeMenuIcon = require('src/common/images/menu/closeMenuIcon.png')
 
 
-export const MobileNav: React.FC = () => {
+type OwnProps = {
+  nav: string[]
+}
+
+const navigation = [
+  'Услуги',
+  'Портфолио',
+  'Как мы работаем',
+  'Наши технологии',
+  'Наша команда',
+  'Контакты',
+]
+
+
+export const MobileNav: React.FC<OwnProps> = ({ nav = navigation }) => {
   const handlerButton = () => {
 
   }
@@ -34,18 +49,21 @@ export const MobileNav: React.FC = () => {
         }
       >
         <div className={styles.wrapperBlock}>
-          <Link href='/'><a>Услуги</a></Link>
-          <Link href='/'><a>Портфолио</a></Link>
-          <Link href='/'><a>Как мы работаем</a></Link>
-          <Link href='/'><a>Технологии</a></Link>
-          <Link href='/'><a>Команда</a></Link>
-          <Link href='/'><a>Контакты</a></Link>
-          <Button
-            onClick={handlerButton}
-            btnType='outline'
-          >
-            <img src={icon} />
-          </Button>
+          <Link href='/'><a>{ nav[0] }</a></Link>
+          <Link href='/portfolio'><a className={styles.item}>{ nav[1] }</a></Link>
+          <Link href='/'><a>{ nav[2] }</a></Link>
+          <Link href='/'><a>{ nav[3] }</a></Link>
+          <Link href='/'><a>{ nav[4] }</a></Link>
+          <Link href='/'><a>{ nav[5] }</a></Link>
+          <div className={styles.buttonsBlock}>
+            <RuEng />
+            <Button
+              onClick={handlerButton}
+              btnType='outline'
+            >
+              <img src={icon} />
+            </Button>
+          </div>
         </div>
       </nav>
     </>

@@ -7,7 +7,7 @@ import { AnalyticsScripts } from 'src/components/AnalyticsScripts/AnalyticsScrip
 class MyDocument extends Document {
   render() {
     return (
-      <Html lang='ru'>
+      <Html>
         <Head>
           {
             process.env.NODE_ENV === 'production' && (

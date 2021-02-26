@@ -1,16 +1,25 @@
 import React from 'react'
 
 
+import { BlockWithItemsProps } from '../../../store/lang/indexlang'
+
 import styles from './WhyWe.module.sass'
 
 
-const diplom = require('src/common/images/index/whyWe/diplom.png')
-const date = require('src/common/images/index/whyWe/date.png')
-const apple2 = require('src/common/images/index/whyWe/apple2.png')
+const diplom = require('src/common/images/index/whyWe/diplom.svg')
+const date = require('src/common/images/index/whyWe/date.svg')
+const apple2 = require('src/common/images/index/whyWe/apple2.svg')
 const computer = require('src/common/images/index/whyWe/computer.png')
 
 
-export const WhyWe: React.FC = () => {
+type OwnProps = {
+  lang: BlockWithItemsProps
+}
+
+
+export const WhyWe: React.FC<OwnProps> = ({ lang }) => {
+  const images = [diplom, date, apple2]
+
   return (
     <div className={styles.main}>
       <p className={styles.backgroundText}>
@@ -18,56 +27,28 @@ export const WhyWe: React.FC = () => {
       </p>
       <div className={styles.content}>
         <div className={styles.leftBlock}>
-          <h2 className={styles.mainTitle}>Почему мы?</h2>
+          <h2 className={styles.mainTitle}>{ lang.title }</h2>
           <div className={styles.items}>
-            <div className={styles.item}>
-              <div className={styles.imageBlock}>
-                <img src={diplom} />
-              </div>
-              <h3 className={styles.itemTitle}>
-                Высокая
-                <br />
-                квалификация
-              </h3>
-              <p className={styles.itemText}>
-                все наши работники
-                обладают высокой
-                квалификацией и большим
-                набором скиллов
-              </p>
-            </div>
-            <div className={styles.item}>
-              <div className={styles.imageBlock}>
-                <img src={date} />
-              </div>
-              <h3 className={styles.itemTitle}>
-                Cоблюдение
-                <br />
-                дедлайнов
-              </h3>
-              <p className={styles.itemText}>
-                процесс работы
-                строится на четкой
-                организации и умелом
-                распределении задач
-              </p>
-            </div>
-            <div className={styles.item}>
-              <div className={styles.imageBlock}>
-                <img src={apple2} />
-              </div>
-              <h3 className={styles.itemTitle}>
-                Внимание к
-                <br />
-                деталям
-              </h3>
-              <p className={styles.itemText}>
-                мы учитываем все
-                ваши пожелания и
-                следим за качеством
-                на всех уровнях
-              </p>
-            </div>
+            {
+              lang.items.map((el, i) => {
+                return (
+                  <div
+                    className={styles.item}
+                    key={i}
+                  >
+                    <div className={styles.imageBlock}>
+                      <img src={images[i]} />
+                    </div>
+                    <h3 className={styles.itemTitle}>
+                      { el.title }
+                    </h3>
+                    <p className={styles.itemText}>
+                      { el.text }
+                    </p>
+                  </div>
+                )
+              })
+            }
           </div>
         </div>
         <div className={styles.computerBlock}>

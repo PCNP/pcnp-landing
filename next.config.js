@@ -1,10 +1,14 @@
 const withOptimizedImages = require('next-optimized-images')
 const withPlugins = require('next-compose-plugins')
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-})
+const withBundleAnalyzer = require('@next/bundle-analyzer')({ enabled: process.env.ANALYZE === 'true' })
+
 
 const nextConfig = {
+  i18n: {
+    locales: ['en', 'ru'],
+    defaultLocale: 'ru',
+    //localeDetection: false,
+  },
   assetPrefix: process.env.ASSET_PREFIX || '',
   basePath: process.env.BASE_PATH || '',
   trailingSlash: true,
@@ -16,7 +20,7 @@ const nextConfig = {
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     // Note: we provide webpack above so you should not `require` it
     // Perform customizations to webpack config
-    config.plugins.push(new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /ru/))
+    //config.plugins.push(new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /ru/))
 
     // Important: return the modified config
     return config

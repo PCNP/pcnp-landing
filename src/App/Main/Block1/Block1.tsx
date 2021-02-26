@@ -1,23 +1,26 @@
 import React from 'react'
 
 import { Button } from '../../../components/Button/Button'
+import { CommonBlockProps } from '../../../store/lang/indexlang'
 
 import styles from './Block1.module.sass'
 
 
-export const Block1: React.FC = () => {
+type OwnProps = {
+  lang: CommonBlockProps
+}
+
+export const Block1: React.FC<OwnProps> = ({ lang }) => {
   return (
     <div className={styles.main}>
       <div className={styles.content}>
         <h1 className={styles.blockTitle}>
-          Студия разработки сайтов
-          <br />
-          и мобильных приложений
+          { lang.title }
         </h1>
         <p className={styles.slogan}>
-          Быстро, качественно, достойно!
+          { lang.slogan }
         </p>
-        <Button href='/'>Начать проект</Button>
+        <Button href='/'>{ lang.button }</Button>
       </div>
     </div>
   )

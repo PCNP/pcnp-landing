@@ -94,12 +94,16 @@
 
   @include mini-tablet
     width: 48%
-    height: 40vw
+    height: 210px
+    margin-bottom: 20px
 
   @include tablet
     width: 24%
-    height: 21vw
+    height: 200px
     margin-bottom: 0
+
+  @include desktop
+    height: 230px
 
   @include large-desktop
     max-width: 288px
@@ -126,7 +130,7 @@
 
   @include tablet
     img
-      height: 5vw
+      height: 50px
 
   @include large-desktop
     img
@@ -142,15 +146,18 @@
     margin-top: 20px
 
   @include mini-tablet
-    font-size: 2vw
-    margin-top: 10px
+    font-size: 12px
+    margin-top: 0px
 
   @include tablet
-    font-size: 1.2vw
+    font-size: 12px
+    margin-top: 20px
+
+  @include desktop
+    font-size: 14px
 
   @include large-desktop
     font-size: 16px
-    margin-top: 20px
 
 .itemText
   color: white
@@ -167,11 +174,14 @@
     line-height: 140%
 
   @include mini-tablet
-    font-size: 1.8vw
+    font-size: 10px
     margin-top: 10px
 
   @include tablet
-    font-size: 1vw
+    font-size: 8px
+
+  @include desktop
+    font-size: 12px
 
   @include large-desktop
     font-size: 14px
