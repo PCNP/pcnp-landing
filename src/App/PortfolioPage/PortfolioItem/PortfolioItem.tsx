@@ -22,11 +22,12 @@ type OwnProps = {
     img: any
   }[]
   bgType: string
+  more: string
 }
 
 
 export const PortfolioItem: React.FC<OwnProps> = (
-  { bgType, str = 'site', title, description, slug, mobImg, desktopImg }) => {
+  { more, bgType, str = 'site', title, description, slug, mobImg, desktopImg }) => {
   return (
     <div
       className={
@@ -49,7 +50,7 @@ export const PortfolioItem: React.FC<OwnProps> = (
             href={`portfolio/${slug}`}
             btnType='outline'
           >
-            Подробнее
+            { more }
           </Button>
         </div>
         <div className={styles.rightBlock}>

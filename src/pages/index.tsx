@@ -15,13 +15,13 @@ import { Dictionary, enDictionary, ruDictionary } from '../store/lang/dictionary
 const MainPage: React.FC = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
-      <Block1 lang={props.block1} />
-      <Services lang={props.services} />
-      <WhyWe lang={props.whyWe} />
-      <Portfolio lang={props.portfolio} />
-      <WorkBlock lang={props.workBlock} />
-      <TechnologyBlock lang={props.techBlock} />
-      <ContactBlock lang={props.contactBlock} />
+      <Block1 {...props.block1} />
+      <Services {...props.services} />
+      <WhyWe {...props.whyWe} />
+      <Portfolio {...props.portfolio} />
+      <WorkBlock {...props.workBlock} />
+      <TechnologyBlock {...props.techBlock} />
+      <ContactBlock {...props.contactBlock} />
     </>
   )
 }

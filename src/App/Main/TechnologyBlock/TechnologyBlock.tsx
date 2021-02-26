@@ -26,11 +26,8 @@ type Item = {
   img: any
 }
 
-type OwnProps = {
-  lang: CommonBlockProps
-}
 
-export const TechnologyBlock: React.FC<OwnProps> = ({ lang }) => {
+export const TechnologyBlock: React.FC<CommonBlockProps> = (props) => {
   const techonologies: Item[] = [
     {
       name: 'typescript', img: ts,
@@ -80,8 +77,8 @@ export const TechnologyBlock: React.FC<OwnProps> = ({ lang }) => {
       <p className={styles.backgroundText}>
         technology
       </p>
-      <h2 className={styles.mainTitle}>{ lang.title }</h2>
-      <p className={styles.slogan}>{ lang.slogan }</p>
+      <h2 className={styles.mainTitle}>{ props.title }</h2>
+      <p className={styles.slogan}>{ props.slogan }</p>
       <div className={styles.content}>
         {
           techonologies.map( (el, i) => {
