@@ -2,6 +2,7 @@ import React from 'react'
 import { useRouter } from 'next/router'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 
+
 import { ContactBlock } from '../../components/ContactBlock/ContactBlock'
 import { Block1 } from '../../App/ProjectPage/Block1/Block1'
 import { item, items } from 'src/store/portfolioItems'
@@ -23,6 +24,7 @@ const Project: React.FC = (props: InferGetStaticPropsType<typeof getStaticProps>
       <CarouselBlock
         items={[1,2,3]}
         active={0}
+        slideImages = {project.slideImages}
       />
       <InformationBlock
         projects={items}

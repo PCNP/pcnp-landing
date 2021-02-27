@@ -3,6 +3,7 @@ const desktop = require('src/common/images/portfolioPage/items/item_1/desktop.sv
 const ts = require('src/common/images/index/technology/ts.svg')
 const next = require('src/common/images/index/technology/next.svg')
 const redux = require('src/common/images/index/technology/redux.svg')
+const slideImage = require('src/common/images/portfolioPage/items/item_1/slideImage.svg')
 
 
 export type item = {
@@ -20,6 +21,7 @@ export type item = {
     name: string
     img: any
   }[]
+  slideImages: any[]
 }
 
 export const items: item[] = [
@@ -30,6 +32,7 @@ export const items: item[] = [
     description: 'Разработка мобильного приложения',
     mobImg: mob,
     desktopImg: desktop,
+    slideImages: [slideImage, slideImage, slideImage],
     str: 'site',
     href: '',
     modules: [
@@ -62,6 +65,7 @@ export const items: item[] = [
     description: 'Разработка мобильного приложения',
     mobImg: mob,
     desktopImg: desktop,
+    slideImages: [slideImage, slideImage, slideImage],
     str: 'app',
     href: '',
     modules: [
@@ -94,6 +98,7 @@ export const items: item[] = [
     description: 'Разработка мобильного приложения',
     mobImg: mob,
     desktopImg: desktop,
+    slideImages: [slideImage, slideImage, slideImage],
     str: 'site',
     href: '',
     modules: [
@@ -126,6 +131,7 @@ export const items: item[] = [
     description: 'Разработка мобильного приложения',
     mobImg: mob,
     desktopImg: desktop,
+    slideImages: [slideImage, slideImage, slideImage],
     str: 'app',
     href: '',
     modules: [

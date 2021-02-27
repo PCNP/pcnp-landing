@@ -1,0 +1,195 @@
+@import 'src/styles/mixins';
+
+$indent: 40px;
+
+$level1-height: 240px;
+$level1-width: 400px;
+$level0-height: 360px;
+$level0-width: 600px;
+
+$level-1-left: calc(100vw - #{$level1-width - $indent});
+$level0-left: 330px;
+$level1-left: -$indent;
+
+.main{
+  width: 100%;
+  height: 480px;
+  position: relative;
+}
+
+#carousel {
+  position: absolute;
+  height: 360px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.arrow {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  color: #228291;
+  line-height: 30px;
+  margin-top: calc(#{$level0-height} / 2 - 15px);
+  z-index: 1000;
+}
+
+.arrow-left{
+  left: 5%;
+  background-image: url('../../../common/images/portfolioPage/arrows/leftArrow.svg');
+  background-size: 100% 100%;
+}
+
+.arrow-right {
+  right: 5%;
+  background-image: url('../../../common/images/portfolioPage/arrows/rightArrow.svg');
+  background-size: 100% 100%;
+}
+
+.item {
+  text-align: center;
+  color: white;
+  font-size: 40px;
+  position: absolute;
+  transition: height 1s, width 1s, left 1s, margin-top 1s, line-height 1s, background-color 1s;
+
+  .slideImage{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 0;
+  }
+
+  .dark{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+  }
+}
+
+.level-1 {
+  height: $level1-height;
+  width: $level1-width;
+  line-height: $level1-height;
+  left: $level-1-left;
+  margin-top: calc(#{$level0-height - $level1-height}/2);
+
+  .dark{
+    background: rgba(1, 39, 74, 0.6);
+  }
+}
+
+.level0 {
+  height: $level0-height;
+  width: $level0-width;
+  line-height: $level0-height;
+  left: calc(50vw - #{$level0-width}/2);
+}
+
+.level1 {
+  height: $level1-height;
+  width: $level1-width;
+  line-height: $level1-height;
+  left: $level1-left;
+  margin-top: calc(#{$level0-height - $level1-height}/2);
+
+  .dark{
+    background: rgba(1, 39, 74, 0.6);
+  }
+}
+
+.left-enter {
+  opacity: 0;
+  left: $level1-left - $level1-width;
+  height: $level1-height;
+  width: $level1-width;
+  line-height: $level1-height;
+  margin-top: calc(#{$level0-height - $level1-height}/2);
+}
+
+.left-enter.left-enter-active {
+  opacity: 1;
+  left: $level1-left;
+  height: $level1-height;
+  width: $level1-width;
+  line-height: $level1-height;
+  margin-top: calc(#{$level0-height - $level1-height}/2);
+  transition: left 1s, opacity 1s, height 1s, width 1s, margin-top 1s, line-height 1s;
+}
+
+.left-leave {
+  opacity: 1;
+  left: $level-1-left;
+  height: $level1-height;
+  width: $level1-width;
+  line-height: $level1-height;
+  margin-top: calc(#{$level0-height - $level1-height}/2);
+}
+
+.left-leave.left-leave-active {
+  left: $level-1-left + $level1-width + 80;
+  opacity: 0;
+  height: $level1-height;
+  line-height: $level1-height;
+  margin-top: calc(#{$level0-height - $level1-height}/2);
+  width: $level1-width;
+  transition: left 1s, opacity 1s, height 1s, width 1s, margin-top 1s, line-height 1s;
+}
+
+.right-enter {
+  opacity: 0;
+  left: $level-1-left + $level1-width;
+  height: $level1-height;
+  width: $level1-width;
+  line-height: $level1-height;
+  margin-top: calc(#{$level0-height - $level1-height}/2);
+}
+
+.right-enter.right-enter-active {
+  left: $level-1-left;
+  opacity: 1;
+  height: $level1-height;
+  margin-top: calc(#{$level0-height - $level1-height}/2);
+  line-height: $level1-height;
+  width: $level1-width;
+  transition: left 1s, opacity 1s, height 1s, width 1s, margin-top 1s, line-height 1s;
+}
+
+.right-leave {
+  left: $level1-left;
+  height: $level1-height;
+  opacity: 1;
+  margin-top: calc(#{$level0-height - $level1-height}/2);
+  line-height: $level1-height;
+  width: $level1-width;
+}
+
+.right-leave.right-leave-active {
+  left: $level1-left - $level1-width;
+  opacity: 0;
+  height: $level1-height;
+  width: $level1-width;
+  line-height: $level1-height;
+  margin-top: calc(#{$level0-height - $level1-height}/2);
+  transition: left 1s, opacity 1s, height 1s, width 1s, margin-top 1s, line-height 1s;
+}
+
+.noselect {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

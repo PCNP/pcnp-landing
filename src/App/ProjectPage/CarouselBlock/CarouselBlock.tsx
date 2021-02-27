@@ -1,34 +1,11 @@
-import './CarouselBlock.module.scss'
-
-
-import { CSSTransition } from 'react-transition-group'
 import React from 'react'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
-
-type ItemProps = {
-  level: number
-  id: number
-}
-
-class Item extends React.Component<ItemProps> {
-  constructor(props: any) {
-    super(props)
-    this.state = { level: this.props.level }
-  }
-
-  render() {
-    const className = 'item level' + this.props.level
-    return(
-      <div className={className}>
-        { this.props.id }
-      </div>
-    )
-  }
-}
 
 type CarouselBlockProps = {
   items: number[]
   active: number
+  slideImages: any[]
 }
 
 
@@ -46,14 +23,10 @@ class CarouselBlock extends React.Component<CarouselBlockProps> {
     direction: '',
   }
 
-  constructor(props: CarouselBlockProps) {
-    super(props)
-  }
-
   generateItems() {
     const items = []
     let level
-    for (let i = this.state.active - 2; i < this.state.active + 3; i++) {
+    for (let i = this.state.active - 1; i < this.state.active + 2; i++) {
       let index: number = i
       if (i < 0) {
         index = this.state.items.length + i
@@ -63,9 +36,10 @@ class CarouselBlock extends React.Component<CarouselBlockProps> {
       level = this.state.active - i
       items.push(
         <Item
-          key={index}
+          key={i}
           id={this.state.items[index]}
           level={level}
+          image = {this.props.slideImages[this.state.items[index] - 1]}
         />
       )
     }
@@ -90,27 +64,53 @@ class CarouselBlock extends React.Component<CarouselBlockProps> {
   }
 
   render() {
-    // @ts-ignore
     return(
-      <div
-        id='carousel'
-        className='noselect'
-      >
+      <div className='main'>
         <div
-          className='arrow arrow-left'
-          onClick={this.moveLeft}
+          id='carousel'
+          className='noselect'
         >
-          <i className='fi-arrow-left' />
+          <div
+            className='arrow arrow-left'
+            onClick={this.moveLeft}
+          >
+            <i className='fi-arrow-left' />
+          </div>
+          <ReactCSSTransitionGroup
+            transitionName={this.state.direction}
+          >
+            { this.generateItems() }
+          </ReactCSSTransitionGroup>
+          <div
+            className='arrow arrow-right'
+            onClick={this.moveRight}
+          >
+            <i className='fi-arrow-right' />
+          </div>
         </div>
-        <CSSTransition classNames={this.state.direction}>
-          { this.generateItems() }
-        </CSSTransition>
-        <div
-          className='arrow arrow-right'
-          onClick={this.moveRight}
-        >
-          <i className='fi-arrow-right' />
-        </div>
+      </div>
+    )
+  }
+}
+
+type ItemProps = {
+  level: number
+  id: number
+  image: any
+}
+
+class Item extends React.Component<ItemProps> {
+  state: { level:number } = { level: this.props.level }
+
+  render() {
+    const className = 'item level' + this.props.level
+    return(
+      <div className={className}>
+        <div className='dark' />
+        <img
+          src={this.props.image}
+          className='slideImage'
+        />
       </div>
     )
   }
