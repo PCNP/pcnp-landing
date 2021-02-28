@@ -12,12 +12,7 @@ const apple2 = require('src/common/images/index/whyWe/apple2.svg')
 const computer = require('src/common/images/index/whyWe/computer.png')
 
 
-type OwnProps = {
-  lang: BlockWithItemsProps
-}
-
-
-export const WhyWe: React.FC<OwnProps> = ({ lang }) => {
+export const WhyWe: React.FC<BlockWithItemsProps> = (props) => {
   const images = [diplom, date, apple2]
 
   return (
@@ -27,10 +22,10 @@ export const WhyWe: React.FC<OwnProps> = ({ lang }) => {
       </p>
       <div className={styles.content}>
         <div className={styles.leftBlock}>
-          <h2 className={styles.mainTitle}>{ lang.title }</h2>
+          <h2 className={styles.mainTitle}>{ props.title }</h2>
           <div className={styles.items}>
             {
-              lang.items.map((el, i) => {
+              props.items.map((el, i) => {
                 return (
                   <div
                     className={styles.item}

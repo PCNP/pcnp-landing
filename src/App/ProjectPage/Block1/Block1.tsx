@@ -9,9 +9,10 @@ import styles from './Block1.module.sass'
 
 type OwnProps = {
   project: item
+  button: string
 }
 
-export const Block1: React.FC<OwnProps> = ({ project }) => {
+export const Block1: React.FC<OwnProps> = ({ project, button }) => {
   return (
     <div className={styles.main}>
       <div className={styles.wrapperBlock}>
@@ -23,7 +24,7 @@ export const Block1: React.FC<OwnProps> = ({ project }) => {
               href={project && project.href}
               btnType='outline'
             >
-              На сайт
+              { button }
             </Button>
           </div>
         </div>

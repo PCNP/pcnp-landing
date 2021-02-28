@@ -35,6 +35,11 @@ export type Dictionary = {
   getQualProduct: string
   applyTools: string
   contactUs: string
+  more: string
+  viewSite: string
+  about: string
+  previousProject: string
+  nextProject: string
 }
 
 export const ruDictionary: Dictionary = {
@@ -75,6 +80,11 @@ export const ruDictionary: Dictionary = {
   getQualProduct: 'По окончании работ, вы получаете качественный продукт, сделанный по всем стандартам',
   applyTools: 'Применяем эффективные инструменты и лучшие практики отрасли',
   contactUs: 'Свяжитесь с нами!',
+  more: 'Подробнее',
+  viewSite: 'На сайт',
+  about: 'О проекте',
+  previousProject: 'Предыдущий проект',
+  nextProject: 'Следующий проект',
 }
 
 export const enDictionary: Dictionary = {
@@ -115,4 +125,9 @@ export const enDictionary: Dictionary = {
   getQualProduct: 'Upon completion of the work, you receive a fine product made according to all standards',
   applyTools: 'We apply effective tools and industry best practices',
   contactUs: 'Contact Us',
+  more: 'More',
+  viewSite: 'View site',
+  about: 'About',
+  previousProject: 'Previous project',
+  nextProject: 'Next project',
 }

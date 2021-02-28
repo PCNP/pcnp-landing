@@ -9,12 +9,7 @@ const thread = require('src/common/images/index/workBlock/thread.svg')
 const man = require('src/common/images/index/workBlock/man.svg')
 
 
-type OwnProps = {
-  lang: BlockWithItemsProps
-}
-
-
-export const WorkBlock: React.FC<OwnProps> = ({ lang }) => {
+export const WorkBlock: React.FC<BlockWithItemsProps> = (props) => {
   return (
     <div className={styles.main}>
       <p className={styles.backgroundText}>
@@ -22,10 +17,10 @@ export const WorkBlock: React.FC<OwnProps> = ({ lang }) => {
       </p>
       <div className={styles.content}>
         <div className={styles.rightBlock}>
-          <h2 className={styles.mainTitle}>{ lang.title }</h2>
+          <h2 className={styles.mainTitle}>{ props.title }</h2>
           <div className={styles.items}>
             {
-              lang.items.map((el, i)=> {
+              props.items.map((el, i)=> {
                 return (
                   <div
                     className={styles.item}

@@ -4,11 +4,6 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({ enabled: process.e
 
 
 const nextConfig = {
-  i18n: {
-    locales: ['en', 'ru'],
-    defaultLocale: 'ru',
-    //localeDetection: false,
-  },
   assetPrefix: process.env.ASSET_PREFIX || '',
   basePath: process.env.BASE_PATH || '',
   trailingSlash: true,

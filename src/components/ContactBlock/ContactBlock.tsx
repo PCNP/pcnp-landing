@@ -5,18 +5,14 @@ import { CommonBlockProps } from '../../store/lang/indexlang'
 import styles from './ContactBlock.module.sass'
 
 
-type OwnProps = {
-  lang?: CommonBlockProps
-}
-
-export const ContactBlock: React.FC<OwnProps> = ({ lang }) => {
+export const ContactBlock: React.FC<CommonBlockProps> = (props) => {
   return (
     <div className={styles.main}>
       <p className={styles.backgroundText}>
         contact us
       </p>
       <div className={styles.content}>
-        <h2 className={styles.mainTitle}>{ lang && lang.title || 'Свяжитесь с нами' }</h2>
+        <h2 className={styles.mainTitle}>{ props && props.title }</h2>
 
       </div>
     </div>

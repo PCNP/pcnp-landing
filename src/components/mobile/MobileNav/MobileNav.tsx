@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import cn from 'classnames'
+import { useRouter } from 'next/router'
 
 import { Button } from '../../Button/Button'
 import { RuEng } from '../../RuEng/RuEng'
@@ -28,6 +29,9 @@ const navigation = [
 
 
 export const MobileNav: React.FC<OwnProps> = ({ nav = navigation }) => {
+  const router = useRouter()
+  const pref = router.asPath.split('/')[1] === 'en' ? '/en' : ''
+
   const handlerButton = () => {
 
   }
@@ -49,12 +53,12 @@ export const MobileNav: React.FC<OwnProps> = ({ nav = navigation }) => {
         }
       >
         <div className={styles.wrapperBlock}>
-          <Link href='/'><a>{ nav[0] }</a></Link>
-          <Link href='/portfolio'><a className={styles.item}>{ nav[1] }</a></Link>
-          <Link href='/'><a>{ nav[2] }</a></Link>
-          <Link href='/'><a>{ nav[3] }</a></Link>
-          <Link href='/'><a>{ nav[4] }</a></Link>
-          <Link href='/'><a>{ nav[5] }</a></Link>
+          <Link href={pref + '/'}><a>{ nav[0] }</a></Link>
+          <Link href={pref + '/portfolio'}><a className={styles.item}>{ nav[1] }</a></Link>
+          <Link href={pref + '/'}><a>{ nav[2] }</a></Link>
+          <Link href={pref + '/'}><a>{ nav[3] }</a></Link>
+          <Link href={pref + '/'}><a>{ nav[4] }</a></Link>
+          <Link href={pref + '/'}><a>{ nav[5] }</a></Link>
           <div className={styles.buttonsBlock}>
             <RuEng />
             <Button

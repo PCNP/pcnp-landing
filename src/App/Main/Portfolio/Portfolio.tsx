@@ -10,12 +10,7 @@ import { MobilePortfolio } from './MobilePortfolio'
 const example = require('src/common/images/index/portfolio/portfolioImage.svg')
 
 
-type OwnProps = {
-  lang: CommonBlockProps
-}
-
-
-export const Portfolio: React.FC<OwnProps> = ({ lang }) => {
+export const Portfolio: React.FC<CommonBlockProps> = (props) => {
   const items = [
     {
       name: 'Я Юрист',
@@ -38,7 +33,7 @@ export const Portfolio: React.FC<OwnProps> = ({ lang }) => {
       <p className={styles.backgroundText}>
         cases
       </p>
-      <h2 className={styles.mainTitle}>{ lang.title }</h2>
+      <h2 className={styles.mainTitle}>{ props.title }</h2>
       <MobilePortfolio />
       <div className={styles.content}>
         {
@@ -63,7 +58,7 @@ export const Portfolio: React.FC<OwnProps> = ({ lang }) => {
         href='/'
         btnType='outline'
       >
-        { lang.button }
+        { props.button }
       </Button>
     </div>
   )

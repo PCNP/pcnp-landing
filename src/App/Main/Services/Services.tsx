@@ -13,11 +13,7 @@ const telegram = require('src/common/images/index/services/telegram.svg')
 const whatsapp = require('src/common/images/index/services/whatsapp.svg')
 
 
-type OwnProps = {
-  lang: BlockWithItemsProps
-}
-
-export const Services: React.FC<OwnProps> = ({ lang }) => {
+export const Services: React.FC<BlockWithItemsProps> = (props) => {
   const images = [
     { images: [chrome] },
     { images: [apple, greenMan] },
@@ -29,10 +25,10 @@ export const Services: React.FC<OwnProps> = ({ lang }) => {
       <p className={styles.backgroundText}>
         we offer
       </p>
-      <h2 className={styles.servicesTitle}>{ lang.title }</h2>
+      <h2 className={styles.servicesTitle}>{ props.title }</h2>
       <div className={styles.content}>
         {
-          lang.items.map((el,index)=>{
+          props.items.map((el,index)=>{
             return (
               <div
                 className={styles.item}

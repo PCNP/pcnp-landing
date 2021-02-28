@@ -8,26 +8,24 @@ import styles from './RuEng.module.sass'
 
 export const RuEng: React.FC = () => {
   const router = useRouter()
-  const [curr, setCurr] = useState(router.locale)
-
-  const handlerClick = (curr: string | undefined) => {
+  const [curr, setCurr] = useState(router.asPath.split('/')[1])
+  const handlerClick = (curr: string) => {
     setCurr(curr)
   }
   useEffect(()=>{
-    handlerClick(router.locale)
-  }, [router.locale])
+    handlerClick(router.asPath.split('/')[1])
+  }, [router.asPath])
 
   return (
     <div className={styles.main}>
       <Link
-        href={router.asPath}
-        locale='ru'
+        href={curr === 'en' ? router.asPath.split('/').filter((el) => el !== 'en').join('/') : router.asPath}
       >
         <a
           className={
             cn(
               styles.eng,
-              curr === 'ru' ? styles.curr : ''
+              curr !== 'en' ? styles.curr : ''
             )
           }
         >
@@ -36,8 +34,7 @@ export const RuEng: React.FC = () => {
       </Link>
       <div className={styles.line} />
       <Link
-        href={router.asPath}
-        locale='en'
+        href={router.asPath.split('/')[1] === 'en' ? router.asPath : '/en' + router.asPath}
       >
         <a
           className={
