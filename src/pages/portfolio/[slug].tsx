@@ -7,7 +7,7 @@ import { ContactBlock } from '../../components/ContactBlock/ContactBlock'
 import { Block1 } from '../../App/ProjectPage/Block1/Block1'
 import { item, items } from 'src/store/portfolioItems'
 import { InformationBlock } from '../../App/ProjectPage/InformationBlock/InformationBlock'
-import { Dictionary, enDictionary, ruDictionary } from '../../store/lang/dictionary'
+import { ruDictionary } from '../../store/lang/dictionary'
 import { createSlugPortfolioProps } from '../../store/lang/slugPortfolioLang'
 import CarouselBlock from '../../App/ProjectPage/CarouselBlock/CarouselBlock'
 
@@ -43,17 +43,13 @@ export async function getStaticPaths() {
   })
   return {
     paths,
-    fallback: true,
+    fallback: false,
   }
 }
 
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  let dictionary: Dictionary = ruDictionary
-  if(locale === 'en'){
-    dictionary = enDictionary
-  }
-  return { props: createSlugPortfolioProps(dictionary) }
+export const getStaticProps: GetStaticProps = async () => {
+  return { props: createSlugPortfolioProps(ruDictionary) }
 }
 
 export default Project

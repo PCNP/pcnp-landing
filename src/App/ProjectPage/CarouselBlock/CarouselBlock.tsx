@@ -13,6 +13,7 @@ type State = {
   items: number[]
   active: number
   direction: string
+  slideImages: any[]
 }
 
 
@@ -21,6 +22,7 @@ class CarouselBlock extends React.Component<CarouselBlockProps> {
     items: this.props.items,
     active: this.props.active,
     direction: '',
+    slideImages: this.props.slideImages || [],
   }
 
   generateItems() {
@@ -39,7 +41,7 @@ class CarouselBlock extends React.Component<CarouselBlockProps> {
           key={i}
           id={this.state.items[index]}
           level={level}
-          image = {this.props.slideImages[this.state.items[index] - 1]}
+          image = {this.state.slideImages[this.state.items[index] - 1]}
         />
       )
     }
