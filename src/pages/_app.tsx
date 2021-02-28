@@ -3,7 +3,7 @@ import { AppProps } from 'next/app'
 
 import '../styles/global.sass'
 
-import '../App/ProjectPage/CarouselBlock/CarouselBlock.scss'
+import '../App/ProjectPage/CarouselBlock/CarouselBlock.sass'
 
 
 import { Footer } from '../components/Footer/Footer'
