@@ -1,0 +1,87 @@
+@import 'src/styles/mixins'
+
+
+.main
+  width: 100%
+  display: flex
+  justify-content: center
+  align-items: center
+  overflow: hidden
+  position: relative
+
+  @include smartphone
+    height: 200px
+
+  @include tablet
+    height: 400px
+
+  @include desktop
+    height: 480px
+
+.carouselBlock
+  overflow: visible
+
+  @include smartphone
+    width: 216px
+
+  @include mini-tablet
+    width: 40%
+
+  @include tablet
+    width: 50%
+
+  @include large-desktop
+    width: 41.6%
+
+.carousel
+  width: 100%
+  overflow: visible
+
+.item
+  width: 100%
+  margin: auto
+  text-align: center
+  transition: all 0.5s ease-in
+  img
+    transition: all 0.5s ease-in
+    width: 100%
+    height: 100%
+
+.hidden
+  opacity: 0.4
+  img
+    @include smartphone
+      height: 100%
+      width: 90%
+
+    @include tablet
+      height: 80%
+      width: 80%
+    @include large-desktop
+      height: 66%
+      width: 66%
+
+.arrowsBlock
+  position: absolute
+  justify-content: space-between
+
+  @include wrapper
+
+  @include smartphone
+    display: none
+
+  @include mini-tablet
+    display: flex
+
+.arrowRight, .arrowLeft
+  width: 30px
+  height: 30px
+  background-size: 100% 100%
+  cursor: pointer
+
+.arrowRight
+  background-image: url('../../../common/images/portfolioPage/arrows/leftArrow.svg')
+  transform: rotate(180deg)
+
+.arrowLeft
+  background-image: url('../../../common/images/portfolioPage/arrows/leftArrow.svg')
