@@ -9,7 +9,11 @@ import { item, items } from 'src/store/portfolioItems'
 import { InformationBlock } from '../../App/ProjectPage/InformationBlock/InformationBlock'
 import { ruDictionary } from '../../store/lang/dictionary'
 import { createSlugPortfolioProps } from '../../store/lang/slugPortfolioLang'
+<<<<<<< HEAD
 import CarouselBlock from '../../App/ProjectPage/CarouselBlock/CarouselBlock'
+=======
+import { CarouselBlock } from '../../App/ProjectPage/Carousel/Carousel'
+>>>>>>> dev4
 
 
 const Project: React.FC = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
@@ -21,11 +25,20 @@ const Project: React.FC = (props: InferGetStaticPropsType<typeof getStaticProps>
         project={project}
         {...props.block1}
       />
+<<<<<<< HEAD
       <CarouselBlock
         items={[1,2,3]}
         active={0}
         slideImages = {project.slideImages}
       />
+=======
+      { /*<CarouselBlock
+        items={[1,2,3]}
+        active={0}
+        slideImages = {project.slideImages}
+      />*/ }
+      <CarouselBlock slideImages = {project.slideImages} />
+>>>>>>> dev4
       <InformationBlock
         projects={items}
         project={project}

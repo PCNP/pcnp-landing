@@ -19,8 +19,13 @@
     "next": "10.0.6",
     "next-compose-plugins": "2.2.1",
     "next-optimized-images": "2.6.2",
+    "pure-react-carousel": "^1.27.6",
     "react": "17.0.1",
     "react-addons-css-transition-group": "15.6.2",
+<<<<<<< HEAD
+=======
+    "react-carousel": "^4.3.0",
+>>>>>>> dev4
     "react-dom": "17.0.1",
     "sass": "1.32.6",
     "webp-loader": "0.6.0"
