@@ -21,7 +21,10 @@ export const Services: React.FC<BlockWithItemsProps> = (props) => {
     { images: [telegram, whatsapp] },
   ]
   return (
-    <div className={styles.main}>
+    <div
+      className={styles.main}
+      id='services'
+    >
       <p className={styles.backgroundText}>
         we offer
       </p>

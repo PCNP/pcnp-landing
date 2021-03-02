@@ -53,12 +53,12 @@ export const MobileNav: React.FC<OwnProps> = ({ nav = navigation }) => {
         }
       >
         <div className={styles.wrapperBlock}>
-          <Link href={pref + '/'}><a>{ nav[0] }</a></Link>
-          <Link href={pref + '/portfolio'}><a className={styles.item}>{ nav[1] }</a></Link>
-          <Link href={pref + '/'}><a>{ nav[2] }</a></Link>
-          <Link href={pref + '/'}><a>{ nav[3] }</a></Link>
-          <Link href={pref + '/'}><a>{ nav[4] }</a></Link>
-          <Link href={pref + '/'}><a>{ nav[5] }</a></Link>
+          <Link href={pref + '/#services'}><a onClick={()=>setIsOpen(false)}>{ nav[0] }</a></Link>
+          <Link href={pref + '/portfolio'}><a onClick={()=>setIsOpen(false)}>{ nav[1] }</a></Link>
+          <Link href={pref + '/#workflow'}><a onClick={()=>setIsOpen(false)}>{ nav[2] }</a></Link>
+          <Link href={pref + '/#technologies'}><a onClick={()=>setIsOpen(false)}>{ nav[3] }</a></Link>
+          <Link href={pref + '/#team'}><a onClick={()=>setIsOpen(false)}>{ nav[4] }</a></Link>
+          <Link href={pref + '/#contacts'}><a onClick={()=>setIsOpen(false)}>{ nav[5] }</a></Link>
           <div className={styles.buttonsBlock}>
             <RuEng />
             <Button

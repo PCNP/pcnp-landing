@@ -7,7 +7,10 @@ import styles from './ContactBlock.module.sass'
 
 export const ContactBlock: React.FC<CommonBlockProps> = (props) => {
   return (
-    <div className={styles.main}>
+    <div
+      className={styles.main}
+      id='contacts'
+    >
       <p className={styles.backgroundText}>
         contact us
       </p>

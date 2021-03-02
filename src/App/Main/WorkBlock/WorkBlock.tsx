@@ -11,7 +11,10 @@ const man = require('src/common/images/index/workBlock/man.svg')
 
 export const WorkBlock: React.FC<BlockWithItemsProps> = (props) => {
   return (
-    <div className={styles.main}>
+    <div
+      className={styles.main}
+      id='workflow'
+    >
       <p className={styles.backgroundText}>
         process
       </p>
