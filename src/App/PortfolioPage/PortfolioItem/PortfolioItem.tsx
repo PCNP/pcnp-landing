@@ -47,7 +47,7 @@ export const PortfolioItem: React.FC<OwnProps> = (
             className={styles.mobVersionImg}
           />
           <Button
-            href={`portfolio/${slug}`}
+            href={`/portfolio/${slug}`}
             btnType='outline'
           >
             { more }

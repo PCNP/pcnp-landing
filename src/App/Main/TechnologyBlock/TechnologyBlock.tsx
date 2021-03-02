@@ -73,7 +73,10 @@ export const TechnologyBlock: React.FC<CommonBlockProps> = (props) => {
     },
   ]
   return (
-    <div className={styles.main}>
+    <div
+      className={styles.main}
+      id='technologies'
+    >
       <p className={styles.backgroundText}>
         technology
       </p>
