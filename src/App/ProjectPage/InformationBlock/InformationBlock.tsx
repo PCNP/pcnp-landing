@@ -35,7 +35,10 @@ export const InformationBlock: React.FC<OwnProps & aboutBlockProps> =
                       className={styles.module}
                       key={i}
                     >
-                      { `${i + 1}) ${ el }` }
+                      <span>
+                        { `${i + 1}) ` }
+                      </span>
+                      { el }
                     </li>
                   )
                 })

@@ -4,7 +4,13 @@
   width: 100%
   display: flex
   justify-content: center
-  padding-bottom: 60px
+
+  @include smartphone
+    padding-bottom: 20px
+
+  @include tablet
+    padding-bottom: 60px
+
 
 .wrapperBlock
   @include wrapper
@@ -15,40 +21,91 @@
   width: 100%
 
 .mainTitle
-  font-size: 30px
   letter-spacing: 0.1em
   text-transform: uppercase
   color: #93F8FF
-  margin-bottom: 40px
+
+  @include smartphone
+    font-size: 18px
+    margin-bottom: 10px
+
+  @include mini-tablet
+    margin-bottom: 20px
+
+  @include tablet
+    font-size: 22px
+    margin-bottom: 40px
+
+  @include desktop
+    font-size: 30px
 
 .description, .module, .modules
-  font-size: 16px
   line-height: 15px
   color: #FFFFFF
 
+  @include smartphone
+    font-size: 12px
+
+  @include tablet
+    font-size: 14px
+
+  @include desktop
+    font-size: 16px
+
 .description
-  margin-bottom: 40px
+  @include smartphone
+    margin-bottom: 24px
+
+  @include desktop
+    margin-bottom: 40px
 
 .modules
   text-decoration: none
   list-style: none
   padding: 0
-  margin-bottom: 40px
+
+  @include smartphone
+    margin-bottom: 24px
+
+  @include tablet
+    margin-bottom: 40px
 
 .module
-  padding-left: 15px
-  margin-top: 15px
+  span
+    margin-left: 15px
+
+  @include smartphone
+    margin-top: 10px
+
+  @include desktop
+    margin-top: 15px
 
 .contentTechnologies
   display: flex
   justify-content: space-between
-  align-items: flex-end
   width: 100%
+
+  @include smartphone
+    flex-direction: column
+    align-items: flex-start
+
+  @include desktop
+    flex-direction: row
+    align-items: flex-end
+    justify-content: space-between
 
 .technologies
   display: flex
-  width: 35%
   justify-content: space-between
+
+  @include smartphone
+    width: 70%
+
+  @include mini-tablet
+    width: 350px
+
+  @include desktop
+    width: 35%
 
 .item
   display: flex
@@ -58,17 +115,73 @@
 
   img
     width: 60%
-    margin-bottom: 20px
+
+    @include smartphone
+      margin-bottom: 10px
+
+    @include tablet
+      margin-bottom: 20px
 
   p
-    font-size: 16px
     line-height: 120%
     text-align: center
     letter-spacing: 0.1em
     text-transform: uppercase
     color: #93F8FF
 
+    @include  smartphone
+      font-size: 8px
+
+    @include tablet
+      font-size: 12px
+
+    @include large-desktop
+      font-size: 16px
+
 .buttonsBlock
   display: flex
+
   a
-    margin-left: 20px
+    @include smartphone
+      font-size: 14px
+
+    @include desktop
+      font-size: initial
+
+  @include smartphone
+    justify-content: space-between
+    width: 100%
+    padding-top: 20px
+
+    a
+      margin-left: 0
+      padding: 0
+      width: 46%
+      min-width: initial
+      max-width: 190px
+      overflow: hidden
+      display: flex
+      text-align: center
+
+  @include mini-tablet
+    justify-content: flex-start
+
+    a
+      margin-right: 20px
+
+  @include desktop
+    width: initial
+
+  @include large-desktop
+    padding-top: 0
+    a
+      margin-right: 0
+      margin-left: 20px
+      padding-left: 50px
+      padding-right: 50px
+      width: initial
+      min-width: initial
+      max-width: none
+      overflow: visible
+      display: initial
+
