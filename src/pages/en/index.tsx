@@ -10,6 +10,7 @@ import { TechnologyBlock } from '../../App/Main/TechnologyBlock/TechnologyBlock'
 import { ContactBlock } from '../../App/Main/ContactBlock/ContactBlock'
 import { createIndexProps } from '../../store/lang/indexlang'
 import { enDictionary } from '../../store/lang/dictionary'
+import { items } from '../../store/portfolioItems'
 
 
 const MainPage: React.FC = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
@@ -18,7 +19,10 @@ const MainPage: React.FC = (props: InferGetStaticPropsType<typeof getStaticProps
       <Block1 {...props.block1} />
       <Services {...props.services} />
       <WhyWe {...props.whyWe} />
-      <Portfolio {...props.portfolio} />
+      <Portfolio
+        {...props.portfolio}
+        items={items}
+      />
       <WorkBlock {...props.workBlock} />
       <TechnologyBlock {...props.techBlock} />
       <ContactBlock {...props.contactBlock} />
