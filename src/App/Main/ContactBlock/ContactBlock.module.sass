@@ -1,4 +1,4 @@
-@import "../../styles/mixins"
+@import "../../../styles/mixins"
 
 .main
   position: relative
@@ -6,27 +6,35 @@
   display: flex
   align-items: center
   flex-direction: column
-  background-image: url('../../common/images/index/contactsBg.png')
+  background-image: url('../../../common/images/index/contactsBg.png')
   background-size: cover
   background-position: center
   overflow: hidden
+  z-index: -1
 
   @include smartphone
     height: 600px
+    margin-top: -30px
+    padding-top: 30px
 
   @include desktop
     height: 772px
+    margin-top: -80px
+    padding-top: 80px
 
 .backgroundText
   @include backgroundText
 
   @include smartphone
     font-size: 11vw
-    top: 30px
+    top: 60px
 
   @include large-desktop
+    font-size: 140px
+    line-height: 160px
+
+  @media (min-width: 1340px)
     font-size: 160px
-    line-height: 260px
 
 .mainTitle
   color: #93F8FF
@@ -46,7 +54,10 @@
 
   @include desktop
     font-size: 30px
-    margin-top: 180px
+    margin-top: 50px
+
+  @include large-desktop
+    margin-top: 100px
 
 .content
   @include wrapper

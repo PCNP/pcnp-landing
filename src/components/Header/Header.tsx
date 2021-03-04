@@ -12,9 +12,10 @@ import styles from './Header.module.sass'
 
 type OwnProps = {
   nav: string[]
+  buttonText: string
 }
 
-const Header: React.FC<OwnProps> = ({ nav }) => {
+const Header: React.FC<OwnProps> = ({ nav, buttonText }) => {
   const [scroll, setScroll] = useState(0)
 
   const [width, setWidth] = useState(0)
@@ -54,10 +55,10 @@ const Header: React.FC<OwnProps> = ({ nav }) => {
         />
         <MobileNav nav={nav} />
         {
-          scroll > 0 ? <Button href='/'>Начать проект</Button> : ''
+          scroll > 0 ? <Button href='/#contacts' >{ buttonText }</Button> : ''
         }
         {
-          scroll <= 0 && width >= 768 ? <RuEng /> : ''
+          scroll <= 0 && width >= 1000 ? <RuEng /> : ''
         }
       </div>
     </header>

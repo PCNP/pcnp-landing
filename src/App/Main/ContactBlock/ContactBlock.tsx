@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { CommonBlockProps } from '../../store/lang/indexlang'
+import { CommonBlockProps } from '../../../store/lang/indexlang'
 
 import styles from './ContactBlock.module.sass'
 

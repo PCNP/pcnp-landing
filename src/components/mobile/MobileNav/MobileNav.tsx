@@ -9,9 +9,9 @@ import { RuEng } from '../../RuEng/RuEng'
 import styles from './MobileNav.module.sass'
 
 
-const icon = require('src/common/images/icons/mail.png')
-const openMenuIcon = require('src/common/images/menu/openMenuIcon.png')
-const closeMenuIcon = require('src/common/images/menu/closeMenuIcon.png')
+const icon = require('src/common/images/icons/mail.svg')
+const openMenuIcon = require('src/common/images/menu/openMenuIcon.svg')
+const closeMenuIcon = require('src/common/images/menu/closeMenuIcon.svg')
 
 
 type OwnProps = {
@@ -23,7 +23,6 @@ const navigation = [
   'Портфолио',
   'Как мы работаем',
   'Наши технологии',
-  'Наша команда',
   'Контакты',
 ]
 
@@ -39,7 +38,12 @@ export const MobileNav: React.FC<OwnProps> = ({ nav = navigation }) => {
   return (
     <>
       <div
-        className={styles.iconsBlock}
+        className={
+          cn(
+            styles.iconsBlock,
+            isOpen ? styles.openIcon : ''
+          )
+        }
         onClick={()=>setIsOpen(!isOpen)}
       >
         <img src={isOpen ? openMenuIcon : closeMenuIcon} />
@@ -57,8 +61,7 @@ export const MobileNav: React.FC<OwnProps> = ({ nav = navigation }) => {
           <Link href={pref + '/portfolio'}><a onClick={()=>setIsOpen(false)}>{ nav[1] }</a></Link>
           <Link href={pref + '/#workflow'}><a onClick={()=>setIsOpen(false)}>{ nav[2] }</a></Link>
           <Link href={pref + '/#technologies'}><a onClick={()=>setIsOpen(false)}>{ nav[3] }</a></Link>
-          <Link href={pref + '/#team'}><a onClick={()=>setIsOpen(false)}>{ nav[4] }</a></Link>
-          <Link href={pref + '/#contacts'}><a onClick={()=>setIsOpen(false)}>{ nav[5] }</a></Link>
+          <Link href={pref + '/#contacts'}><a onClick={()=>setIsOpen(false)}>{ nav[4] }</a></Link>
           <div className={styles.buttonsBlock}>
             <RuEng />
             <Button

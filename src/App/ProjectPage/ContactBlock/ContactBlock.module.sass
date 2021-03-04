@@ -1,0 +1,68 @@
+@import "../../../styles/mixins"
+
+.main
+  position: relative
+  width: 100%
+  display: flex
+  align-items: center
+  flex-direction: column
+  background-image: url('../../../common/images/index/contactsBg.png')
+  background-size: cover
+  background-position: center
+  overflow: hidden
+
+  @include smartphone
+    height: 600px
+
+  @include desktop
+    height: 772px
+
+.backgroundText
+  @include backgroundText
+
+  @include smartphone
+    font-size: 11vw
+    top: 30px
+
+  @include large-desktop
+    font-size: 140px
+    line-height: 260px
+
+  @media (min-width: 1340px)
+    font-size: 160px
+
+.mainTitle
+  color: #93F8FF
+  font-size: 30px
+  text-transform: uppercase
+
+  @include smartphone
+    font-size: 18px
+    margin-top: 50px
+
+  @include mini-tablet
+    margin-top: 80px
+
+  @include tablet
+    font-size: 22px
+    margin-top: 100px
+
+  @include desktop
+    font-size: 30px
+    margin-top: 110px
+
+  @include large-desktop
+    margin-top: 180px
+
+.content
+  @include wrapper
+
+  display: flex
+  flex-direction: column
+  margin: 0
+
+  @include smartphone
+    align-items: center
+
+  @include desktop
+    align-items: flex-start

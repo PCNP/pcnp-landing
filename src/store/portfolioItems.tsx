@@ -61,7 +61,7 @@ export const items: item[] = [
   {
     id: 1,
     slug: 'mobile-app-project',
-    title: 'Я юрист',
+    title: 'Я юрист_2',
     description: 'Разработка мобильного приложения',
     mobImg: mob,
     desktopImg: desktop,
@@ -94,7 +94,7 @@ export const items: item[] = [
   {
     id: 2,
     slug: 'app-project',
-    title: 'Я юрист',
+    title: 'Я юрист_3',
     description: 'Разработка мобильного приложения',
     mobImg: mob,
     desktopImg: desktop,
@@ -127,7 +127,7 @@ export const items: item[] = [
   {
     id: 3,
     slug: 'development-app',
-    title: 'Я юрист',
+    title: 'Я юрист_4',
     description: 'Разработка мобильного приложения',
     mobImg: mob,
     desktopImg: desktop,

@@ -10,12 +10,12 @@ export type aboutBlockProps = {
 
 export const createSlugPortfolioProps = (dictionary: Dictionary) => {
   return {
+    buttonText: dictionary.start,
     nav: [
       dictionary.services,
       dictionary.portfolio,
       dictionary.work,
       dictionary.technologies,
-      dictionary.team,
       dictionary.contact,
     ],
     block1: { button: dictionary.viewSite },

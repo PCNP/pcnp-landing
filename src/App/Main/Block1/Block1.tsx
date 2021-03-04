@@ -16,7 +16,7 @@ export const Block1: React.FC<CommonBlockProps> = (props) => {
         <p className={styles.slogan}>
           { props.slogan }
         </p>
-        <Button href='/'>{ props.button }</Button>
+        <Button href='/#contacts'>{ props.button }</Button>
       </div>
     </div>
   )

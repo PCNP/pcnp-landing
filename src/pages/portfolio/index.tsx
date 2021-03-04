@@ -2,7 +2,7 @@ import React from 'react'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 
 import { Block1 } from '../../App/PortfolioPage/Block1/Block1'
-import { ContactBlock } from '../../components/ContactBlock/ContactBlock'
+import { ContactBlock } from '../../App/PortfolioPage/ContactBlock/ContactBlock'
 import { PortfolioItem } from '../../App/PortfolioPage/PortfolioItem/PortfolioItem'
 import { items } from '../../store/portfolioItems'
 import { ruDictionary } from '../../store/lang/dictionary'

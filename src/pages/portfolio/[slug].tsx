@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 
 
-import { ContactBlock } from '../../components/ContactBlock/ContactBlock'
+import { ContactBlock } from '../../App/ProjectPage/ContactBlock/ContactBlock'
 import { Block1 } from '../../App/ProjectPage/Block1/Block1'
 import { item, items } from 'src/store/portfolioItems'
 import { InformationBlock } from '../../App/ProjectPage/InformationBlock/InformationBlock'
