@@ -28,12 +28,12 @@ export type IndexProps = {
 
 export const createIndexProps = (dictionary: Dictionary) => {
   return {
+    buttonText: dictionary.start,
     nav: [
       dictionary.services,
       dictionary.portfolio,
       dictionary.work,
       dictionary.technologies,
-      dictionary.team,
       dictionary.contact,
     ],
     block1: {

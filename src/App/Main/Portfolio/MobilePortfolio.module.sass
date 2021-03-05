@@ -21,6 +21,18 @@
 .carousel
   overflow: -moz-scrollbars-none
 
+.carousel::after
+  display: block
+  content: ''
+  flex-shrink: 0
+  width: 15px
+
+.container
+  content: ''
+  display: block
+  flex-shrink: 0
+  width: 15px
+
 .item
   padding: 10px
   height: 280px

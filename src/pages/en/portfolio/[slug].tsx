@@ -3,13 +3,13 @@ import { useRouter } from 'next/router'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 
 
-import { ContactBlock } from '../../../components/ContactBlock/ContactBlock'
+import { ContactBlock } from '../../../App/ProjectPage/ContactBlock/ContactBlock'
 import { Block1 } from '../../../App/ProjectPage/Block1/Block1'
 import { item, items } from 'src/store/portfolioItems'
 import { InformationBlock } from '../../../App/ProjectPage/InformationBlock/InformationBlock'
 import { enDictionary } from '../../../store/lang/dictionary'
 import { createSlugPortfolioProps } from '../../../store/lang/slugPortfolioLang'
-import CarouselBlock from '../../../App/ProjectPage/CarouselBlock/CarouselBlock'
+import { CarouselBlock } from '../../../App/ProjectPage/Carousel/Carousel'
 
 
 const Project: React.FC = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
@@ -23,8 +23,6 @@ const Project: React.FC = (props: InferGetStaticPropsType<typeof getStaticProps>
         {...props.block1}
       />
       <CarouselBlock
-        items={[1,2,3]}
-        active={0}
         slideImages = {project.slideImages}
       />
       <InformationBlock

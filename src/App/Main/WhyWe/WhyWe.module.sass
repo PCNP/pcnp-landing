@@ -12,12 +12,8 @@
     height: auto
     overflow: hidden
 
-  @include tablet
-    padding-bottom: 80px
-
   @include desktop
     height: 700px
-    padding-bottom: 0
 
 .backgroundText
   @include backgroundText
@@ -32,8 +28,11 @@
     font-size: 10vw
 
   @include large-desktop
-    font-size: 145px
+    font-size: 136px
     line-height: 120px
+
+  @media (min-width: 1340px)
+    font-size: 145px
 
 .mainTitle
   color: #93F8FF
@@ -96,22 +95,25 @@
 
 .item
   width: 300px
-  height: 280px
   display: flex
   flex-direction: column
   align-items: center
 
   @include smartphone
+    height: 280px
     margin-top: 50px
 
   @include mini-tablet
+    height: 200px
     width: 47%
     margin-top: 20px
+
+  @include tablet
+    height: 250px
 
   @include desktop
     width: 33%
     max-width: 300px
-    height: 280px
     margin-top: 0
 
   &:nth-child(2)
@@ -119,6 +121,9 @@
       margin-top: 35px
 
   &:nth-child(3)
+    @include tablet
+      margin-bottom: -35px
+
     @include desktop
       margin-top: 70px
 
@@ -165,10 +170,10 @@
 
   @include smartphone
     font-size: 14px
-    line-height: 130%
+    line-height: 140%
 
   @include mini-tablet
-    font-size: 10px
+    font-size: 12px
 
   @include tablet
     font-size: 12px

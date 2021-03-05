@@ -21,7 +21,6 @@ const navigation = [
   'Портфолио',
   'Как мы работаем',
   'Наши технологии',
-  'Наша команда',
   'Контакты',
 ]
 
@@ -39,12 +38,11 @@ export const Footer: React.FC<OwnProps> = ({ nav = navigation }) => {
         />
         <Logo />
         <nav className={styles.mobNav}>
-          <Link href={pref + '/'}><a className={styles.item}>{ nav[0] }</a></Link>
+          <Link href={pref + '/#services'}><a className={styles.item}>{ nav[0] }</a></Link>
           <Link href={pref + '/portfolio'}><a className={styles.item}>{ nav[1] }</a></Link>
-          <Link href={pref + '/'}><a className={styles.item}>{ nav[2] }</a></Link>
-          <Link href={pref + '/'}><a className={styles.item}>{ nav[3] }</a></Link>
-          <Link href={pref + '/'}><a className={styles.item}>{ nav[4] }</a></Link>
-          <Link href={pref + '/'}><a className={styles.item}>{ nav[5] }</a></Link>
+          <Link href={pref + '/#workflow'}><a className={styles.item}>{ nav[2] }</a></Link>
+          <Link href={pref + '/#technologies'}><a className={styles.item}>{ nav[3] }</a></Link>
+          <Link href={pref + '/#contacts'}><a className={styles.item}>{ nav[4] }</a></Link>
         </nav>
       </div>
       <div className={styles.footerUnderBlock}>

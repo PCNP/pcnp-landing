@@ -6,13 +6,8 @@
   @include smartphone
     display: none
 
-  @include tablet
-    display: flex
-    .item
-      padding: 15px
-      font-size: 11px
-
   @include desktop
+    display: flex
     .item
       padding: 18px
       font-size: 14px
@@ -24,7 +19,7 @@
 
 .item
   color: #FFFFFF
-  transition: color 0.5s ease-in
+  transition: color 0.5s ease-out
   &:hover
     color: #93F8FF
 
@@ -33,9 +28,13 @@
 
 .scrollNav .item
   @include desktop
-    font-size: 10px
+    font-size: 14px
     padding: 11px
 
   @include large-desktop
-    font-size: 12px
+    font-size: 16px
     padding: 14px
+
+.active
+  color: #93F8FF
+  font-weight: 700
