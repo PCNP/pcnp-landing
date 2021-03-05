@@ -13,6 +13,9 @@ import styles from './Header.module.sass'
 type OwnProps = {
   nav: string[]
   buttonText: string
+  position?: {
+    services: any
+  }
 }
 
 const Header: React.FC<OwnProps> = ({ nav, buttonText }) => {

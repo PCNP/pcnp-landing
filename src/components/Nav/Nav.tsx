@@ -9,6 +9,9 @@ import styles from './Nav.module.sass'
 type OwnProps = {
   scroll: number
   nav: string[]
+  position?: {
+    services: any
+  }
 }
 
 const navigation = [

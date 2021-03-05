@@ -2,6 +2,7 @@ import React from 'react'
 import Document, { Head, Html, Main, NextScript } from 'next/document'
 
 import { AnalyticsScripts } from 'src/components/AnalyticsScripts/AnalyticsScripts'
+import { FormScripts } from 'src/components/FormScripts/FormScripts'
 
 
 class MyDocument extends Document {
@@ -12,7 +13,7 @@ class MyDocument extends Document {
           {
             process.env.NODE_ENV === 'production' && (
               <AnalyticsScripts />
-            )
+            ) && ( <FormScripts /> )
           }
           <meta
             name='qform-verification'
@@ -23,7 +24,6 @@ class MyDocument extends Document {
             integrity='sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT'
             crossOrigin='anonymous'
           />
-          <script src='src/qForm24/form.js' />
         </Head>
         <body>
           <Main />
