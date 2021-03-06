@@ -36,6 +36,56 @@ export const Nav: React.FC<OwnProps> = ({ scroll, nav = navigation }) => {
     setSmoothStyles(styles)
   }
 
+  const [position, setPosition] = React.useState({
+    services: {
+      top: 0,
+      height: 0,
+    },
+    portfolio: {
+      top: 0,
+      height: 0,
+    },
+    workFlow: {
+      top: 0,
+      height: 0,
+    },
+    technologies: {
+      top: 0,
+      height: 0,
+    },
+    contacts: {
+      top: 0,
+      height: 0,
+    },
+  })
+
+  const [pageY, setPageY] = useState(0)
+
+  React.useEffect(()=>{
+    // @ts-ignore
+    const contacts: any = document.getElementById('contacts').getBoundingClientRect()
+    // @ts-ignore
+    const technologies: any = document.getElementById('technologies').getBoundingClientRect()
+    // @ts-ignore
+    const workFlow: any = document.getElementById('workflow').getBoundingClientRect()
+    // @ts-ignore
+    const portfolio: any = document.getElementById('portfolio').getBoundingClientRect()
+    // @ts-ignore
+    const services: any = document.getElementById('services').getBoundingClientRect()
+    setPosition({
+      services,
+      portfolio,
+      workFlow,
+      technologies,
+      contacts,
+    })
+    setPageY(window.pageYOffset)
+  }, [])
+
+  React.useEffect(()=>{
+    setSmoothStyles(active !== 'portfolio' ? 'smooth' : 'auto')
+  }, [active])
+
   return (
     <nav
       className={
@@ -50,6 +100,9 @@ export const Nav: React.FC<OwnProps> = ({ scroll, nav = navigation }) => {
           className={
             cn(
               styles.item,
+              active !== 'portfolio' && scroll >= position.services.top + pageY &&
+              scroll < position.services.top + pageY + position.services.height * 0.75 ?
+                styles.active : ''
             )
           }
           onClick={()=>handlerClick('smooth')}
@@ -62,7 +115,9 @@ export const Nav: React.FC<OwnProps> = ({ scroll, nav = navigation }) => {
           className={
             cn(
               styles.item,
-              active === 'portfolio' ? styles.active : ''
+              active === 'portfolio' ? styles.active : scroll >= position.portfolio.top + pageY &&
+              scroll < position.portfolio.top + pageY + position.portfolio.height * 0.75 ?
+                styles.active : ''
             )
           }
           onClick={()=>handlerClick('auto')}
@@ -72,7 +127,14 @@ export const Nav: React.FC<OwnProps> = ({ scroll, nav = navigation }) => {
       </Link>
       <Link href={pref + '/#workflow'}>
         <a
-          className={styles.item}
+          className={
+            cn(
+              styles.item,
+              active !== 'portfolio' && scroll >= position.workFlow.top + pageY &&
+              scroll < position.workFlow.top + pageY + position.workFlow.height * 0.75 ?
+                styles.active : ''
+            )
+          }
           onClick={()=>handlerClick('smooth')}
         >
           { nav[2] }
@@ -80,7 +142,14 @@ export const Nav: React.FC<OwnProps> = ({ scroll, nav = navigation }) => {
       </Link>
       <Link href={pref + '/#technologies'}>
         <a
-          className={styles.item}
+          className={
+            cn(
+              styles.item,
+              active !== 'portfolio' && scroll >= position.technologies.top + pageY &&
+              scroll < position.technologies.top + pageY + position.technologies.height * 0.75 ?
+                styles.active : ''
+            )
+          }
           onClick={()=>handlerClick('smooth')}
         >
           { nav[3] }
@@ -88,7 +157,14 @@ export const Nav: React.FC<OwnProps> = ({ scroll, nav = navigation }) => {
       </Link>
       <Link href={pref + '/#contacts'}>
         <a
-          className={styles.item}
+          className={
+            cn(
+              styles.item,
+              active !== 'portfolio' && scroll >= position.contacts.top + pageY &&
+              scroll < position.contacts.top + pageY + position.contacts.height * 0.75 ?
+                styles.active : ''
+            )
+          }
           onClick={()=>handlerClick('smooth')}
         >
           { nav[4] }

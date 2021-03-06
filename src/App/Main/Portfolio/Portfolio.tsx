@@ -17,7 +17,10 @@ type OwnProps = {
 export const Portfolio: React.FC<CommonBlockProps & OwnProps> = (props) => {
   const items = [props.items[0], props.items[1], props.items[2]]
   return (
-    <div className={styles.main}>
+    <div
+      className={styles.main}
+      id='portfolio'
+    >
       <p className={styles.backgroundText}>
         cases
       </p>

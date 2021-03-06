@@ -56,7 +56,10 @@ const Header: React.FC<OwnProps> = ({ nav, buttonText }) => {
           scroll={scroll}
           nav={nav}
         />
-        <MobileNav nav={nav} />
+        <MobileNav
+          nav={nav}
+          scroll={scroll}
+        />
         {
           scroll > 0 ? <Button href='/#contacts' >{ buttonText }</Button> : ''
         }
