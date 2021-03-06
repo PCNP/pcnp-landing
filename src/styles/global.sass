@@ -53,9 +53,19 @@ form
   border-radius: 12px
   color: white
   padding-left: 33px!important
-  font-size: 14px
   text-transform: uppercase
   font-family: "Gotham Pro"
+
+  @media (min-width: 550px)
+    width: 300px
+
+  @include smartphone
+    height: 50px
+    font-size: 12px
+
+  @include desktop
+    height: 62px
+    font-size: 14px
 
 .myInput::placeholder
   color: white
@@ -66,18 +76,29 @@ form
 .myTextArea
   border: none!important
   width: 500px
-  height: 200px
-  max-width: 100%
+  max-width: 100% !important
   background: rgba(0, 0, 0, 0.3)
   backdrop-filter: blur(6px)
   border-radius: 12px
-  margin-bottom: 20px
   color: white
   padding-left: 33px !important
   padding-top: 26px !important
   font-size: 14px
   font-family: "Gotham Pro"
   text-transform: uppercase
+
+  @media (min-width: 550px)
+    width: 300px
+
+  @include smartphone
+    height: 170px
+    margin-bottom: 20px
+    font-size: 12px
+
+  @include desktop
+    height: 150px
+    margin-bottom: 0px
+    font-size: 14px
 
 .buttonsBlock
   display: flex
@@ -87,6 +108,13 @@ form
 .fiels_item
   >label
     display: none !important
+
+.field_submit
+  @include smartphone
+    text-align: center
+
+  @include desktop
+    text-align: left
 
 .btn
   display: inline-block !important
@@ -109,5 +137,6 @@ form
   font-family: "Gotham Pro"
   &:hover
     background: #33DAFF !important
+
 
 
