@@ -30,7 +30,7 @@ module.exports = withPlugins([
       imagesPublicPath: (process.env.ASSET_PREFIX || '') + '/_next/static/chunks/images/',
       imagesName: '[name]-[hash].[ext]',
       handleImages: ['jpeg', 'jpg', 'png', 'svg', 'webp'],
-      removeOriginalExtension: false,
+      removeOriginalExtension: true,
       optimizeImages: true,
       optimizeImagesInDev: true,
     },

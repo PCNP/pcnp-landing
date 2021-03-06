@@ -68,7 +68,7 @@ export const InformationBlock: React.FC<OwnProps & aboutBlockProps> =
                   project && (project.id - 1 >= 0) && (
                     <Button
                       btnType='outline'
-                      href={`${projects[project.id - 1].slug}`}
+                      href={`/portfolio/${projects[project.id - 1].slug}`}
                     >
                       { prevButton }
                     </Button>
@@ -78,7 +78,7 @@ export const InformationBlock: React.FC<OwnProps & aboutBlockProps> =
                   project && (length > (project.id + 1)) && (
                     <Button
                       btnType='outline'
-                      href={`${projects[project.id + 1].slug}`}
+                      href={`/portfolio/${projects[project.id + 1].slug}`}
                     >
                       { nextButton }
                     </Button>
