@@ -56,7 +56,7 @@ form
   text-transform: uppercase
   font-family: "Gotham Pro"
 
-  @media (min-width: 550px)
+  @media (max-width: 550px)
     width: 300px
 
   @include smartphone
@@ -87,17 +87,17 @@ form
   font-family: "Gotham Pro"
   text-transform: uppercase
 
-  @media (min-width: 550px)
+  @media (max-width: 550px)
     width: 300px
 
   @include smartphone
     height: 170px
-    margin-bottom: 20px
+    margin-bottom: 0px
     font-size: 12px
 
   @include desktop
     height: 150px
-    margin-bottom: 0px
+    margin-bottom: 20px
     font-size: 14px
 
 .buttonsBlock
