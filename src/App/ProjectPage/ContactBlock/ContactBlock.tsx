@@ -1,4 +1,6 @@
 import React from 'react'
+import { useWebPSupportCheck } from 'react-use-webp-support-check/dist'
+import cn from 'classnames'
 
 import { CommonBlockProps } from '../../../store/lang/indexlang'
 import { MyForm } from '../../../components/MyForm/MyForm'
@@ -7,9 +9,15 @@ import styles from './ContactBlock.module.sass'
 
 
 export const ContactBlock: React.FC<CommonBlockProps> = (props) => {
+  const supportsWebP = useWebPSupportCheck()
   return (
     <div
-      className={styles.main}
+      className={
+        cn(
+          styles.main,
+          supportsWebP ? styles.webpBg : styles.bg
+        )
+      }
       id='contacts'
     >
       <p className={styles.backgroundText}>
