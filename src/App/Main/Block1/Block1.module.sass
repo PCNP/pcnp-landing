@@ -1,14 +1,9 @@
 @import '../../../styles/mixins'
 
-.bg
-  background-image: url('../../../common/images/index/background_1.png')
-
-.webpBg
-  background-image: url('../../../common/images/webp/index/block1.webp')
-
 .main
   width: 100%
   margin: 0
+  background-image: url('../../../common/images/webp/index/block1.webp')
   background-repeat: no-repeat
   display: flex
   border-bottom: 2px solid #93F8FF
@@ -25,6 +20,12 @@
 
   @include desktop
     height: 800px
+
+.bg
+  background-image: url('../../../common/images/index/background_1.png')
+
+.webpBg
+  background-image: url('../../../common/images/webp/index/block1.webp')
 
 .content
   @include wrapper

@@ -1,10 +1,5 @@
 @import "../../../styles/mixins"
 
-.bg
-  background-image: url('../../../common/images/index/contactsBg.png')
-
-.webpBg
-  background-image: url('../../../common/images/webp/index/contactsBlock.webp')
 
 .main
   position: relative
@@ -12,6 +7,7 @@
   display: flex
   align-items: center
   flex-direction: column
+  background-image: url('../../../common/images/webp/index/contactsBlock.webp')
   background-size: cover
   background-position: center
   overflow: hidden
@@ -24,6 +20,12 @@
 
   @include desktop
     height: 772px
+
+.bg
+  background-image: url('../../../common/images/index/contactsBg.png')
+
+.webpBg
+  background-image: url('../../../common/images/webp/index/contactsBlock.webp')
 
 .backgroundText
   @include backgroundText

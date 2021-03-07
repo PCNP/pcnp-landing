@@ -3,7 +3,6 @@ import Document, { Head, Html, Main, NextScript } from 'next/document'
 
 import { AnalyticsScripts } from 'src/components/AnalyticsScripts/AnalyticsScripts'
 import { FormScripts } from 'src/components/FormScripts/FormScripts'
-import { JqueryScripts } from '../components/JqueryScripts/JqueryScripts'
 
 
 class MyDocument extends Document {
@@ -14,8 +13,13 @@ class MyDocument extends Document {
           {
             process.env.NODE_ENV === 'production' && (
               <AnalyticsScripts />
-            ) && ( <FormScripts /> ) && ( <JqueryScripts />)
+            ) && ( <FormScripts /> )
           }
+          <script
+            src='https://code.jquery.com/jquery-3.3.1.js'
+            integrity='sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60='
+            crossOrigin='anonymous'
+          />
           <meta
             name='qform-verification'
             content='HREZB96E9DG5'
