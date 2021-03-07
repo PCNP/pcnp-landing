@@ -4809,7 +4809,7 @@ react-transition-group@^1.2.0:
     prop-types "^15.5.6"
     warning "^3.0.0"
 
-react-use-webp-support-check@^1.0.13:
+react-use-webp-support-check@1.0.13:
   version "1.0.13"
   resolved "https://registry.yarnpkg.com/react-use-webp-support-check/-/react-use-webp-support-check-1.0.13.tgz#8417e21aa6671fdcc69e75bf77a009dfa92d4dfa"
   integrity sha512-FwtnQzRIP8RgUcpLiFIrMIDRHsosyNfUfKXODesdQ8x1AdGmYv+LK19FRYucZ0yoT3FUGrqN0RzErhnP7QOr1Q==

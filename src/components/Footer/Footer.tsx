@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import cn from 'classnames'
 
 import { Nav } from '../Nav/Nav'
 import { Logo } from '../Logo/Logo'
@@ -30,7 +31,12 @@ export const Footer: React.FC<OwnProps> = ({ nav = navigation }) => {
   const pref = router.asPath.split('/')[1] === 'en' ? '/en' : ''
 
   return (
-    <footer className={styles.footer}>
+    <footer className={
+      cn(
+        styles.footer,
+      )
+    }
+    >
       <div className={styles.footerTitle}>
         <Nav
           scroll={0}

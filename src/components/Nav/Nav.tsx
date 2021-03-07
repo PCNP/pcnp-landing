@@ -108,21 +108,24 @@ export const Nav: React.FC<OwnProps> = ({ scroll, nav = navigation }) => {
           { nav[0] }
         </a>
       </Link>
-      <Link href={pref + '/portfolio'}>
-        <a
-          className={
-            cn(
-              styles.item,
-              active === 'portfolio' ? styles.active : scroll >= position.portfolio.top + pageY &&
+      <a
+        className={
+          cn(
+            styles.item,
+            active === 'portfolio' ? styles.active : scroll >= position.portfolio.top + pageY &&
               scroll < position.portfolio.top + pageY + position.portfolio.height * 0.75 ?
-                styles.active : ''
-            )
+              styles.active : ''
+          )
+        }
+        onClick={
+          ()=>{
+            setSmoothStyles('auto')
+            return router.push(pref + '/portfolio')
           }
-          onClick={()=>setSmoothStyles('auto')}
-        >
-          { nav[1] }
-        </a>
-      </Link>
+        }
+      >
+        { nav[1] }
+      </a>
       <Link href={pref + '/#workflow'}>
         <a
           className={
