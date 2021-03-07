@@ -51,6 +51,7 @@ export const Button: React.FC<OwnProps> = ({ href, onClick, children, btnType = 
 
   const nextActive = href.split('/')[1] === 'en' ? router.asPath.split('/')[2] : router.asPath.split('/')[1]
   const active = router.asPath.split('/')[1] === 'en' ? router.asPath.split('/')[2] : router.asPath.split('/')[1]
+
   const [smoothStyles, setSmoothStyles] = useState(active === 'portfolio' ? 'auto' : 'smooth')
 
   const handlerClick = () => {

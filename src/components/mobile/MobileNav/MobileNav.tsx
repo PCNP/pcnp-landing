@@ -37,10 +37,6 @@ export const MobileNav: React.FC<OwnProps> = ({ scroll, nav = navigation }) => {
   const initialSmoothStyles: string = active !== 'portfolio' ? 'smooth' : 'auto'
   const [smoothStyles, setSmoothStyles] = useState(initialSmoothStyles)
 
-  const handlerClick = (styles: string) => {
-    setSmoothStyles(styles)
-  }
-
   const [position, setPosition] = React.useState({
     services: {
       top: 0,
@@ -67,27 +63,30 @@ export const MobileNav: React.FC<OwnProps> = ({ scroll, nav = navigation }) => {
   const [pageY, setPageY] = useState(0)
 
   React.useEffect(()=>{
-    // @ts-ignore
-    const contacts: any = document.getElementById('contacts').getBoundingClientRect()
-    // @ts-ignore
-    const technologies: any = document.getElementById('technologies').getBoundingClientRect()
-    // @ts-ignore
-    const workFlow: any = document.getElementById('workflow').getBoundingClientRect()
-    // @ts-ignore
-    const portfolio: any = document.getElementById('portfolio').getBoundingClientRect()
-    // @ts-ignore
-    const services: any = document.getElementById('services').getBoundingClientRect()
-    setPosition({
-      services,
-      portfolio,
-      workFlow,
-      technologies,
-      contacts,
-    })
-    setPageY(window.pageYOffset)
-  }, [])
+    const contactsElement = document.getElementById('contacts')
+    const techElement = document.getElementById('technologies')
+    const portfolioElement = document.getElementById('portfolio')
+    const workFlowElement = document.getElementById('workflow')
+    const servicesElement = document.getElementById('services')
 
-  React.useEffect(()=>{
+    if(contactsElement && techElement && workFlowElement && portfolioElement && servicesElement){
+      const contacts: any = contactsElement.getBoundingClientRect()
+      const technologies: any = techElement.getBoundingClientRect()
+      const workFlow: any = workFlowElement.getBoundingClientRect()
+      const portfolio: any = portfolioElement.getBoundingClientRect()
+      const services: any = servicesElement.getBoundingClientRect()
+
+      setPosition({
+        services,
+        portfolio,
+        workFlow,
+        technologies,
+        contacts,
+      })
+    }
+
+    setPageY(window.pageYOffset)
+
     setSmoothStyles(active !== 'portfolio' ? 'smooth' : 'auto')
   }, [active])
 
@@ -129,7 +128,6 @@ export const MobileNav: React.FC<OwnProps> = ({ scroll, nav = navigation }) => {
               }
               onClick={
                 ()=>{
-                  handlerClick('smooth')
                   setIsOpen(false)
                 }
               }
@@ -149,7 +147,7 @@ export const MobileNav: React.FC<OwnProps> = ({ scroll, nav = navigation }) => {
               }
               onClick={
                 ()=>{
-                  handlerClick('auto')
+                  setSmoothStyles('auto')
                   setIsOpen(false)
                 }
               }
@@ -169,7 +167,6 @@ export const MobileNav: React.FC<OwnProps> = ({ scroll, nav = navigation }) => {
               }
               onClick={
                 ()=>{
-                  handlerClick('smooth')
                   setIsOpen(false)
                 }
               }
@@ -189,7 +186,6 @@ export const MobileNav: React.FC<OwnProps> = ({ scroll, nav = navigation }) => {
               }
               onClick={
                 ()=>{
-                  handlerClick('smooth')
                   setIsOpen(false)
                 }
               }
@@ -209,7 +205,6 @@ export const MobileNav: React.FC<OwnProps> = ({ scroll, nav = navigation }) => {
               }
               onClick={
                 ()=>{
-                  handlerClick('smooth')
                   setIsOpen(false)
                 }
               }

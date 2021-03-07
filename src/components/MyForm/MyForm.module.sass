@@ -1,43 +1,107 @@
-.form
-  display: flex
-  flex-direction: column
+@import 'src/styles/mixins'
 
-.myInput
-  border: none
-  width: 500px
-  height: 62px
-  background: rgba(0, 0, 0, 0.3)
-  backdrop-filter: blur(6px)
-  border-radius: 10px
-  margin-bottom: 10px
-  color: white
-  padding-left: 33px
-  font-size: 14px
-  text-transform: uppercase
-  font-family: "Gotham Pro"
+.formBlock
+  width: 100%
 
-.myInput::placeholder
-  color: white
+  :global(form)
+    display: flex
+    flex-direction: column
+    padding: 0 !important
 
-.myTextArea::placeholder
-  color: white
+  :global(.design__forms_0)
+    padding: 0 !important
 
-.myTextArea
-  border: none
-  width: 500px
-  height: 200px
-  background: rgba(0, 0, 0, 0.3)
-  backdrop-filter: blur(6px)
-  border-radius: 10px
-  margin-bottom: 30px
-  color: white
-  padding-left: 33px
-  padding-top: 26px
-  font-size: 14px
-  font-family: "Gotham Pro"
-  text-transform: uppercase
+  :global(.form)
+    padding: 0 !important
 
-.buttonsBlock
-  display: flex
-  width: 500px
-  justify-content: space-between
+  :global(.myInput)
+    border: none!important
+    width: 500px
+    height: 62px
+    max-width: 100%
+    background: rgba(0, 0, 0, 0.3)
+    backdrop-filter: blur(6px)
+    border-radius: 12px
+    color: white
+    padding-left: 33px!important
+    text-transform: uppercase
+
+    @media (max-width: 550px)
+      width: 300px
+
+    @include smartphone
+      height: 50px
+      font-size: 12px
+
+    @include desktop
+      height: 62px
+      font-size: 14px
+
+  :global(.myInput::placeholder)
+    color: white
+
+  :global(.myTextArea::placeholder)
+    color: white
+
+  :global(.myTextArea)
+    border: none!important
+    width: 500px
+    max-width: 100% !important
+    background: rgba(0, 0, 0, 0.3)
+    backdrop-filter: blur(6px)
+    border-radius: 12px
+    color: white
+    padding-left: 33px !important
+    padding-top: 26px !important
+    font-size: 14px
+    text-transform: uppercase
+
+    @media (max-width: 550px)
+      width: 300px
+
+    @include smartphone
+      height: 170px
+      margin-bottom: 0
+      font-size: 12px
+
+    @include desktop
+      height: 150px
+      margin-bottom: 20px
+      font-size: 14px
+
+  :global(.buttonsBlock)
+    display: flex
+    width: 500px
+    justify-content: space-between
+
+  :global(.fiels_item)
+    >label
+      display: none !important
+
+  :global(.field_submit)
+    @include smartphone
+      text-align: center
+
+    @include desktop
+      text-align: left
+
+  :global(.btn)
+    display: inline-block !important
+    font-size: 19px !important
+    height: 62px !important
+    line-height: 62px !important
+    min-width: 200px !important
+    padding: 0 50px !important
+    font-weight: 600 !important
+    letter-spacing: 0.1rem !important
+    background: #93F8FF !important
+    border-radius: 10px !important
+    text-transform: uppercase !important
+    color: black !important
+    cursor: pointer !important
+    transition: all 0.5s ease-in !important
+    border: none !important
+    text-align: center !important
+    margin-top: 0 !important
+    &:hover
+      background: #33DAFF !important
