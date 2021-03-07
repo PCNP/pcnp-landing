@@ -23,6 +23,7 @@ export const Button: React.FC<OwnProps> = ({ name, href, onClick, children, btnT
       <button
         onClick={onClick}
         name={name}
+        aria-label={name}
         className={
           cn(
             styles.button,

@@ -105,7 +105,10 @@ export const MobileNav: React.FC<OwnProps> = ({ scroll, nav = navigation }) => {
         }
         onClick={()=>setIsOpen(!isOpen)}
       >
-        <img src={isOpen ? openMenuIcon : closeMenuIcon} />
+        <img
+          alt='open icon'
+          src={isOpen ? openMenuIcon : closeMenuIcon}
+        />
       </div>
       <nav
         className={
@@ -219,7 +222,10 @@ export const MobileNav: React.FC<OwnProps> = ({ scroll, nav = navigation }) => {
               btnType='outline'
               name='email'
             >
-              <img src={icon} />
+              <img
+                src={icon}
+                alt='email'
+              />
             </Button>
           </div>
         </div>

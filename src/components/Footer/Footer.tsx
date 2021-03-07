@@ -56,7 +56,10 @@ export const Footer: React.FC<OwnProps> = ({ nav = navigation }) => {
           href='mailto:hello@pcnp-studio.ru'
           className={styles.mail}
         >
-          <img src={img} />
+          <img
+            src={img}
+            alt='email'
+          />
           hello@pcnp-studio.ru
         </a>
         <p className={styles.author}>
