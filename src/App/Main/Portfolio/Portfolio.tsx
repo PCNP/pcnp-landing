@@ -42,6 +42,7 @@ export const Portfolio: React.FC<CommonBlockProps & OwnProps> = (props) => {
                   <img
                     className={styles.itemImage}
                     src={el.desktopImg}
+                    alt={el.title}
                   />
                 </a>
               </Link>

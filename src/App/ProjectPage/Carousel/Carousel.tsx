@@ -43,7 +43,10 @@ export const CarouselBlock: React.FC<OwnProps> = ({ slideImages }) => {
                   className={styles.item}
                   classNameHidden={styles.hidden}
                 >
-                  <img src={el} />
+                  <img
+                    src={el}
+                    alt='slide image'
+                  />
                 </Slide>
               )
             })

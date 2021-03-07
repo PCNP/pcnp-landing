@@ -45,6 +45,7 @@ export const PortfolioItem: React.FC<OwnProps> = (
           <img
             src={desktopImg}
             className={styles.mobVersionImg}
+            alt='desktop image'
           />
           <Button
             href={`/portfolio/${slug}`}
@@ -57,10 +58,12 @@ export const PortfolioItem: React.FC<OwnProps> = (
           <img
             src={mobImg}
             className={styles.mobImg}
+            alt='mobile image'
           />
           <img
             src={desktopImg}
             className={styles.desktopImg}
+            alt='desktop image'
           />
         </div>
       </div>

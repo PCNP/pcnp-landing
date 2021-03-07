@@ -42,12 +42,14 @@ export const WorkBlock: React.FC<BlockWithItemsProps> = (props) => {
             <img
               src={thread}
               className={styles.thread}
+              alt='thread'
             />
           </div>
         </div>
         <img
           src={man}
           className={styles.man}
+          alt='man'
         />
       </div>
     </div>

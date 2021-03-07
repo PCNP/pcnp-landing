@@ -56,7 +56,10 @@ export const InformationBlock: React.FC<OwnProps & aboutBlockProps> =
                         className={styles.item}
                         key={i}
                       >
-                        <img src={ts} />
+                        <img
+                          src={ts}
+                          alt={el.name}
+                        />
                         <p>{ el.name }</p>
                       </div>
                     )

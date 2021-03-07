@@ -11,16 +11,18 @@ type OwnProps = {
   onClick?: () => void
   btnType?: 'primary' | 'outline'
   children: React.ReactNode
+  name?: string
 }
 
 
-export const Button: React.FC<OwnProps> = ({ href, onClick, children, btnType = 'primary' }) => {
+export const Button: React.FC<OwnProps> = ({ name, href, onClick, children, btnType = 'primary' }) => {
   const router = useRouter()
 
   if (!href) {
     return (
       <button
         onClick={onClick}
+        name={name}
         className={
           cn(
             styles.button,

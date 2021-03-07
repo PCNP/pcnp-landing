@@ -29,6 +29,7 @@ export const MobilePortfolio: React.FC<OwnProps> = ({ items }) => {
                 <img
                   className={styles.itemImage}
                   src={el.desktopImg}
+                  alt={el.title}
                 />
               </a>
             </Link>

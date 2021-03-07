@@ -91,7 +91,7 @@ export const MobileNav: React.FC<OwnProps> = ({ scroll, nav = navigation }) => {
   }, [active])
 
   const handlerButton = () => {
-
+    return router.push('/#contacts')
   }
   const [isOpen, setIsOpen] = useState(false)
   return (
@@ -217,6 +217,7 @@ export const MobileNav: React.FC<OwnProps> = ({ scroll, nav = navigation }) => {
             <Button
               onClick={handlerButton}
               btnType='outline'
+              name='email'
             >
               <img src={icon} />
             </Button>

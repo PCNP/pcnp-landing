@@ -32,7 +32,10 @@ export const WhyWe: React.FC<BlockWithItemsProps> = (props) => {
                     key={i}
                   >
                     <div className={styles.imageBlock}>
-                      <img src={images[i]} />
+                      <img
+                        src={images[i]}
+                        alt={el.title}
+                      />
                     </div>
                     <h3 className={styles.itemTitle}>
                       { el.title }
@@ -47,7 +50,10 @@ export const WhyWe: React.FC<BlockWithItemsProps> = (props) => {
           </div>
         </div>
         <div className={styles.computerBlock}>
-          <img src={computer} />
+          <img
+            src={computer}
+            alt='computer'
+          />
         </div>
       </div>
     </div>
