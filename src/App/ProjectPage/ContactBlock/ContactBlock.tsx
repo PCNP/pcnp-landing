@@ -16,7 +16,11 @@ export const ContactBlock: React.FC<CommonBlockProps> = (props) => {
       </p>
       <div className={styles.content}>
         <h2 className={styles.mainTitle}>{ props && props.title }</h2>
-
+        <div
+          id='Na5KzzRH'
+          data-formid='4t1614961498NYT'
+          className='_Forms_generate'
+        />
       </div>
     </div>
   )
