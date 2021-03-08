@@ -16,9 +16,8 @@ class MyDocument extends Document {
             ) && ( <FormScripts /> )
           }
           <script
-            src='https://code.jquery.com/jquery-3.3.1.js'
-            integrity='sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60='
-            crossOrigin='anonymous'
+            async
+            src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
           />
           <meta
             name='qform-verification'

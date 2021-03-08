@@ -8,6 +8,10 @@ import { CommonBlockProps } from '../../../store/lang/indexlang'
 import styles from './Block1.module.sass'
 
 
+const webpBg = require('src/common/images/webp/index/block1.webp')
+const bg = require('src/common/images/index/background_1.png')
+
+
 export const Block1: React.FC<CommonBlockProps> = (props) => {
   const supportsWebP = useWebPSupportCheck()
   return (
@@ -15,8 +19,10 @@ export const Block1: React.FC<CommonBlockProps> = (props) => {
       className={
         cn(
           styles.main,
-          supportsWebP ? styles.webpBg : styles.bg
         )
+      }
+      style={
+        { backgroundImage: `url(${supportsWebP ? webpBg : bg})` }
       }
     >
       <div className={styles.content}>
