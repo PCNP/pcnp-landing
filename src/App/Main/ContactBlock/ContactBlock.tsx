@@ -8,6 +8,10 @@ import { MyForm } from '../../../components/MyForm/MyForm'
 import styles from './ContactBlock.module.sass'
 
 
+const webpBg = require('src/common/images/webp/index/contactsBlock.webp')
+const bg = require('src/common/images/index/contactsBg.png')
+
+
 export const ContactBlock: React.FC<CommonBlockProps> = (props) => {
   const supportsWebP = useWebPSupportCheck()
   return (
@@ -15,8 +19,10 @@ export const ContactBlock: React.FC<CommonBlockProps> = (props) => {
       className={
         cn(
           styles.main,
-          supportsWebP ? styles.webpBg : styles.bg
         )
+      }
+      style={
+        { backgroundImage: `url(${supportsWebP ? webpBg : bg})` }
       }
       id='contacts'
     >

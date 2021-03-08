@@ -13,7 +13,7 @@ const bg = require('src/common/images/index/background_1.png')
 
 
 export const Block1: React.FC<CommonBlockProps> = (props) => {
-  const supportsWebP = useWebPSupportCheck()
+  const isSupport = useWebPSupportCheck()
   return (
     <div
       className={
@@ -22,7 +22,7 @@ export const Block1: React.FC<CommonBlockProps> = (props) => {
         )
       }
       style={
-        { backgroundImage: `url(${supportsWebP ? webpBg : bg})` }
+        { backgroundImage: `url(${isSupport ? webpBg : bg})` }
       }
     >
       <div className={styles.content}>

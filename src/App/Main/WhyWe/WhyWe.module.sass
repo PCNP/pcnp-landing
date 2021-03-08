@@ -10,7 +10,6 @@
 
   @include smartphone
     height: auto
-    overflow: hidden
 
   @include desktop
     height: 700px
@@ -186,10 +185,13 @@
 .computerBlock
   @include smartphone
     position: absolute
-    top: -190px
+    top: -185px
     right: -130px
     img
       width: 450px
+
+  @include mini-tablet
+    top: -170px
 
   @include desktop
     right: calc(5% - 40px)
