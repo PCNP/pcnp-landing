@@ -4,13 +4,10 @@
 html, body
   margin: 0
   padding: 0
-  scroll-behavior: auto
-  width: 100%
-  overflow-x: hidden
 *
   box-sizing: border-box
 
-h1,h2,h3,p
+h1, h2, h3, p
   margin: 0
 
 a
@@ -36,4 +33,11 @@ body
   background: linear-gradient(89.71deg, #00152F 0.2%, #003C6A 99.7%)
 
 
+// убираю стрелки лайтбокса на мобильниках
+
+.fslightbox-slide-btn
+  display: none !important
+
+  @include tablet
+    display: flex !important
 
