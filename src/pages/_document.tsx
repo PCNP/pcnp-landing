@@ -2,6 +2,7 @@ import React from 'react'
 import Document, { Head, Html, Main, NextScript } from 'next/document'
 
 import { AnalyticsScripts } from 'src/components/AnalyticsScripts/AnalyticsScripts'
+import { FormScripts } from '../components/FormScripts/FormScripts'
 
 
 class MyDocument extends Document {
@@ -12,7 +13,7 @@ class MyDocument extends Document {
           {
             process.env.NODE_ENV === 'production' && (
               <AnalyticsScripts />
-            )
+            ) && ( <FormScripts /> )
           }
           <script
             async

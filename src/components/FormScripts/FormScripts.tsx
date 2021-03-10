@@ -21,6 +21,19 @@ export const FormScripts: React.FC = () => {
                 }
                 var d = document;
                 var w = window;
+                window.onhashchange = function () {
+                  if (d.readyState == 'complete') {
+                  init();
+                }
+                else {
+                  if (w.attachEvent) {
+                    w.attachEvent('onload', init); 
+                  }
+                  else {
+                    w.addEventListener('load', init, false);
+                  } 
+                }
+                }
                 if (d.readyState == 'complete') {
                   init();
                 }

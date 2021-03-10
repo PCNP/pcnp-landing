@@ -7,7 +7,6 @@ import { PortfolioItem } from '../../App/PortfolioPage/PortfolioItem/PortfolioIt
 import { items } from '../../store/portfolioItems'
 import { ruDictionary } from '../../store/lang/dictionary'
 import { createPortfolioIndexProps } from '../../store/lang/indexPortfolioLang'
-import { FormScripts } from '../../components/FormScripts/FormScripts'
 
 
 const PortfolioPage: React.FC = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
@@ -29,11 +28,6 @@ const PortfolioPage: React.FC = (props: InferGetStaticPropsType<typeof getStatic
         })
       }
       <ContactBlock {...props.contactBlock} />
-      {
-        process.env.NODE_ENV === 'production' && (
-          <FormScripts />
-        )
-      }
     </>
   )
 }
