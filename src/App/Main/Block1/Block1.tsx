@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import cn from 'classnames'
-import { useWebPSupportCheck } from 'react-use-webp-support-check'
 import { scroller } from 'react-scroll/modules'
 
 import { Button } from '../../../components/Button/Button'
@@ -13,9 +12,12 @@ const webpBg = require('src/common/images/webp/index/block1.webp')
 const bg = require('src/common/images/index/background_1.png')
 
 
-export const Block1: React.FC<CommonBlockProps> = (props) => {
-  const isSupport = useWebPSupportCheck()
+type OwnProps = {
+  support: boolean
+}
 
+
+export const Block1: React.FC<CommonBlockProps & OwnProps> = (props) => {
   const [isLoad, setIsLoad] = useState(false)
 
   const handlerLoad = () => {
@@ -37,7 +39,7 @@ export const Block1: React.FC<CommonBlockProps> = (props) => {
         )
       }
       style={
-        { backgroundImage: isLoad ? `url(${isSupport ? webpBg : bg})` : '' }
+        { backgroundImage: isLoad ? `url(${props.support ? webpBg : bg})` : '' }
       }
     >
       <div className={styles.content}>

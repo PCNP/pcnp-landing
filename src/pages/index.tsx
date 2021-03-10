@@ -1,5 +1,6 @@
 import React from 'react'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
+import { useWebPSupportCheck } from 'react-use-webp-support-check/dist'
 
 import { Block1 } from '../App/Main/Block1/Block1'
 import { Services } from '../App/Main/Services/Services'
@@ -15,9 +16,14 @@ import { FormScripts } from '../components/FormScripts/FormScripts'
 
 
 const MainPage: React.FC = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const support = useWebPSupportCheck()
+
   return (
     <>
-      <Block1 {...props.block1} />
+      <Block1
+        support={support}
+        {...props.block1}
+      />
       <Services {...props.services} />
       <WhyWe {...props.whyWe} />
       <Portfolio

@@ -65,7 +65,6 @@
 
     @include desktop
       height: 150px
-      margin-bottom: 20px
       font-size: 14px !important
 
   :global(.buttonsBlock)
@@ -111,6 +110,10 @@
     &:hover
       background: #33DAFF !important
 
+    @include desktop
+      margin-top: 20px
+
   :global(.error)
     position: absolute
-    bottom: -14px
+    bottom: -9px
+    font-size: 10px

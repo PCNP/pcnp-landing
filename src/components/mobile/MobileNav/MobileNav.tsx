@@ -15,8 +15,6 @@ const { scroller } = Scroll
 
 
 const icon = require('src/common/images/icons/mail.svg')
-const openMenuIcon = require('src/common/images/menu/openMenuIcon.svg')
-const closeMenuIcon = require('src/common/images/menu/closeMenuIcon.svg')
 
 
 type OwnProps = {
@@ -106,15 +104,14 @@ export const MobileNav: React.FC<OwnProps> = ({ scroll, nav = navigation }) => {
         className={
           cn(
             styles.iconsBlock,
-            isOpen ? styles.openIcon : ''
+            isOpen ? styles.open : ''
           )
         }
         onClick={()=>setIsOpen(!isOpen)}
       >
-        <img
-          alt='open icon'
-          src={isOpen ? openMenuIcon : closeMenuIcon}
-        />
+        <span />
+        <span />
+        <span />
       </div>
       <nav
         className={

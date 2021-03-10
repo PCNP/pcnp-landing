@@ -6,6 +6,7 @@ import '../styles/global.sass'
 
 import { Footer } from '../components/Footer/Footer'
 import Header from 'src/components/Header/Header'
+import { ArrowToTop } from '../components/ArrowToTop/ArrowToTop'
 
 
 export const App = ({ Component, pageProps }: AppProps) => {
@@ -20,6 +21,7 @@ export const App = ({ Component, pageProps }: AppProps) => {
       />
       <Component {...pageProps} />
       <Footer nav={pageProps.nav} />
+      <ArrowToTop />
     </>
   )
 }
