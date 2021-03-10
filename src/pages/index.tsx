@@ -29,7 +29,11 @@ const MainPage: React.FC = (props: InferGetStaticPropsType<typeof getStaticProps
       />
       <TechnologyBlock {...props.techBlock} />
       <ContactBlock {...props.contactBlock} />
-      <FormScripts />
+      {
+        process.env.NODE_ENV === 'production' && (
+          <FormScripts />
+        )
+      }
     </>
   )
 }

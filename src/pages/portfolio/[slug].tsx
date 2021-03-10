@@ -30,7 +30,11 @@ const Project: React.FC = (props: InferGetStaticPropsType<typeof getStaticProps>
         {...props.aboutBlock}
       />
       <ContactBlock {...props.contactBlock} />
-      <FormScripts />
+      {
+        process.env.NODE_ENV === 'production' && (
+          <FormScripts />
+        )
+      }
     </>
   )
 }

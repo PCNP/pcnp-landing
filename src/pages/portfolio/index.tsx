@@ -29,7 +29,11 @@ const PortfolioPage: React.FC = (props: InferGetStaticPropsType<typeof getStatic
         })
       }
       <ContactBlock {...props.contactBlock} />
-      <FormScripts />
+      {
+        process.env.NODE_ENV === 'production' && (
+          <FormScripts />
+        )
+      }
     </>
   )
 }
