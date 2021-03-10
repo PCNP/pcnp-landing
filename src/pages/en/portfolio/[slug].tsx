@@ -23,7 +23,8 @@ const Project: React.FC = (props: InferGetStaticPropsType<typeof getStaticProps>
         {...props.block1}
       />
       <CarouselBlock
-        slideImages = {project.slideImages}
+        sliderImages = {project.slideImages}
+        showLightBox
       />
       <InformationBlock
         projects={props.items}
