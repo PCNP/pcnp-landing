@@ -22,7 +22,10 @@ const Project: React.FC = (props: InferGetStaticPropsType<typeof getStaticProps>
         project={project}
         {...props.block1}
       />
-      <CarouselBlock slideImages = {project.slideImages} />
+      <CarouselBlock
+        sliderImages = {project.slideImages}
+        showLightBox
+      />
       <InformationBlock
         projects={items}
         project={project}
