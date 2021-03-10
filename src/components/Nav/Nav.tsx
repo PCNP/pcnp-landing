@@ -91,160 +91,156 @@ export const Nav: React.FC<OwnProps> = ({ scroll, nav = navigation }) => {
     setPageY(window.pageYOffset)
   }, [router.asPath])
 
-  if(active === 'portfolio' || position.services.height){
-    return (
-      <nav
+  return (
+    <nav
+      className={
+        cn(
+          styles.nav,
+          scroll > 0 ? styles.scrollNav : ''
+        )
+      }
+    >
+      <a
         className={
           cn(
-            styles.nav,
-            scroll > 0 ? styles.scrollNav : ''
+            styles.item,
+            active !== 'portfolio' && scroll >= position.services.top + pageY &&
+              scroll < position.services.top + pageY + position.services.height * 0.75 ?
+              styles.active : ''
           )
         }
+        onClick={
+          async () => {
+            if(active === 'portfolio'){
+              await router.push(pref + '/')
+              scroller.scrollTo('services', {
+                duration: 600,
+                delay: 0,
+                smooth: 'easeInOutQuint',
+              })
+            }
+            else{
+              scroller.scrollTo('services', {
+                duration: 600,
+                delay: 0,
+                smooth: 'easeInOutQuint',
+              })
+            }
+          }
+        }
       >
-        <a
-          className={
-            cn(
-              styles.item,
-              active !== 'portfolio' && scroll >= position.services.top + pageY &&
-              scroll < position.services.top + pageY + position.services.height * 0.75 ?
-                styles.active : ''
-            )
-          }
-          onClick={
-            async () => {
-              if(active === 'portfolio'){
-                await router.push(pref + '/')
-                scroller.scrollTo('services', {
-                  duration: 600,
-                  delay: 0,
-                  smooth: 'easeInOutQuint',
-                })
-              }
-              else{
-                scroller.scrollTo('services', {
-                  duration: 600,
-                  delay: 0,
-                  smooth: 'easeInOutQuint',
-                })
-              }
-            }
-          }
-        >
-          { nav[0] }
-        </a>
-        <a
-          className={
-            cn(
-              styles.item,
-              active === 'portfolio' ? styles.active : scroll >= position.portfolio.top + pageY &&
+        { nav[0] }
+      </a>
+      <a
+        className={
+          cn(
+            styles.item,
+            active === 'portfolio' ? styles.active : scroll >= position.portfolio.top + pageY &&
               scroll < position.portfolio.top + pageY + position.portfolio.height * 0.75 ?
-                styles.active : ''
-            )
+              styles.active : ''
+          )
+        }
+        onClick={
+          async () => {
+            return router.push(pref + '/portfolio')
           }
-          onClick={
-            async () => {
-              return router.push(pref + '/portfolio')
-            }
-          }
-        >
-          { nav[1] }
-        </a>
-        <a
-          className={
-            cn(
-              styles.item,
-              active !== 'portfolio' && scroll >= position.workFlow.top + pageY &&
+        }
+      >
+        { nav[1] }
+      </a>
+      <a
+        className={
+          cn(
+            styles.item,
+            active !== 'portfolio' && scroll >= position.workFlow.top + pageY &&
               scroll < position.workFlow.top + pageY + position.workFlow.height * 0.75 ?
-                styles.active : ''
-            )
-          }
-          onClick={
-            async () => {
-              if(active === 'portfolio'){
-                await router.push(pref + '/')
-                scroller.scrollTo('workflow', {
-                  duration: 600,
-                  delay: 0,
-                  smooth: 'easeInOutQuint',
-                })
-              }
-              else{
-                scroller.scrollTo('workflow', {
-                  duration: 600,
-                  delay: 0,
-                  smooth: 'easeInOutQuint',
-                })
-              }
+              styles.active : ''
+          )
+        }
+        onClick={
+          async () => {
+            if(active === 'portfolio'){
+              await router.push(pref + '/')
+              scroller.scrollTo('workflow', {
+                duration: 600,
+                delay: 0,
+                smooth: 'easeInOutQuint',
+              })
+            }
+            else{
+              scroller.scrollTo('workflow', {
+                duration: 600,
+                delay: 0,
+                smooth: 'easeInOutQuint',
+              })
             }
           }
-        >
-          { nav[2] }
-        </a>
-        <a
-          className={
-            cn(
-              styles.item,
-              active !== 'portfolio' && scroll >= position.technologies.top + pageY &&
+        }
+      >
+        { nav[2] }
+      </a>
+      <a
+        className={
+          cn(
+            styles.item,
+            active !== 'portfolio' && scroll >= position.technologies.top + pageY &&
               scroll < position.technologies.top + pageY + position.technologies.height * 0.75 ?
-                styles.active : ''
-            )
-          }
-          onClick={
-            async () => {
-              if(active === 'portfolio'){
-                await router.push(pref + '/')
-                scroller.scrollTo('technologies', {
-                  duration: 600,
-                  delay: 0,
-                  smooth: 'easeInOutQuint',
-                })
-              }
-              else{
-                scroller.scrollTo('technologies', {
-                  duration: 600,
-                  delay: 0,
-                  smooth: 'easeInOutQuint',
-                })
-              }
+              styles.active : ''
+          )
+        }
+        onClick={
+          async () => {
+            if(active === 'portfolio'){
+              await router.push(pref + '/')
+              scroller.scrollTo('technologies', {
+                duration: 600,
+                delay: 0,
+                smooth: 'easeInOutQuint',
+              })
+            }
+            else{
+              scroller.scrollTo('technologies', {
+                duration: 600,
+                delay: 0,
+                smooth: 'easeInOutQuint',
+              })
             }
           }
-        >
-          { nav[3] }
-        </a>
-        <a
-          className={
-            cn(
-              styles.item,
-              active !== 'portfolio' && scroll >= position.contacts.top + pageY &&
+        }
+      >
+        { nav[3] }
+      </a>
+      <a
+        className={
+          cn(
+            styles.item,
+            active !== 'portfolio' && scroll >= position.contacts.top + pageY &&
               scroll < position.contacts.top + pageY + position.contacts.height * 0.75 ?
-                styles.active : ''
-            )
-          }
-          onClick={
-            async () => {
-              if(active === 'portfolio'){
-                await router.push(pref + '/')
-                scroller.scrollTo('contacts', {
-                  duration: 600,
-                  delay: 0,
-                  smooth: 'easeInOutQuint',
-                })
-              }
-              else{
-                scroller.scrollTo('contacts', {
-                  duration: 600,
-                  delay: 0,
-                  smooth: 'easeInOutQuint',
-                })
-              }
+              styles.active : ''
+          )
+        }
+        onClick={
+          async () => {
+            if(active === 'portfolio'){
+              await router.push(pref + '/')
+              scroller.scrollTo('contacts', {
+                duration: 600,
+                delay: 0,
+                smooth: 'easeInOutQuint',
+              })
+            }
+            else{
+              scroller.scrollTo('contacts', {
+                duration: 600,
+                delay: 0,
+                smooth: 'easeInOutQuint',
+              })
             }
           }
-        >
-          { nav[4] }
-        </a>
-      </nav>
-    )
-  }
-
-  return <nav />
+        }
+      >
+        { nav[4] }
+      </a>
+    </nav>
+  )
 }

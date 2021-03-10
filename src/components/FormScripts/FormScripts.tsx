@@ -23,16 +23,16 @@ export const FormScripts: React.FC = () => {
                 var w = window;
                 window.onhashchange = function () {
                   if (d.readyState == 'complete') {
-                  init();
-                }
-                else {
-                  if (w.attachEvent) {
-                    w.attachEvent('onload', init); 
+                    init();
                   }
                   else {
-                    w.addEventListener('load', init, false);
-                  } 
-                }
+                    if (w.attachEvent) {
+                      w.attachEvent('onload', init); 
+                    }
+                    else {
+                      w.addEventListener('load', init, false);
+                    } 
+                  }
                 }
                 if (d.readyState == 'complete') {
                   init();
