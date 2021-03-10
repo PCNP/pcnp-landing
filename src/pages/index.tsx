@@ -11,6 +11,7 @@ import { ContactBlock } from '../App/Main/ContactBlock/ContactBlock'
 import { createIndexProps } from '../store/lang/indexlang'
 import { ruDictionary } from '../store/lang/dictionary'
 import { items } from './../store/portfolioItems'
+import { FormScripts } from '../components/FormScripts/FormScripts'
 
 
 const MainPage: React.FC = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
@@ -28,6 +29,7 @@ const MainPage: React.FC = (props: InferGetStaticPropsType<typeof getStaticProps
       />
       <TechnologyBlock {...props.techBlock} />
       <ContactBlock {...props.contactBlock} />
+      <FormScripts />
     </>
   )
 }

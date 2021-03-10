@@ -84,6 +84,7 @@
   display: flex
   justify-content: space-between
   width: 100%
+  flex-wrap: wrap
 
   @include smartphone
     flex-direction: column
@@ -96,31 +97,40 @@
 
 .technologies
   display: flex
-  justify-content: space-between
-
-  @include smartphone
-    width: 70%
-
-  @include mini-tablet
-    width: 350px
-
-  @include desktop
-    width: 35%
+  flex-wrap: wrap
 
 .item
   display: flex
   flex-direction: column
   align-items: center
-  width: 30%
+
+  @include smartphone
+    width: 80px
+
+  @include mini-tablet
+    width: 90px
+
+  @include tablet
+    width: 100px
+
+  @include large-desktop
+    width: 130px
 
   img
-    width: 60%
-
     @include smartphone
       margin-bottom: 10px
+      width: 50px
+      height: auto
+
+    @include mini-tablet
+      width: 55px
 
     @include tablet
       margin-bottom: 20px
+      width: 60px
+
+    @include large-desktop
+      width: 70px
 
   p
     line-height: 120%
@@ -164,19 +174,15 @@
 
   @include mini-tablet
     justify-content: flex-start
-    a
-      margin-top: 20px
 
   @include tablet
     flex-direction: row
     a
       margin-right: 20px
-      margin-top: 20px
+      margin-top: 0
 
   @include desktop
     width: initial
-    a
-      margin-top: 0px
 
   @include large-desktop
     padding-top: 0

@@ -62,10 +62,7 @@
     font-size: 30px
 
 .content
-  @include wrapper
-
   display: flex
-  margin: 0
 
   @include smartphone
     flex-direction: column
@@ -82,6 +79,10 @@
   @include desktop
     max-width: initial
     flex-wrap: nowrap
+
+  @include wrapper
+
+  margin: 0
 
 
 .item

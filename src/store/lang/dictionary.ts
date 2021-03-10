@@ -74,8 +74,8 @@ export const ruDictionary: Dictionary = {
   contract: '2. Договор',
   createContract: 'Если все устраивает, составляем договор, выделяем команду и проектного менеджера',
   development: '3. Разработка',
-  developingEgailMet: 'разрабатываем по agile-методологии, показываем результат по МЕРЕ разработки, ' +
-    'принимаем правки &quot;на ходу&quot;',
+  developingEgailMet: `разрабатываем по agile-методологии, показываем результат по МЕРЕ разработки, ' +
+    'принимаем правки "на ходу"`,
   acceptance: '4. Прием',
   getQualProduct: 'По окончании работ, вы получаете качественный продукт, сделанный по всем стандартам',
   applyTools: 'Применяем эффективные инструменты и лучшие практики отрасли',
@@ -120,7 +120,7 @@ export const enDictionary: Dictionary = {
   createContract: 'If everything suits you, we draw up a contract, select a team and a project manager',
   development: '3. Development',
   developingEgailMet: 'We develop using agile methodology, show the result as as soon as it' +
-    ' becomes available, accept edits &quot;on the fly&quot;',
+    ' becomes available, accept edits "on the fly"',
   acceptance: '4. Acceptance',
   getQualProduct: 'Upon completion of the work, you receive a fine product made according to all standards',
   applyTools: 'We apply effective tools and industry best practices',

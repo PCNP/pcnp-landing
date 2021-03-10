@@ -8,17 +8,18 @@ import styles from './MobilePortfolio.module.sass'
 
 type OwnProps = {
   items: item[]
+  pref: string
 }
 
 
-export const MobilePortfolio: React.FC<OwnProps> = ({ items }) => {
+export const MobilePortfolio: React.FC<OwnProps> = ({ pref, items }) => {
   return (
     <div className={styles.carousel}>
       {
         items.map((el,i)=>{
           return (
             <Link
-              href={'/portfolio/' + el.slug}
+              href={pref + '/portfolio/' + el.slug}
               key={i}
             >
               <a

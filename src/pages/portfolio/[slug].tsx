@@ -10,6 +10,7 @@ import { InformationBlock } from '../../App/ProjectPage/InformationBlock/Informa
 import { ruDictionary } from '../../store/lang/dictionary'
 import { createSlugPortfolioProps } from '../../store/lang/slugPortfolioLang'
 import { CarouselBlock } from '../../App/ProjectPage/Carousel/Carousel'
+import { FormScripts } from '../../components/FormScripts/FormScripts'
 
 
 const Project: React.FC = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
@@ -29,6 +30,7 @@ const Project: React.FC = (props: InferGetStaticPropsType<typeof getStaticProps>
         {...props.aboutBlock}
       />
       <ContactBlock {...props.contactBlock} />
+      <FormScripts />
     </>
   )
 }

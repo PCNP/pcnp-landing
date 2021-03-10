@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Link from 'next/link'
 import cn from 'classnames'
 import { useRouter } from 'next/router'
 
@@ -7,6 +6,12 @@ import { Button } from '../../Button/Button'
 import { RuEng } from '../../RuEng/RuEng'
 
 import styles from './MobileNav.module.sass'
+
+
+const Scroll   = require('react-scroll')
+
+
+const { scroller } = Scroll
 
 
 const icon = require('src/common/images/icons/mail.svg')
@@ -33,9 +38,6 @@ export const MobileNav: React.FC<OwnProps> = ({ scroll, nav = navigation }) => {
 
   const pref = router.asPath.split('/')[1] === 'en' ? '/en' : ''
   const active = router.asPath.split('/')[1] === 'en' ? router.asPath.split('/')[2] : router.asPath.split('/')[1]
-
-  const initialSmoothStyles: string = active !== 'portfolio' ? 'smooth' : 'auto'
-  const [smoothStyles, setSmoothStyles] = useState(initialSmoothStyles)
 
   const [position, setPosition] = React.useState({
     services: {
@@ -86,12 +88,16 @@ export const MobileNav: React.FC<OwnProps> = ({ scroll, nav = navigation }) => {
     }
 
     setPageY(window.pageYOffset)
-
-    setSmoothStyles(active !== 'portfolio' ? 'smooth' : 'auto')
   }, [active])
 
-  const handlerButton = () => {
-    return router.push('/#contacts')
+  const handlerButton = async () => {
+    await router.push(pref + '/')
+    scroller.scrollTo('contacts', {
+      duration: 600,
+      delay: 0,
+      smooth: 'easeInOutQuint',
+    })
+    setIsOpen(false)
   }
   const [isOpen, setIsOpen] = useState(false)
   return (
@@ -119,102 +125,152 @@ export const MobileNav: React.FC<OwnProps> = ({ scroll, nav = navigation }) => {
         }
       >
         <div className={styles.wrapperBlock}>
-          <Link href={pref + '/#services'}>
-            <a
-              className={
-                cn(
-                  styles.item,
-                  active !== 'portfolio' && scroll >= position.services.top + pageY &&
-                  scroll < position.services.top + pageY + position.services.height * 0.75 ?
-                    styles.active : ''
-                )
-              }
-              onClick={
-                ()=>{
-                  setIsOpen(false)
+          <a
+            className={
+              cn(
+                styles.item,
+                active !== 'portfolio' && scroll >= position.services.top + pageY &&
+                scroll < position.services.top + pageY + position.services.height * 0.75 ?
+                  styles.active : ''
+              )
+            }
+            onClick={
+              async () => {
+                setIsOpen(false)
+                if(active === 'portfolio'){
+                  await router.push(pref + '/')
+                  scroller.scrollTo('services', {
+                    duration: 600,
+                    delay: 0,
+                    smooth: 'easeInOutQuint',
+                  })
+                }
+                else{
+                  scroller.scrollTo('services', {
+                    duration: 600,
+                    delay: 0,
+                    smooth: 'easeInOutQuint',
+                  })
                 }
               }
-            >
-              { nav[0] }
-            </a>
-          </Link>
-          <Link href={pref + '/portfolio'}>
-            <a
-              className={
-                cn(
-                  styles.item,
-                  active === 'portfolio' ? styles.active : scroll >= position.portfolio.top + pageY &&
-                  scroll < position.portfolio.top + pageY + position.portfolio.height * 0.75 ?
-                    styles.active : ''
-                )
+            }
+          >
+            { nav[0] }
+          </a>
+          <a
+            className={
+              cn(
+                styles.item,
+                active === 'portfolio' ? styles.active : scroll >= position.portfolio.top + pageY &&
+                scroll < position.portfolio.top + pageY + position.portfolio.height * 0.75 ?
+                  styles.active : ''
+              )
+            }
+            onClick={
+              async () => {
+                setIsOpen(false)
+                return router.push(pref + '/portfolio')
               }
-              onClick={
-                ()=>{
-                  setSmoothStyles('auto')
-                  setIsOpen(false)
+            }
+          >
+            { nav[1] }
+          </a>
+          <a
+            className={
+              cn(
+                styles.item,
+                active !== 'portfolio' && scroll >= position.workFlow.top + pageY &&
+                scroll < position.workFlow.top + pageY + position.workFlow.height * 0.75 ?
+                  styles.active : ''
+              )
+            }
+            onClick={
+              async () => {
+                setIsOpen(false)
+                if(active === 'portfolio'){
+                  await router.push(pref + '/')
+                  scroller.scrollTo('workflow', {
+                    duration: 600,
+                    delay: 0,
+                    smooth: 'easeInOutQuint',
+                  })
+                }
+                else{
+                  scroller.scrollTo('workflow', {
+                    duration: 600,
+                    delay: 0,
+                    smooth: 'easeInOutQuint',
+                  })
                 }
               }
-            >
-              { nav[1] }
-            </a>
-          </Link>
-          <Link href={pref + '/#workflow'}>
-            <a
-              className={
-                cn(
-                  styles.item,
-                  active !== 'portfolio' && scroll >= position.workFlow.top + pageY &&
-                  scroll < position.workFlow.top + pageY + position.workFlow.height * 0.75 ?
-                    styles.active : ''
-                )
-              }
-              onClick={
-                ()=>{
-                  setIsOpen(false)
+            }
+          >
+            { nav[2] }
+          </a>
+          <a
+            className={
+              cn(
+                styles.item,
+                active !== 'portfolio' && scroll >= position.technologies.top + pageY &&
+                scroll < position.technologies.top + pageY + position.technologies.height * 0.75 ?
+                  styles.active : ''
+              )
+            }
+            onClick={
+              async () => {
+                setIsOpen(false)
+                if(active === 'portfolio'){
+                  await router.push(pref + '/')
+                  scroller.scrollTo('technologies', {
+                    duration: 600,
+                    delay: 0,
+                    smooth: 'easeInOutQuint',
+                  })
+                }
+                else{
+                  scroller.scrollTo('technologies', {
+                    duration: 600,
+                    delay: 0,
+                    smooth: 'easeInOutQuint',
+                  })
                 }
               }
-            >
-              { nav[2] }
-            </a>
-          </Link>
-          <Link href={pref + '/#technologies'}>
-            <a
-              className={
-                cn(
-                  styles.item,
-                  active !== 'portfolio' && scroll >= position.technologies.top + pageY &&
-                  scroll < position.technologies.top + pageY + position.technologies.height * 0.75 ?
-                    styles.active : ''
-                )
-              }
-              onClick={
-                ()=>{
-                  setIsOpen(false)
+            }
+          >
+            { nav[3] }
+          </a>
+          <a
+            className={
+              cn(
+                styles.item,
+                active !== 'portfolio' && scroll >= position.contacts.top + pageY &&
+                scroll < position.contacts.top + pageY + position.contacts.height * 0.75 ?
+                  styles.active : ''
+              )
+            }
+            onClick={
+              async () => {
+                setIsOpen(false)
+                if(active === 'portfolio'){
+                  await router.push(pref + '/')
+                  scroller.scrollTo('contacts', {
+                    duration: 600,
+                    delay: 0,
+                    smooth: 'easeInOutQuint',
+                  })
+                }
+                else{
+                  scroller.scrollTo('contacts', {
+                    duration: 600,
+                    delay: 0,
+                    smooth: 'easeInOutQuint',
+                  })
                 }
               }
-            >
-              { nav[3] }
-            </a>
-          </Link>
-          <Link href={pref + '/#contacts'}>
-            <a
-              className={
-                cn(
-                  styles.item,
-                  active !== 'portfolio' && scroll >= position.contacts.top + pageY &&
-                  scroll < position.contacts.top + pageY + position.contacts.height * 0.75 ?
-                    styles.active : ''
-                )
-              }
-              onClick={
-                ()=>{
-                  setIsOpen(false)
-                }
-              }
-            >
-              { nav[4] }
-            </a>
-          </Link>
+            }
+          >
+            { nav[4] }
+          </a>
           <div className={styles.buttonsBlock}>
             <RuEng />
             <Button
@@ -230,18 +286,6 @@ export const MobileNav: React.FC<OwnProps> = ({ scroll, nav = navigation }) => {
           </div>
         </div>
       </nav>
-      <style
-        jsx
-        global
-      >
-        {
-          `
-        html, body{ 
-         scroll-behavior: ${smoothStyles}
-        }
-      `
-        }
-      </style>
     </>
   )
 }

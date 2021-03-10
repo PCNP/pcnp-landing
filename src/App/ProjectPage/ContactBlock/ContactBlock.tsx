@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useWebPSupportCheck } from 'react-use-webp-support-check/dist'
 import cn from 'classnames'
 
@@ -8,15 +8,34 @@ import { MyForm } from '../../../components/MyForm/MyForm'
 import styles from './ContactBlock.module.sass'
 
 
+const webpBg = require('src/common/images/webp/index/contactsBlock.webp')
+const bg = require('src/common/images/index/contactsBg.png')
+
+
 export const ContactBlock: React.FC<CommonBlockProps> = (props) => {
   const supportsWebP = useWebPSupportCheck()
+
+  const [isLoad, setIsLoad] = useState(false)
+
+  const handlerLoad = () => {
+    setIsLoad(true)
+  }
+
+  useEffect(()=>{
+    window.addEventListener('load', handlerLoad)
+    return () => {
+      window.removeEventListener('load', handlerLoad)
+    }
+  },[isLoad])
   return (
     <div
       className={
         cn(
           styles.main,
-          supportsWebP ? styles.webpBg : styles.bg
         )
+      }
+      style={
+        { backgroundImage: isLoad ? `url(${supportsWebP ? webpBg : bg})` : '' }
       }
       id='contacts'
     >

@@ -1,9 +1,14 @@
 import React, { useState } from 'react'
-import Link from 'next/link'
 import cn from 'classnames'
 import { useRouter } from 'next/router'
 
 import styles from './Nav.module.sass'
+
+
+const Scroll   = require('react-scroll')
+
+
+const { scroller } = Scroll
 
 
 type OwnProps = {
@@ -26,11 +31,9 @@ const navigation = [
 export const Nav: React.FC<OwnProps> = ({ scroll, nav = navigation }) => {
   const router = useRouter()
 
-  const pref = router.asPath.split('/')[1] === 'en' ? '/en' : ''
-  const active = router.asPath.split('/')[1] === 'en' ? router.asPath.split('/')[2] : router.asPath.split('/')[1]
-
-  const initialSmoothStyles: string = active !== 'portfolio' ? 'smooth' : 'auto'
-  const [smoothStyles, setSmoothStyles] = useState(initialSmoothStyles)
+  const [pref, setPref] = React.useState(router.asPath.split('/')[1] === 'en' ? '/en' : '')
+  const [active, setActive] = React.useState(router.asPath.split('/')[1] === 'en' ?
+    router.asPath.split('/')[2] : router.asPath.split('/')[1])
 
   const [position, setPosition] = React.useState({
     services: {
@@ -57,6 +60,7 @@ export const Nav: React.FC<OwnProps> = ({ scroll, nav = navigation }) => {
 
   const [pageY, setPageY] = useState(0)
 
+
   React.useEffect(()=>{
     const contactsElement = document.getElementById('contacts')
     const techElement = document.getElementById('technologies')
@@ -80,21 +84,23 @@ export const Nav: React.FC<OwnProps> = ({ scroll, nav = navigation }) => {
       })
     }
 
+    setPref(router.asPath.split('/')[1] === 'en' ? '/en' : '')
+    setActive(router.asPath.split('/')[1] === 'en' ?
+      router.asPath.split('/')[2] : router.asPath.split('/')[1])
+
     setPageY(window.pageYOffset)
+  }, [router.asPath])
 
-    setSmoothStyles(active !== 'portfolio' ? 'smooth' : 'auto')
-  }, [active])
-
-  return (
-    <nav
-      className={
-        cn(
-          styles.nav,
-          scroll > 0 ? styles.scrollNav : ''
-        )
-      }
-    >
-      <Link href={pref + '/#services'}>
+  if(active === 'portfolio' || position.services.height){
+    return (
+      <nav
+        className={
+          cn(
+            styles.nav,
+            scroll > 0 ? styles.scrollNav : ''
+          )
+        }
+      >
         <a
           className={
             cn(
@@ -104,29 +110,45 @@ export const Nav: React.FC<OwnProps> = ({ scroll, nav = navigation }) => {
                 styles.active : ''
             )
           }
+          onClick={
+            async () => {
+              if(active === 'portfolio'){
+                await router.push(pref + '/')
+                scroller.scrollTo('services', {
+                  duration: 600,
+                  delay: 0,
+                  smooth: 'easeInOutQuint',
+                })
+              }
+              else{
+                scroller.scrollTo('services', {
+                  duration: 600,
+                  delay: 0,
+                  smooth: 'easeInOutQuint',
+                })
+              }
+            }
+          }
         >
           { nav[0] }
         </a>
-      </Link>
-      <a
-        className={
-          cn(
-            styles.item,
-            active === 'portfolio' ? styles.active : scroll >= position.portfolio.top + pageY &&
+        <a
+          className={
+            cn(
+              styles.item,
+              active === 'portfolio' ? styles.active : scroll >= position.portfolio.top + pageY &&
               scroll < position.portfolio.top + pageY + position.portfolio.height * 0.75 ?
-              styles.active : ''
-          )
-        }
-        onClick={
-          ()=>{
-            setSmoothStyles('auto')
-            return router.push(pref + '/portfolio')
+                styles.active : ''
+            )
           }
-        }
-      >
-        { nav[1] }
-      </a>
-      <Link href={pref + '/#workflow'}>
+          onClick={
+            async () => {
+              return router.push(pref + '/portfolio')
+            }
+          }
+        >
+          { nav[1] }
+        </a>
         <a
           className={
             cn(
@@ -136,11 +158,28 @@ export const Nav: React.FC<OwnProps> = ({ scroll, nav = navigation }) => {
                 styles.active : ''
             )
           }
+          onClick={
+            async () => {
+              if(active === 'portfolio'){
+                await router.push(pref + '/')
+                scroller.scrollTo('workflow', {
+                  duration: 600,
+                  delay: 0,
+                  smooth: 'easeInOutQuint',
+                })
+              }
+              else{
+                scroller.scrollTo('workflow', {
+                  duration: 600,
+                  delay: 0,
+                  smooth: 'easeInOutQuint',
+                })
+              }
+            }
+          }
         >
           { nav[2] }
         </a>
-      </Link>
-      <Link href={pref + '/#technologies'}>
         <a
           className={
             cn(
@@ -150,11 +189,28 @@ export const Nav: React.FC<OwnProps> = ({ scroll, nav = navigation }) => {
                 styles.active : ''
             )
           }
+          onClick={
+            async () => {
+              if(active === 'portfolio'){
+                await router.push(pref + '/')
+                scroller.scrollTo('technologies', {
+                  duration: 600,
+                  delay: 0,
+                  smooth: 'easeInOutQuint',
+                })
+              }
+              else{
+                scroller.scrollTo('technologies', {
+                  duration: 600,
+                  delay: 0,
+                  smooth: 'easeInOutQuint',
+                })
+              }
+            }
+          }
         >
           { nav[3] }
         </a>
-      </Link>
-      <Link href={pref + '/#contacts'}>
         <a
           className={
             cn(
@@ -164,22 +220,31 @@ export const Nav: React.FC<OwnProps> = ({ scroll, nav = navigation }) => {
                 styles.active : ''
             )
           }
+          onClick={
+            async () => {
+              if(active === 'portfolio'){
+                await router.push(pref + '/')
+                scroller.scrollTo('contacts', {
+                  duration: 600,
+                  delay: 0,
+                  smooth: 'easeInOutQuint',
+                })
+              }
+              else{
+                scroller.scrollTo('contacts', {
+                  duration: 600,
+                  delay: 0,
+                  smooth: 'easeInOutQuint',
+                })
+              }
+            }
+          }
         >
           { nav[4] }
         </a>
-      </Link>
-      <style
-        jsx
-        global
-      >
-        {
-          `
-        html, body{ 
-         scroll-behavior: ${smoothStyles}
-        }
-      `
-        }
-      </style>
-    </nav>
-  )
+      </nav>
+    )
+  }
+
+  return <nav />
 }

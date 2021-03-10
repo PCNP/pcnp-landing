@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 import { Button } from '../../../components/Button/Button'
 import { CommonBlockProps } from '../../../store/lang/indexlang'
@@ -15,7 +16,11 @@ type OwnProps = {
 
 
 export const Portfolio: React.FC<CommonBlockProps & OwnProps> = (props) => {
+  const router = useRouter()
+
   const items = [props.items[0], props.items[1], props.items[2]]
+  const pref = router.asPath.split('/')[1] === 'en' ? '/en' : ''
+
   return (
     <div
       className={styles.main}
@@ -25,13 +30,16 @@ export const Portfolio: React.FC<CommonBlockProps & OwnProps> = (props) => {
         cases
       </p>
       <h2 className={styles.mainTitle}>{ props.title }</h2>
-      <MobilePortfolio items={items} />
+      <MobilePortfolio
+        items={items}
+        pref={pref}
+      />
       <div className={styles.content}>
         {
           items.map((el,i)=>{
             return (
               <Link
-                href={'/portfolio/' + el.slug}
+                href={pref + '/portfolio/' + el.slug}
                 key={i}
               >
                 <a

@@ -63,7 +63,10 @@ export const Footer: React.FC<OwnProps> = ({ nav = navigation }) => {
           hello@pcnp-studio.ru
         </a>
         <p className={styles.author}>
-          © 2020, PCNP Studio, Все права защищены
+          © 2020 -
+          { ' ' }
+          { new Date().getFullYear() }
+          , PCNP Studio, Все права защищены
         </p>
       </div>
     </footer>

@@ -61,7 +61,7 @@ const Header: React.FC<OwnProps> = ({ nav, buttonText }) => {
           scroll={scroll}
         />
         {
-          scroll > 0 ? <Button href='/#contacts' >{ buttonText }</Button> : ''
+          scroll > 0 ? <Button>{ buttonText }</Button> : ''
         }
         {
           scroll <= 0 && width >= 1000 ? <RuEng /> : ''

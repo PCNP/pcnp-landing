@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import cn from 'classnames'
 import { useWebPSupportCheck } from 'react-use-webp-support-check/dist'
 
@@ -14,6 +14,19 @@ const bg = require('src/common/images/index/contactsBg.png')
 
 export const ContactBlock: React.FC<CommonBlockProps> = (props) => {
   const supportsWebP = useWebPSupportCheck()
+
+  const [isLoad, setIsLoad] = useState(false)
+
+  const handlerLoad = () => {
+    setIsLoad(true)
+  }
+
+  useEffect(()=>{
+    window.addEventListener('load', handlerLoad)
+    return () => {
+      window.removeEventListener('load', handlerLoad)
+    }
+  },[])
   return (
     <div
       className={
@@ -22,7 +35,7 @@ export const ContactBlock: React.FC<CommonBlockProps> = (props) => {
         )
       }
       style={
-        { backgroundImage: `url(${supportsWebP ? webpBg : bg})` }
+        { backgroundImage: isLoad ? `url(${supportsWebP ? webpBg : bg})` : '' }
       }
       id='contacts'
     >

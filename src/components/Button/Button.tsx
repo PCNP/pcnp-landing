@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Link from 'next/link'
 import cn from 'classnames'
 import { useRouter } from 'next/router'
@@ -16,8 +16,6 @@ type OwnProps = {
 
 
 export const Button: React.FC<OwnProps> = ({ name, href, onClick, children, btnType = 'primary' }) => {
-  const router = useRouter()
-
   if (!href) {
     return (
       <button
@@ -36,34 +34,30 @@ export const Button: React.FC<OwnProps> = ({ name, href, onClick, children, btnT
     )
   }
 
+  const router = useRouter()
+
+  const pref = router.asPath.split('/')[1] === 'en' ? '/en' : ''
+
   if (href.startsWith('http')) {
     return (
       <a
-        href={href}
+        href={pref + href}
         className={
           cn(
             styles.button,
             btnType === 'outline' && styles.outline
           )
         }
+        onClick={onClick}
       >
         { children }
       </a>
     )
   }
 
-  const nextActive = href.split('/')[1] === 'en' ? router.asPath.split('/')[2] : router.asPath.split('/')[1]
-  const active = router.asPath.split('/')[1] === 'en' ? router.asPath.split('/')[2] : router.asPath.split('/')[1]
-
-  const [smoothStyles, setSmoothStyles] = useState(active === 'portfolio' ? 'auto' : 'smooth')
-
-  const handlerClick = () => {
-    setSmoothStyles(nextActive === 'portfolio' ? 'auto' : 'smooth')
-  }
-
   return (
     <>
-      <Link href={href}>
+      <Link href={pref + href}>
         <a
           className={
             cn(
@@ -71,23 +65,11 @@ export const Button: React.FC<OwnProps> = ({ name, href, onClick, children, btnT
               btnType === 'outline' && styles.outline
             )
           }
-          onClick={handlerClick}
+          onClick={onClick}
         >
           { children }
         </a>
       </Link>
-      <style
-        jsx
-        global
-      >
-        {
-          `
-        html, body{ 
-         scroll-behavior: ${smoothStyles}
-        }
-      `
-        }
-      </style>
     </>
   )
 }
