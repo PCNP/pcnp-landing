@@ -1,77 +1,13 @@
 import React from 'react'
 
 import { CommonBlockProps } from '../../../store/lang/indexlang'
+import { technologies } from 'src/store/technologies'
 
 import styles from './TechnologyBlock.module.sass'
 
 
-const mongodb = require('src/common/images/index/technology/mongodb.svg')
-const ts = require('src/common/images/index/technology/ts.svg')
-const js = require('src/common/images/index/technology/js.svg')
-const py = require('src/common/images/index/technology/py.svg')
-const node = require('src/common/images/index/technology/node.svg')
-const django = require('src/common/images/index/technology/django.svg')
-const react = require('src/common/images/index/technology/react.svg')
-const next = require('src/common/images/index/technology/next.svg')
-const redux = require('src/common/images/index/technology/redux.svg')
-const sql = require('src/common/images/index/technology/sql.svg')
-const tarantool = require('src/common/images/index/technology/tarantool.svg')
-const kuber = require('src/common/images/index/technology/kuber.svg')
-const docker = require('src/common/images/index/technology/docker.svg')
-const sass = require('src/common/images/index/technology/sass.svg')
-
-
-type Item = {
-  name: string
-  img: any
-}
-
-
 export const TechnologyBlock: React.FC<CommonBlockProps> = (props) => {
-  const techonologies: Item[] = [
-    {
-      name: 'typescript', img: ts,
-    },
-    {
-      name: 'javascript', img: js,
-    },
-    {
-      name: 'python', img: py,
-    },
-    {
-      name: 'node.js', img: node,
-    },
-    {
-      name: 'django', img: django,
-    },
-    {
-      name: 'rect.js/ react native', img: react,
-    },
-    {
-      name: 'next.js', img: next,
-    },
-    {
-      name: 'redux', img: redux,
-    },
-    {
-      name: 'mongodb', img: mongodb,
-    },
-    {
-      name: 'postgresql', img: sql,
-    },
-    {
-      name: 'tarantool', img: tarantool,
-    },
-    {
-      name: 'kubernetes', img: kuber,
-    },
-    {
-      name: 'docker', img: docker,
-    },
-    {
-      name: 'sass', img: sass,
-    },
-  ]
+  const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
   return (
     <div
       className={styles.main}
@@ -84,18 +20,18 @@ export const TechnologyBlock: React.FC<CommonBlockProps> = (props) => {
       <p className={styles.slogan}>{ props.slogan }</p>
       <div className={styles.content}>
         {
-          techonologies.map( (el, i) => {
+          array.map( (el) => {
             return (
               <div
                 className={styles.item}
-                key={i}
+                key={el}
               >
                 <img
-                  src={el.img}
+                  src={technologies[el].img}
                   className={styles.itemImage}
-                  alt={el.name}
+                  alt={technologies[el].name}
                 />
-                <p className={styles.itemName}>{ el.name }</p>
+                <p className={styles.itemName}>{ technologies[el].name }</p>
               </div>
             )
           }

@@ -4,11 +4,9 @@ import React from 'react'
 import { item } from '../../../store/portfolioItems'
 import { Button } from '../../../components/Button/Button'
 import { aboutBlockProps } from '../../../store/lang/slugPortfolioLang'
+import { technologies } from '../../../store/technologies'
 
 import styles from './InformationBlock.module.sass'
-
-
-const ts = require('src/common/images/index/technology/ts.svg')
 
 
 type OwnProps = {
@@ -57,10 +55,10 @@ export const InformationBlock: React.FC<OwnProps & aboutBlockProps> =
                         key={i}
                       >
                         <img
-                          src={ts}
-                          alt={el.name}
+                          src={technologies[el].img}
+                          alt={technologies[el].name}
                         />
-                        <p>{ el.name }</p>
+                        <p>{ technologies[el].name }</p>
                       </div>
                     )
                   })

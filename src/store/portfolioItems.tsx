@@ -1,8 +1,5 @@
 const mob = require('src/common/images/portfolioPage/items/item_1/mob.svg')
 const desktop = require('src/common/images/portfolioPage/items/item_1/desktop.svg')
-const ts = require('src/common/images/index/technology/ts.svg')
-const next = require('src/common/images/index/technology/next.svg')
-const redux = require('src/common/images/index/technology/redux.svg')
 const slideImage = require('src/common/images/portfolioPage/items/item_1/slideImage.svg')
 
 
@@ -17,10 +14,7 @@ export type item = {
   href: string
   modules: string[]
   about: string
-  technologies: {
-    name: string
-    img: any
-  }[]
+  technologies: number[]
   slideImages: any[]
 }
 
@@ -43,20 +37,7 @@ export const items: item[] = [
       'Модуль о нас. Предосталяет основную информацию о компании.',
     ],
     about: 'Данная система помогает упростить процессы оформления документов для ООО и ИП.',
-    technologies: [
-      {
-        name: 'Typescript',
-        img: { ts },
-      },
-      {
-        name: 'Next.js',
-        img: { next },
-      },
-      {
-        name: 'Redux',
-        img: { redux },
-      },
-    ],
+    technologies: [1, 2, 7],
   },
   {
     id: 1,
@@ -76,20 +57,7 @@ export const items: item[] = [
       'Модуль о нас. Предосталяет основную информацию о компании.',
     ],
     about: 'Данная система помогает упростить процессы оформления документов для ООО и ИП.',
-    technologies: [
-      {
-        name: 'Typescript',
-        img: { ts },
-      },
-      {
-        name: 'Next.js',
-        img: { next },
-      },
-      {
-        name: 'Redux',
-        img: { redux },
-      },
-    ],
+    technologies: [1, 2, 7],
   },
   {
     id: 2,
@@ -109,20 +77,7 @@ export const items: item[] = [
       'Модуль о нас. Предосталяет основную информацию о компании.',
     ],
     about: 'Данная система помогает упростить процессы оформления документов для ООО и ИП.',
-    technologies: [
-      {
-        name: 'Typescript',
-        img: { ts },
-      },
-      {
-        name: 'Next.js',
-        img: { next },
-      },
-      {
-        name: 'Redux',
-        img: { redux },
-      },
-    ],
+    technologies: [1, 2, 7],
   },
   {
     id: 3,
@@ -142,19 +97,6 @@ export const items: item[] = [
       'Модуль о нас. Предосталяет основную информацию о компании.',
     ],
     about: 'Данная система помогает упростить процессы оформления документов для ООО и ИП.',
-    technologies: [
-      {
-        name: 'Typescript',
-        img: { ts },
-      },
-      {
-        name: 'Next.js',
-        img: { next },
-      },
-      {
-        name: 'Redux',
-        img: { redux },
-      },
-    ],
+    technologies: [1, 2, 7],
   },
 ]
