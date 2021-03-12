@@ -5,9 +5,19 @@ import { AnalyticsScripts } from 'src/components/AnalyticsScripts/AnalyticsScrip
 
 
 class MyDocument extends Document {
+  static async getInitialProps(ctx: any) {
+    const initialProps = await Document.getInitialProps(ctx)
+    const { pathname } = ctx
+    const lang = pathname.startsWith('/en') ? 'en' : 'ru'
+    return {
+      ...initialProps, lang,
+    }
+  }
+
   render() {
+    const { lang } : any = this.props
     return (
-      <Html>
+      <Html lang={lang}>
         <Head>
           {
             process.env.NODE_ENV === 'production' && (

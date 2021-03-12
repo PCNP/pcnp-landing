@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 
 import { Block1 } from '../../App/Main/Block1/Block1'
@@ -14,10 +14,6 @@ import { items } from '../../store/portfolioItems'
 
 
 const MainPage: React.FC = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
-  useEffect(()=>{
-    document.documentElement.lang = 'en'
-  },[])
-
   return (
     <>
       <Block1 {...props.block1} />
