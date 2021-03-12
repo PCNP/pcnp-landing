@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 
@@ -15,11 +15,17 @@ import { CarouselBlock } from '../../App/ProjectPage/Carousel/Carousel'
 const Project: React.FC = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter()
   const project: item = items.filter((el)=>el.slug === router.query.slug)[0]
+
+  useEffect(()=>{
+    document.documentElement.lang = 'ru'
+  },[])
+
   return (
     <>
       <Block1
         project={project}
         {...props.block1}
+        lang='ru'
       />
       <CarouselBlock
         sliderImages = {project.slideImages}
@@ -30,6 +36,7 @@ const Project: React.FC = (props: InferGetStaticPropsType<typeof getStaticProps>
         project={project}
         length={items.length}
         {...props.aboutBlock}
+        lang='ru'
       />
       <ContactBlock {...props.contactBlock} />
     </>

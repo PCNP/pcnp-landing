@@ -15,9 +15,10 @@ const bg = require('src/common/images/project/projectBg.png')
 type OwnProps = {
   project: item
   button: string
+  lang: 'ru' | 'en'
 }
 
-export const Block1: React.FC<OwnProps> = ({ project, button }) => {
+export const Block1: React.FC<OwnProps> = ({ project, button, lang }) => {
   const isSupport = useCheckSupportWebp()
 
   return (
@@ -34,8 +35,8 @@ export const Block1: React.FC<OwnProps> = ({ project, button }) => {
     >
       <div className={styles.wrapperBlock}>
         <div className={styles.leftBlock}>
-          <h2 className={styles.mainTitle}>{ project && project.title }</h2>
-          <p className={styles.description}>{ project && project.description }</p>
+          <h2 className={styles.mainTitle}>{ project && project.title[lang] }</h2>
+          <p className={styles.description}>{ project && project.description[lang] }</p>
           <div className={styles.buttonBlock}>
             <Button
               href={project && project.href}

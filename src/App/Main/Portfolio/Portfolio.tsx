@@ -12,6 +12,7 @@ import { MobilePortfolio } from './MobilePortfolio'
 
 type OwnProps = {
   items: item[]
+  lang: 'ru' | 'en'
 }
 
 
@@ -33,6 +34,7 @@ export const Portfolio: React.FC<CommonBlockProps & OwnProps> = (props) => {
       <MobilePortfolio
         items={items}
         pref={pref}
+        lang={props.lang}
       />
       <div className={styles.content}>
         {
@@ -45,12 +47,12 @@ export const Portfolio: React.FC<CommonBlockProps & OwnProps> = (props) => {
                 <a
                   className={styles.item}
                 >
-                  <p className={styles.itemTitle}>{ el.title }</p>
-                  <p className={styles.itemText}>{ el.description }</p>
+                  <p className={styles.itemTitle}>{ el.title[props.lang] }</p>
+                  <p className={styles.itemText}>{ el.description[props.lang] }</p>
                   <img
                     className={styles.itemImage}
                     src={el.desktopImg}
-                    alt={el.title}
+                    alt={el.title[props.lang]}
                     width={300}
                     height={180}
                   />

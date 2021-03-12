@@ -9,10 +9,11 @@ import styles from './MobilePortfolio.module.sass'
 type OwnProps = {
   items: item[]
   pref: string
+  lang: 'ru' | 'en'
 }
 
 
-export const MobilePortfolio: React.FC<OwnProps> = ({ pref, items }) => {
+export const MobilePortfolio: React.FC<OwnProps> = ({ pref, items, lang }) => {
   return (
     <div className={styles.carousel}>
       {
@@ -25,12 +26,12 @@ export const MobilePortfolio: React.FC<OwnProps> = ({ pref, items }) => {
               <a
                 className={styles.item}
               >
-                <p className={styles.itemTitle}>{ el.title }</p>
-                <p className={styles.itemText}>{ el.description }</p>
+                <p className={styles.itemTitle}>{ el.title[lang] }</p>
+                <p className={styles.itemText}>{ el.description[lang] }</p>
                 <img
                   className={styles.itemImage}
                   src={el.desktopImg}
-                  alt={el.title}
+                  alt={el.title[lang]}
                   width={240}
                   height={144}
                 />

@@ -13,21 +13,22 @@ type OwnProps = {
   project: item
   projects: item[]
   length: number
+  lang: 'ru' | 'en'
 }
 
 
 export const InformationBlock: React.FC<OwnProps & aboutBlockProps> =
-  ({ project, projects, length, aboutTitle, technologiesTitle, nextButton, prevButton }) => {
+  ({ lang, project, projects, length, aboutTitle, technologiesTitle, nextButton, prevButton }) => {
     return (
       <div className={styles.main}>
         <div className={styles.wrapperBlock}>
           <div className={styles.about}>
             <h2 className={styles.mainTitle}>{ aboutTitle }</h2>
-            <p className={styles.description}>{ project && project.about }</p>
+            <p className={styles.description}>{ project && project.about[lang] }</p>
             <ul className={styles.modules}>
               Основные модули системы:
               {
-                project && project.modules.map((el, i) => {
+                project && project.modules[lang].map((el, i) => {
                   return (
                     <li
                       className={styles.module}

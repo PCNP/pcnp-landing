@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 
 import { Block1 } from '../../App/PortfolioPage/Block1/Block1'
@@ -10,6 +10,10 @@ import { createPortfolioIndexProps } from '../../store/lang/indexPortfolioLang'
 
 
 const PortfolioPage: React.FC = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
+  useEffect(()=>{
+    document.documentElement.lang = 'ru'
+  },[])
+
   return (
     <>
       <Block1 {...props.portfolio} />
@@ -23,6 +27,7 @@ const PortfolioPage: React.FC = (props: InferGetStaticPropsType<typeof getStatic
               {...el}
               bgType={bgType}
               key={i}
+              lang='ru'
             />
           )
         })
