@@ -15,8 +15,8 @@ type OwnProps = {
   showLightBox?: boolean
 }
 
-export const CarouselBlock: React.FC<OwnProps> = ({ sliderImages, showLightBox }) => {
-  const [curr, setCurr] = useState(0)
+export const CarouselBlock: React.FC<OwnProps> = ({ sliderImages, showLightBox = true }) => {
+  const [curr, setCurr] = useState(1)
 
   const [lightBoxToggler, setLightBoxToggler] = useState(false)
   const [lightBoxSlideIndex, setLightBoxSlideIndex] = useState<number | undefined>(undefined)
