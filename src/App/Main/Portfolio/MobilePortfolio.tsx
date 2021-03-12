@@ -31,6 +31,8 @@ export const MobilePortfolio: React.FC<OwnProps> = ({ pref, items }) => {
                   className={styles.itemImage}
                   src={el.desktopImg}
                   alt={el.title}
+                  width={240}
+                  height={144}
                 />
               </a>
             </Link>

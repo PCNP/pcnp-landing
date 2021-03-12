@@ -78,7 +78,6 @@
   @include wrapper
 
   display: flex
-  justify-content: space-between
   flex-wrap: wrap
   align-items: flex-start
   margin: 0
@@ -145,13 +144,25 @@
     font-size: 12px
 
   @include desktop
+    font-size: 14px
+
+  @include large-desktop
     font-size: 16px
 
 .itemImage
   margin-bottom: 20px
 
   @include smartphone
-    max-height: 50px
+    height: 30px
+    width: auto
+
+  @include mini-tablet
+    height: 40px
+    width: auto
+
+  @include tablet
+    height: 50px
+    width: auto
 
   @include desktop
     max-height: 65px

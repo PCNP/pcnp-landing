@@ -278,6 +278,8 @@ export const MobileNav: React.FC<OwnProps> = ({ scroll, nav = navigation }) => {
               <img
                 src={icon}
                 alt='email'
+                width={26}
+                height={26}
               />
             </Button>
           </div>

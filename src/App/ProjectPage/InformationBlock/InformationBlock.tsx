@@ -57,6 +57,8 @@ export const InformationBlock: React.FC<OwnProps & aboutBlockProps> =
                         <img
                           src={technologies[el].img}
                           alt={technologies[el].name}
+                          width={70}
+                          height={70}
                         />
                         <p>{ technologies[el].name }</p>
                       </div>

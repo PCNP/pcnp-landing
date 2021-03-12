@@ -44,6 +44,8 @@ export const Services: React.FC<BlockWithItemsProps> = (props) => {
                         src={img}
                         key={i}
                         alt={el.title}
+                        height={75}
+                        width={75}
                       />
                     ))
                   }

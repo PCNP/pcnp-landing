@@ -1,54 +1,30 @@
 import React from 'react'
 
 
-type OptimizadeImage = {
-  images: Array<{path: string, width: number, height: number}>
-  src: string
-  width: number
-  height: number
-}
-
 type OwnProps = {
   imgClassName?: string
-  image: OptimizadeImage
-  imageWebp: OptimizadeImage
+  image: any
+  imageWebp: any
   imageMimeType: string
-  minWidths: number[]
   imgAlt?: string
 }
 
 
-export const Picture: React.FC<OwnProps> = ({ imgAlt, image, imageMimeType, imageWebp, imgClassName, minWidths }) => {
+export const Picture: React.FC<OwnProps> = ({ imgAlt, image, imageMimeType, imageWebp, imgClassName }) => {
   return (
     <picture>
-      {
-        imageWebp.images.map((img, i) => {
-          return (
-            <source
-              key={img.path}
-              srcSet={img.path}
-              className={imgClassName}
-              media={`{min-width: ${minWidths[i]}px}`}
-              type={imageMimeType}
-            />
-          )
-        })
-      }
-      {
-        image.images.map((img, i) => {
-          return (
-            <source
-              key={img.path}
-              srcSet={img.path}
-              className={imgClassName}
-              media={`{min-width: ${minWidths[i]}px}`}
-              type={imageMimeType}
-            />
-          )
-        })
-      }
+      <source
+        srcSet={imageWebp}
+        className={imgClassName}
+        type={imageMimeType}
+      />
+      <source
+        srcSet={image}
+        className={imgClassName}
+        type={imageMimeType}
+      />
       <img
-        src={image.src}
+        src={image}
         alt={imgAlt}
         className={imgClassName}
       />

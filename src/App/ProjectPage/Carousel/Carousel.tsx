@@ -79,6 +79,8 @@ export const CarouselBlock: React.FC<OwnProps> = ({ sliderImages, showLightBox }
                     src={el}
                     alt='slide image'
                     onClick={setLightBoxSlide(i)}
+                    width={600}
+                    height={360}
                   />
                 </Slide>
               )
@@ -86,7 +88,7 @@ export const CarouselBlock: React.FC<OwnProps> = ({ sliderImages, showLightBox }
           }
         </Slider>
       </CarouselProvider>
-      
+
       <div
         className={styles.arrowLeft}
         onClick={prevSlide}
