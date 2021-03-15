@@ -15,45 +15,54 @@ type OwnProps = {
   showLightBox?: boolean
 }
 
-export const CarouselBlock: React.FC<OwnProps> = ({ sliderImages, showLightBox = true }) => {
+export const CarouselBlock: React.FC<OwnProps> = ({ sliderImages }) => {
   const [curr, setCurr] = useState(1)
 
-  const [lightBoxToggler, setLightBoxToggler] = useState(false)
-  const [lightBoxSlideIndex, setLightBoxSlideIndex] = useState<number | undefined>(undefined)
+  const [lightboxController, setLightboxController] = useState({
+    toggler: false,
+    slide: 2,
+  })
+
+  const openLightBoxOnSlide = (number: number) => {
+    setLightboxController({
+      toggler: true,
+      slide: number,
+    })
+  }
 
   const prevSlide = () => {
     setCurr((curr - 1) < 0 ? sliderImages.length - 1 : curr - 1)
+    setLightboxController({
+      toggler: false,
+      slide: lightboxController.slide,
+    })
   }
 
   const nextSlide = () => {
     setCurr((curr + 1) % sliderImages.length)
+    setLightboxController({
+      toggler: false,
+      slide: lightboxController.slide,
+    })
   }
 
-  const onCloseLightBox = () => {
-    setLightBoxSlideIndex(undefined)
-  }
-
-  const setLightBoxSlide = (index: number) => {
-    return () => {
-      setLightBoxSlideIndex(index)
-      setLightBoxToggler(!lightBoxToggler)
-    }
+  const onClose = () => {
+    setLightboxController({
+      toggler: true,
+      slide: lightboxController.slide,
+    })
   }
 
   const screen = useScreenSize()
 
   return (
     <div className={styles.main}>
-      {
-        showLightBox && (
-          <LightBox
-            images={sliderImages}
-            slideIndex={lightBoxSlideIndex}
-            toggler={lightBoxToggler}
-            onClose={onCloseLightBox}
-          />
-        )
-      }
+      <LightBox
+        images={sliderImages}
+        slide={lightboxController.slide}
+        toggler={lightboxController.toggler}
+        onClose={onClose}
+      />
 
       <CarouselProvider
         currentSlide={curr}
@@ -76,9 +85,9 @@ export const CarouselBlock: React.FC<OwnProps> = ({ sliderImages, showLightBox =
                   classNameHidden={styles.hidden}
                 >
                   <img
+                    onClick={() => openLightBoxOnSlide(curr + 1)}
                     src={el}
                     alt='slide image'
-                    onClick={setLightBoxSlide(i)}
                     width={600}
                     height={360}
                   />
