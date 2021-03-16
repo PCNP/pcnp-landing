@@ -19,7 +19,7 @@ type OwnProps = {
 export const Portfolio: React.FC<CommonBlockProps & OwnProps> = (props) => {
   const router = useRouter()
 
-  const items = [props.items[0], props.items[1], props.items[2]]
+  const items = props.items.filter((el) => el.showInMainPage)
   const pref = router.asPath.split('/')[1] === 'en' ? '/en' : ''
 
   return (

@@ -45,6 +45,7 @@ export const Footer: React.FC<OwnProps> = ({ nav = navigation }) => {
       style={
         { backgroundImage: isSupport !== null ? `url(${isSupport ? webpBg : bg})` : '' }
       }
+      id='footer'
     >
       <div className={styles.footerTitle}>
         <Nav

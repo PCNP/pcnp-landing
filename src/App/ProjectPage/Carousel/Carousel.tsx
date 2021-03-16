@@ -20,37 +20,26 @@ export const CarouselBlock: React.FC<OwnProps> = ({ sliderImages }) => {
 
   const [lightboxController, setLightboxController] = useState({
     toggler: false,
-    slide: 2,
+    slide: curr + 1,
   })
 
-  const openLightBoxOnSlide = (number: number) => {
+  const openLightBoxOnSlide = (numb: number) => {
     setLightboxController({
-      toggler: true,
-      slide: number,
+      toggler: !lightboxController.toggler,
+      slide: numb,
     })
   }
 
   const prevSlide = () => {
     setCurr((curr - 1) < 0 ? sliderImages.length - 1 : curr - 1)
-    setLightboxController({
-      toggler: false,
-      slide: lightboxController.slide,
-    })
   }
 
   const nextSlide = () => {
     setCurr((curr + 1) % sliderImages.length)
-    setLightboxController({
-      toggler: false,
-      slide: lightboxController.slide,
-    })
   }
 
   const onClose = () => {
-    setLightboxController({
-      toggler: true,
-      slide: lightboxController.slide,
-    })
+
   }
 
   const screen = useScreenSize()
@@ -83,9 +72,9 @@ export const CarouselBlock: React.FC<OwnProps> = ({ sliderImages }) => {
                   index={i}
                   className={styles.item}
                   classNameHidden={styles.hidden}
+                  onClick={() => { openLightBoxOnSlide(curr + 1) }}
                 >
                   <img
-                    onClick={() => openLightBoxOnSlide(curr + 1)}
                     src={el}
                     alt='slide image'
                     width={600}

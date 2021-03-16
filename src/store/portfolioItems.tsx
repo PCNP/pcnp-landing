@@ -24,6 +24,7 @@ export type item = {
   about: RuEng
   technologies: number[]
   slideImages: any[]
+  showInMainPage: boolean
 }
 
 export const items: item[] = [
@@ -64,6 +65,7 @@ export const items: item[] = [
       en: 'This system helps to simplify the process of processing documents for LLC and sole proprietor.',
     },
     technologies: [1, 2, 7],
+    showInMainPage: true,
   },
   {
     id: 1,
@@ -102,6 +104,7 @@ export const items: item[] = [
       en: 'This system helps to simplify the process of processing documents for LLC and sole proprietor.',
     },
     technologies: [1, 2, 7],
+    showInMainPage: true,
   },
   {
     id: 2,
@@ -140,6 +143,7 @@ export const items: item[] = [
       en: 'This system helps to simplify the process of processing documents for LLC and sole proprietor.',
     },
     technologies: [1, 2, 7],
+    showInMainPage: true,
   },
   {
     id: 3,
@@ -178,5 +182,6 @@ export const items: item[] = [
       en: 'This system helps to simplify the process of processing documents for LLC and sole proprietor.',
     },
     technologies: [1, 2, 7],
+    showInMainPage: false,
   },
 ]

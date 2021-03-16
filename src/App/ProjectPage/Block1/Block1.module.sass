@@ -43,12 +43,21 @@
 
 .buttonBlock
   width: 100%
-  max-width: 320px
   display: flex
-  flex-direction: column
+
+  @include smartphone
+    width: 100%
+    justify-content: center
+
+    button
+      width: 300px
 
   @include tablet
-    align-items: flex-start
+    justify-content: flex-start
+
+    button
+      width: initial
+
 
 .mainTitle
   text-transform: uppercase

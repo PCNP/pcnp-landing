@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
 
-export const checkWebPSupport = (callback: any) => {
+export const checkWebPSupport = (callback: (result: null | boolean)=>void) => {
   const kTestImages = { lossy: 'UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA' }
 
   const img = new Image()
