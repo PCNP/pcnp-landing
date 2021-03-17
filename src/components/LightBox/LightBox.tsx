@@ -3,27 +3,24 @@ import FsLightBox from 'fslightbox-react'
 
 
 type OwnProps = {
-  images: string[]
+  sources: string[]
   slide?: number
   toggler: boolean
-  onClose: ()=>void
 }
 
 export const LightBox: React.FC<OwnProps> = (
   {
-    images,
+    sources,
     slide,
     toggler,
-    onClose,
   }
 ) => {
   return (
     <FsLightBox
       toggler={toggler}
+      sources={sources}
       slide={slide}
-      sources={images}
       type='image'
-      onClose={onClose}
     />
   )
 }

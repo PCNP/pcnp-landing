@@ -18,17 +18,7 @@ type OwnProps = {
 export const CarouselBlock: React.FC<OwnProps> = ({ sliderImages }) => {
   const [curr, setCurr] = useState(1)
 
-  const [lightboxController, setLightboxController] = useState({
-    toggler: false,
-    slide: curr + 1,
-  })
-
-  const openLightBoxOnSlide = (numb: number) => {
-    setLightboxController({
-      toggler: !lightboxController.toggler,
-      slide: numb,
-    })
-  }
+  const [lightBoxToggler, setLightBoxToggler] = useState(false)
 
   const prevSlide = () => {
     setCurr((curr - 1) < 0 ? sliderImages.length - 1 : curr - 1)
@@ -38,8 +28,8 @@ export const CarouselBlock: React.FC<OwnProps> = ({ sliderImages }) => {
     setCurr((curr + 1) % sliderImages.length)
   }
 
-  const onClose = () => {
-
+  const setLightBoxSlide = () => {
+    setLightBoxToggler((lightBoxToggler) => !lightBoxToggler)
   }
 
   const screen = useScreenSize()
@@ -47,12 +37,10 @@ export const CarouselBlock: React.FC<OwnProps> = ({ sliderImages }) => {
   return (
     <div className={styles.main}>
       <LightBox
-        images={sliderImages}
-        slide={lightboxController.slide}
-        toggler={lightboxController.toggler}
-        onClose={onClose}
+        toggler={lightBoxToggler}
+        sources={sliderImages}
+        slide={curr + 1}
       />
-
       <CarouselProvider
         currentSlide={curr}
         naturalSlideWidth={40}
@@ -63,7 +51,9 @@ export const CarouselBlock: React.FC<OwnProps> = ({ sliderImages }) => {
         dragEnabled={screen < SCREEN.DESKTOP}
         className={styles.carouselBlock}
       >
-        <Slider className={styles.carousel}>
+        <Slider
+          className={styles.carousel}
+        >
           {
             sliderImages.map((el, i) => {
               return (
@@ -72,13 +62,14 @@ export const CarouselBlock: React.FC<OwnProps> = ({ sliderImages }) => {
                   index={i}
                   className={styles.item}
                   classNameHidden={styles.hidden}
-                  onClick={() => { openLightBoxOnSlide(curr + 1) }}
                 >
                   <img
+                    key={i}
                     src={el}
                     alt='slide image'
                     width={600}
                     height={360}
+                    onClick={setLightBoxSlide}
                   />
                 </Slide>
               )

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import { animateScroll } from 'react-scroll'
 import cn from 'classnames'
 
@@ -10,7 +10,7 @@ import styles from './ArrowToTop.module.sass'
 export const ArrowToTop: React.FC = () => {
   const [scroll, setScroll] = useState(0)
 
-  const [delta, setDelta] = useState(0)
+  const [isShowButton, setIsShowButton] = useState(false)
 
   const [height, setHeight] = useState(0)
 
@@ -21,22 +21,19 @@ export const ArrowToTop: React.FC = () => {
 
   const [pageY, setPageY] = useState(0)
 
-  const handlerWheel = (event: Event & WheelEvent) => {
-    setDelta(event.deltaY)
-  }
-
-  const handlerScroll = () => {
+  const handlerScroll = useCallback(() => {
+    setIsShowButton(window.scrollY - scroll > 0 && window.scrollY > height * 0.8)
     setScroll(window.scrollY)
-  }
+  },[scroll, height])
 
-  const handlerHeight = () => {
-    setHeight(window.innerWidth)
+  const handlerHeight = useCallback(() => {
+    setHeight(window.innerHeight)
     setPageY(window.pageYOffset)
     const footer = document.getElementById('footer')
     if(footer){
       setFooter(footer.getBoundingClientRect())
     }
-  }
+  }, [])
 
   React.useEffect(() => {
     const footer = document.getElementById('footer')
@@ -46,27 +43,30 @@ export const ArrowToTop: React.FC = () => {
     }
 
     setPageY(window.pageYOffset)
-
     setScroll(window.scrollY)
     setHeight(window.innerHeight)
+
     window.addEventListener('scroll', handlerScroll)
     window.addEventListener('resize', handlerHeight)
-    window.addEventListener('wheel', handlerWheel)
     return () => {
       window.removeEventListener('scroll', handlerScroll)
       window.removeEventListener('resize', handlerHeight)
-      window.removeEventListener('wheel', handlerWheel)
     }
-  }, [])
+  }, [handlerScroll, handlerHeight])
 
   return (
     <div
       className={
         cn(
           styles.circle,
-          scroll > height * 0.8 && delta >= 0 ? styles.block : styles.none,
-          scroll > footer.top + pageY - height && styles.bottom
+          isShowButton ? styles.block : styles.none,
         )
+      }
+      style={
+        scroll > footer.top + pageY - height ? {
+          position: 'absolute',
+          bottom: `${footer.height + 20}px`,
+        } : {}
       }
       onClick={
         ()=>{
