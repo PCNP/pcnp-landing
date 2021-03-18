@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { animateScroll } from 'react-scroll'
 import cn from 'classnames'
+import { useRouter } from 'next/router'
 
 import { LeftArrow } from '../icons/LeftArrow'
 
@@ -8,6 +9,8 @@ import styles from './ArrowToTop.module.sass'
 
 
 export const ArrowToTop: React.FC = () => {
+  const router = useRouter()
+
   const [isShowButton, setIsShowButton] = useState(false)
 
   const [isFooterPosition, setIsFooterPosition] = useState(false)
@@ -61,7 +64,7 @@ export const ArrowToTop: React.FC = () => {
       window.removeEventListener('scroll', handlerScroll)
       window.removeEventListener('resize', handlerSize)
     }
-  }, [handlerScroll])
+  }, [handlerScroll, router.asPath])
 
   return (
     <div
