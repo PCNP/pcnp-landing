@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { animateScroll } from 'react-scroll'
 import cn from 'classnames'
 
@@ -8,51 +8,60 @@ import styles from './ArrowToTop.module.sass'
 
 
 export const ArrowToTop: React.FC = () => {
-  const [scroll, setScroll] = useState(0)
-
   const [isShowButton, setIsShowButton] = useState(false)
 
-  const [height, setHeight] = useState(0)
+  const [isFooterPosition, setIsFooterPosition] = useState(false)
 
-  const [footer, setFooter] = useState({
+  const scroll = useRef(0)
+
+  const footer = useRef({
     height: 0,
     top: 0,
   })
 
-  const [pageY, setPageY] = useState(0)
 
   const handlerScroll = useCallback(() => {
-    setIsShowButton(window.scrollY - scroll > 0 && window.scrollY > height * 0.8)
-    setScroll(window.scrollY)
-  },[scroll, height])
+    const delta = scroll.current === 0 ? 1 : window.scrollY - scroll.current >= 0
+    setIsShowButton(() =>{
+      return delta && window.scrollY > window.innerHeight * 0.8
+    })
+    setIsFooterPosition(() => {
+      return window.scrollY > footer.current.top - window.innerHeight
+    })
+    scroll.current = window.scrollY
+  },[])
 
-  const handlerHeight = useCallback(() => {
-    setHeight(window.innerHeight)
-    setPageY(window.pageYOffset)
-    const footer = document.getElementById('footer')
-    if(footer){
-      setFooter(footer.getBoundingClientRect())
+  const handlerSize = () => {
+    const el = document.getElementById('footer')
+    const scr = window.scrollY
+    if(el) {
+      footer.current = {
+        top: el.getBoundingClientRect().top + scr,
+        height: el.getBoundingClientRect().height,
+      }
     }
-  }, [])
+  }
 
-  React.useEffect(() => {
-    const footer = document.getElementById('footer')
-
-    if(footer){
-      setFooter(footer.getBoundingClientRect())
+  useEffect(() => {
+    const el = document.getElementById('footer')
+    const scr = window.scrollY
+    if(el) {
+      footer.current = {
+        top: el.getBoundingClientRect().top + scr,
+        height: el.getBoundingClientRect().height,
+      }
     }
 
-    setPageY(window.pageYOffset)
-    setScroll(window.scrollY)
-    setHeight(window.innerHeight)
+    scroll.current = window.scrollY
 
     window.addEventListener('scroll', handlerScroll)
-    window.addEventListener('resize', handlerHeight)
+    window.addEventListener('resize', handlerSize)
+
     return () => {
       window.removeEventListener('scroll', handlerScroll)
-      window.removeEventListener('resize', handlerHeight)
+      window.removeEventListener('resize', handlerSize)
     }
-  }, [handlerScroll, handlerHeight])
+  }, [handlerScroll])
 
   return (
     <div
@@ -63,9 +72,9 @@ export const ArrowToTop: React.FC = () => {
         )
       }
       style={
-        scroll > footer.top + pageY - height ? {
+        isFooterPosition ? {
           position: 'absolute',
-          bottom: `${footer.height + 20}px`,
+          bottom: `${footer.current.height + 20}px`,
         } : {}
       }
       onClick={
