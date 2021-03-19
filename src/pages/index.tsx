@@ -1,6 +1,5 @@
 import React from 'react'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
-import { useWebPSupportCheck } from 'react-use-webp-support-check/dist'
 
 import { Block1 } from '../App/Main/Block1/Block1'
 import { Services } from '../App/Main/Services/Services'
@@ -15,12 +14,9 @@ import { items } from './../store/portfolioItems'
 
 
 const MainPage: React.FC = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const support = useWebPSupportCheck()
-
   return (
     <>
       <Block1
-        support={support}
         {...props.block1}
       />
       <Services {...props.services} />
@@ -28,6 +24,7 @@ const MainPage: React.FC = (props: InferGetStaticPropsType<typeof getStaticProps
       <Portfolio
         {...props.portfolio}
         items={items}
+        lang='ru'
       />
       <WorkBlock
         {...props.workBlock}

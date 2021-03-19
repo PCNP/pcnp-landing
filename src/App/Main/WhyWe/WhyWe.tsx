@@ -35,6 +35,8 @@ export const WhyWe: React.FC<BlockWithItemsProps> = (props) => {
                       <img
                         src={images[i]}
                         alt={el.title}
+                        height={75}
+                        width={75}
                       />
                     </div>
                     <h3 className={styles.itemTitle}>
@@ -53,6 +55,8 @@ export const WhyWe: React.FC<BlockWithItemsProps> = (props) => {
           <img
             src={computer}
             alt='computer'
+            height={500}
+            width={700}
           />
         </div>
       </div>

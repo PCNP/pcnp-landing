@@ -30,6 +30,8 @@ export const TechnologyBlock: React.FC<CommonBlockProps> = (props) => {
                   src={technologies[el].img}
                   className={styles.itemImage}
                   alt={technologies[el].name}
+                  width={40}
+                  height={40}
                 />
                 <p className={styles.itemName}>{ technologies[el].name }</p>
               </div>

@@ -21,6 +21,7 @@ const Project: React.FC = (props: InferGetStaticPropsType<typeof getStaticProps>
       <Block1
         project={project}
         {...props.block1}
+        lang='en'
       />
       <CarouselBlock
         sliderImages = {project.slideImages}
@@ -31,6 +32,7 @@ const Project: React.FC = (props: InferGetStaticPropsType<typeof getStaticProps>
         project={project}
         length={props.items.length}
         {...props.aboutBlock}
+        lang='en'
       />
       <ContactBlock {...props.contactBlock} />
     </>

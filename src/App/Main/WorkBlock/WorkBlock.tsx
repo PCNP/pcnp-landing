@@ -43,6 +43,8 @@ export const WorkBlock: React.FC<BlockWithItemsProps> = (props) => {
               src={thread}
               className={styles.thread}
               alt='thread'
+              height={440}
+              width={100}
             />
           </div>
         </div>
@@ -50,6 +52,8 @@ export const WorkBlock: React.FC<BlockWithItemsProps> = (props) => {
           src={man}
           className={styles.man}
           alt='man'
+          height={500}
+          width={700}
         />
       </div>
     </div>

@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import cn from 'classnames'
-import { useWebPSupportCheck } from 'react-use-webp-support-check/dist'
 
 import { CommonBlockProps } from '../../../store/lang/indexlang'
 import { MyForm } from '../../../components/MyForm/MyForm'
+import { useCheckSupportWebp } from '../../../hooks/useCheckSupportWebp'
 
 import styles from './ContactBlock.module.sass'
 
@@ -13,20 +13,8 @@ const bg = require('src/common/images/index/contactsBg.png')
 
 
 export const ContactBlock: React.FC<CommonBlockProps> = (props) => {
-  const supportsWebP = useWebPSupportCheck()
+  const isSupport = useCheckSupportWebp()
 
-  const [isLoad, setIsLoad] = useState(false)
-
-  const handlerLoad = () => {
-    setIsLoad(true)
-  }
-
-  useEffect(()=>{
-    window.addEventListener('load', handlerLoad)
-    return () => {
-      window.removeEventListener('load', handlerLoad)
-    }
-  },[])
   return (
     <div
       className={
@@ -35,7 +23,7 @@ export const ContactBlock: React.FC<CommonBlockProps> = (props) => {
         )
       }
       style={
-        { backgroundImage: isLoad ? `url(${supportsWebP ? webpBg : bg})` : '' }
+        { backgroundImage: isSupport !== null ? `url(${isSupport ? webpBg : bg})` : '' }
       }
       id='contacts'
     >

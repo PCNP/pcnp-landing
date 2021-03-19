@@ -2,18 +2,27 @@ import React from 'react'
 import Document, { Head, Html, Main, NextScript } from 'next/document'
 
 import { AnalyticsScripts } from 'src/components/AnalyticsScripts/AnalyticsScripts'
-import { FormScripts } from '../components/FormScripts/FormScripts'
 
 
 class MyDocument extends Document {
+  static async getInitialProps(ctx: any) {
+    const initialProps = await Document.getInitialProps(ctx)
+    const { pathname } = ctx
+    const lang = pathname.startsWith('/en') ? 'en' : 'ru'
+    return {
+      ...initialProps, lang,
+    }
+  }
+
   render() {
+    const { lang } : any = this.props
     return (
-      <Html lang='ru'>
+      <Html lang={lang}>
         <Head>
           {
             process.env.NODE_ENV === 'production' && (
               <AnalyticsScripts />
-            ) && ( <FormScripts /> )
+            )
           }
           <script
             async

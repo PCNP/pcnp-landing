@@ -22,6 +22,7 @@ const MainPage: React.FC = (props: InferGetStaticPropsType<typeof getStaticProps
       <Portfolio
         {...props.portfolio}
         items={items}
+        lang='en'
       />
       <WorkBlock {...props.workBlock} />
       <TechnologyBlock {...props.techBlock} />

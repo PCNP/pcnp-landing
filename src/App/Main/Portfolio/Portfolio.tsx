@@ -12,13 +12,14 @@ import { MobilePortfolio } from './MobilePortfolio'
 
 type OwnProps = {
   items: item[]
+  lang: 'ru' | 'en'
 }
 
 
 export const Portfolio: React.FC<CommonBlockProps & OwnProps> = (props) => {
   const router = useRouter()
 
-  const items = [props.items[0], props.items[1], props.items[2]]
+  const items = props.items.filter((el) => el.showInMainPage)
   const pref = router.asPath.split('/')[1] === 'en' ? '/en' : ''
 
   return (
@@ -33,6 +34,7 @@ export const Portfolio: React.FC<CommonBlockProps & OwnProps> = (props) => {
       <MobilePortfolio
         items={items}
         pref={pref}
+        lang={props.lang}
       />
       <div className={styles.content}>
         {
@@ -45,12 +47,14 @@ export const Portfolio: React.FC<CommonBlockProps & OwnProps> = (props) => {
                 <a
                   className={styles.item}
                 >
-                  <p className={styles.itemTitle}>{ el.title }</p>
-                  <p className={styles.itemText}>{ el.description }</p>
+                  <p className={styles.itemTitle}>{ el.title[props.lang] }</p>
+                  <p className={styles.itemText}>{ el.description[props.lang] }</p>
                   <img
                     className={styles.itemImage}
                     src={el.desktopImg}
-                    alt={el.title}
+                    alt={el.title[props.lang]}
+                    width={300}
+                    height={180}
                   />
                 </a>
               </Link>

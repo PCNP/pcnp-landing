@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import cn from 'classnames'
-import { useWebPSupportCheck } from 'react-use-webp-support-check/dist'
 
 import { CommonBlockProps } from '../../../store/lang/indexlang'
+import { useCheckSupportWebp } from '../../../hooks/useCheckSupportWebp'
 
 import styles from './Block1.module.sass'
 
@@ -12,20 +12,8 @@ const bg = require('src/common/images/portfolioPage/portfolioBg.png')
 
 
 export const Block1: React.FC<CommonBlockProps> = (props) => {
-  const supportsWebP = useWebPSupportCheck()
+  const isSupport = useCheckSupportWebp()
 
-  const [isLoad, setIsLoad] = useState(false)
-
-  const handlerLoad = () => {
-    setIsLoad(true)
-  }
-
-  useEffect(()=>{
-    window.addEventListener('load', handlerLoad)
-    return () => {
-      window.removeEventListener('load', handlerLoad)
-    }
-  },[])
   return (
     <div
       id='top'
@@ -35,7 +23,7 @@ export const Block1: React.FC<CommonBlockProps> = (props) => {
         )
       }
       style={
-        { backgroundImage: isLoad ? `url(${supportsWebP ? webpBg : bg})` : '' }
+        { backgroundImage: isSupport !== null ? `url(${isSupport ? webpBg : bg})` : '' }
       }
     >
       <div className={styles.wrapperBlock}>

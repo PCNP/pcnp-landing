@@ -15,11 +15,10 @@ type OwnProps = {
   showLightBox?: boolean
 }
 
-export const CarouselBlock: React.FC<OwnProps> = ({ sliderImages, showLightBox }) => {
-  const [curr, setCurr] = useState(0)
+export const CarouselBlock: React.FC<OwnProps> = ({ sliderImages }) => {
+  const [curr, setCurr] = useState(1)
 
   const [lightBoxToggler, setLightBoxToggler] = useState(false)
-  const [lightBoxSlideIndex, setLightBoxSlideIndex] = useState<number | undefined>(undefined)
 
   const prevSlide = () => {
     setCurr((curr - 1) < 0 ? sliderImages.length - 1 : curr - 1)
@@ -29,32 +28,19 @@ export const CarouselBlock: React.FC<OwnProps> = ({ sliderImages, showLightBox }
     setCurr((curr + 1) % sliderImages.length)
   }
 
-  const onCloseLightBox = () => {
-    setLightBoxSlideIndex(undefined)
-  }
-
-  const setLightBoxSlide = (index: number) => {
-    return () => {
-      setLightBoxSlideIndex(index)
-      setLightBoxToggler(!lightBoxToggler)
-    }
+  const setLightBoxSlide = () => {
+    setLightBoxToggler((lightBoxToggler) => !lightBoxToggler)
   }
 
   const screen = useScreenSize()
 
   return (
     <div className={styles.main}>
-      {
-        showLightBox && (
-          <LightBox
-            images={sliderImages}
-            slideIndex={lightBoxSlideIndex}
-            toggler={lightBoxToggler}
-            onClose={onCloseLightBox}
-          />
-        )
-      }
-
+      <LightBox
+        toggler={lightBoxToggler}
+        sources={sliderImages}
+        slide={curr + 1}
+      />
       <CarouselProvider
         currentSlide={curr}
         naturalSlideWidth={40}
@@ -65,7 +51,9 @@ export const CarouselBlock: React.FC<OwnProps> = ({ sliderImages, showLightBox }
         dragEnabled={screen < SCREEN.DESKTOP}
         className={styles.carouselBlock}
       >
-        <Slider className={styles.carousel}>
+        <Slider
+          className={styles.carousel}
+        >
           {
             sliderImages.map((el, i) => {
               return (
@@ -76,9 +64,12 @@ export const CarouselBlock: React.FC<OwnProps> = ({ sliderImages, showLightBox }
                   classNameHidden={styles.hidden}
                 >
                   <img
+                    key={i}
                     src={el}
                     alt='slide image'
-                    onClick={setLightBoxSlide(i)}
+                    width={600}
+                    height={360}
+                    onClick={setLightBoxSlide}
                   />
                 </Slide>
               )
@@ -86,7 +77,7 @@ export const CarouselBlock: React.FC<OwnProps> = ({ sliderImages, showLightBox }
           }
         </Slider>
       </CarouselProvider>
-      
+
       <div
         className={styles.arrowLeft}
         onClick={prevSlide}

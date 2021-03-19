@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 
 import '../styles/global.sass'
 
@@ -10,6 +11,14 @@ import { ArrowToTop } from '../components/ArrowToTop/ArrowToTop'
 
 
 export const App = ({ Component, pageProps }: AppProps) => {
+  const { pathname } = useRouter()
+
+  const lang = pathname.startsWith('/en') ? 'en' : 'ru'
+
+  useEffect(() => {
+    document.documentElement.lang = lang
+  }, [lang])
+
   return (
     <>
       <Head>

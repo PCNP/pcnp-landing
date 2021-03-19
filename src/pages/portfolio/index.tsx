@@ -23,6 +23,7 @@ const PortfolioPage: React.FC = (props: InferGetStaticPropsType<typeof getStatic
               {...el}
               bgType={bgType}
               key={i}
+              lang='ru'
             />
           )
         })
